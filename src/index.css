@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .icon-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md hover:border-gray-200;
+  }
+  
+  .category-button {
+    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap;
+  }
+  
+  .category-button.active {
+    @apply bg-scientific-blue text-white shadow-sm;
+  }
+  
+  .category-button.inactive {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+  
+  .download-button {
+    @apply w-full px-4 py-2 bg-scientific-blue text-white rounded-lg hover:bg-blue-700 transition-colors text-center text-sm font-medium;
+  }
+} 
