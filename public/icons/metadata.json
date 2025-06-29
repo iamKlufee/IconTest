@@ -2,226 +2,55 @@
   {
     "id": 1,
     "name": "Beaker",
-    "filename": "beaker.svg",
-    "category": "Laboratory Glassware",
-    "description": "Standard laboratory beaker for mixing and heating liquids",
-    "downloads": 1250,
-    "tags": ["beaker", "glassware", "laboratory", "chemistry"]
+    "category": "Lab_Glassware",
+    "filename": "beaker.svg"
   },
   {
     "id": 2,
-    "name": "Centrifuge Tube v1",
-    "filename": "Centrifuge_Tube_ver1.svg",
-    "category": "Laboratory Equipment",
-    "description": "Centrifuge tube for separating substances by density",
-    "downloads": 890,
-    "tags": ["centrifuge", "tube", "laboratory", "biology"]
+    "name": "Flask",
+    "category": "Lab_Glassware",
+    "filename": "flask.svg"
   },
   {
     "id": 3,
-    "name": "Centrifuge Tube v2",
-    "filename": "Centrifuge_Tube_ver2.svg",
-    "category": "Laboratory Equipment",
-    "description": "Centrifuge tube with enhanced detail for scientific illustrations",
-    "downloads": 756,
-    "tags": ["centrifuge", "tube", "laboratory", "biology", "detailed"]
+    "name": "Centrifuge Tube V1",
+    "category": "Lab_Glassware",
+    "filename": "Centrifuge_Tube_ver1.svg"
   },
   {
     "id": 4,
-    "name": "Flask",
-    "filename": "flask.svg",
-    "category": "Laboratory Glassware",
-    "description": "Erlenmeyer flask for chemical reactions and titrations",
-    "downloads": 1100,
-    "tags": ["flask", "erlenmeyer", "glassware", "chemistry"]
+    "name": "Graduated cylinder",
+    "category": "Lab_Glassware",
+    "filename": "graduated_cylinder.svg"
   },
   {
     "id": 5,
-    "name": "Graduated Cylinder",
-    "filename": "graduated_cylinder.svg",
-    "category": "Laboratory Glassware",
-    "description": "Graduated cylinder for precise volume measurements",
-    "downloads": 980,
-    "tags": ["cylinder", "graduated", "measurement", "volume", "chemistry"]
+    "name": "Centrifuge Tube V2",
+    "category": "Lab_Glassware",
+    "filename": "Centrifuge_Tube_ver2.svg"
   },
   {
     "id": 6,
     "name": "Petri Dish",
-    "filename": "Petri_dish.svg",
-    "category": "Laboratory Equipment",
-    "description": "Petri dish for culturing microorganisms and cells",
-    "downloads": 1340,
-    "tags": ["petri", "dish", "microbiology", "culture", "biology"]
+    "category": "Lab_Glassware",
+    "filename": "Petri_dish.svg"
   },
   {
     "id": 7,
-    "name": "Test Tube v1",
-    "filename": "test_tube_ver1.svg",
-    "category": "Laboratory Glassware",
-    "description": "Standard test tube for small-scale experiments",
-    "downloads": 1450,
-    "tags": ["test", "tube", "glassware", "laboratory", "chemistry"]
+    "name": "Test Tube V1",
+    "category": "Lab_Glassware",
+    "filename": "test_tube_ver1.svg"
   },
   {
     "id": 8,
-    "name": "Test Tube v2",
-    "filename": "test_tube_ver2.svg",
-    "category": "Laboratory Glassware",
-    "description": "Test tube with enhanced detail for scientific illustrations",
-    "downloads": 1120,
-    "tags": ["test", "tube", "glassware", "laboratory", "chemistry", "detailed"]
+    "name": "Test Tube V2",
+    "category": "Lab_Glassware",
+    "filename": "test_tube_ver2.svg"
   },
   {
     "id": 9,
     "name": "Volumetric Flask",
-    "filename": "volumetric_flask.svg",
-    "category": "Laboratory Glassware",
-    "description": "Volumetric flask for preparing precise solutions",
-    "downloads": 920,
-    "tags": ["volumetric", "flask", "glassware", "chemistry", "measurement"]
-  },
-  {
-    "id": 10,
-    "name": "DI Water Machine",
-    "filename": "DI_water_machine.svg",
-    "category": "Laboratory Equipment",
-    "description": "Machine for producing deionized water, essential for laboratory purity",
-    "downloads": 0,
-    "tags": ["DI water", "deionized water", "purification", "laboratory"]
-  },
-  {
-    "id": 11,
-    "name": "Incubator v1",
-    "filename": "Incubator_v1.svg",
-    "category": "Laboratory Equipment",
-    "description": "Laboratory incubator for maintaining optimal temperature for cultures",
-    "downloads": 0,
-    "tags": ["incubator", "culture", "biology", "temperature control"]
-  },
-  {
-    "id": 12,
-    "name": "Lab Glassware v2",
-    "filename": "Lab glassware_v2.svg",
-    "category": "Laboratory Glassware",
-    "description": "Collection of various laboratory glassware, version 2",
-    "downloads": 0,
-    "tags": ["glassware", "laboratory", "chemistry", "assorted"]
-  },
-  {
-    "id": 13,
-    "name": "Lab Digital Scale v1",
-    "filename": "Lab_Digital_Scale_v1.svg",
-    "category": "Laboratory Equipment",
-    "description": "Digital laboratory scale for precise mass measurements, version 1",
-    "downloads": 0,
-    "tags": ["scale", "balance", "measurement", "laboratory"]
-  },
-  {
-    "id": 14,
-    "name": "Lab Digital Scale v2",
-    "filename": "Lab_Digital_Scale_v2.svg",
-    "category": "Laboratory Equipment",
-    "description": "Digital laboratory scale with enhanced detail, version 2",
-    "downloads": 0,
-    "tags": ["scale", "balance", "measurement", "laboratory", "detailed"]
-  },
-  {
-    "id": 15,
-    "name": "SEM",
-    "filename": "SEM.svg",
-    "category": "Microscopy",
-    "description": "Scanning Electron Microscope for high-resolution imaging of surfaces",
-    "downloads": 0,
-    "tags": ["SEM", "microscope", "electron microscope", "imaging", "nanotechnology"]
-  },
-  {
-    "id": 16,
-    "name": "Scanning Electron Microscope",
-    "filename": "Scanning Electron Microscope.svg",
-    "category": "Microscopy",
-    "description": "Detailed icon for a Scanning Electron Microscope",
-    "downloads": 0,
-    "tags": ["SEM", "microscope", "electron microscope", "imaging", "detailed"]
-  },
-  {
-    "id": 17,
-    "name": "Centrifuge Machine v1",
-    "filename": "centrifuge_machine_v1.svg",
-    "category": "Laboratory Equipment",
-    "description": "Laboratory centrifuge machine for separating components by rapid rotation, version 1",
-    "downloads": 0,
-    "tags": ["centrifuge", "machine", "separation", "laboratory"]
-  },
-  {
-    "id": 18,
-    "name": "Centrifuge Machine v2",
-    "filename": "centrifuge_machine_v2.svg",
-    "category": "Laboratory Equipment",
-    "description": "Laboratory centrifuge machine, version 2",
-    "downloads": 0,
-    "tags": ["centrifuge", "machine", "separation", "laboratory"]
-  },
-  {
-    "id": 19,
-    "name": "Centrifuge Machine v3",
-    "filename": "centrifuge_machine_v3.svg",
-    "category": "Laboratory Equipment",
-    "description": "Laboratory centrifuge machine, version 3",
-    "downloads": 0,
-    "tags": ["centrifuge", "machine", "separation", "laboratory"]
-  },
-  {
-    "id": 20,
-    "name": "Centrifuge Machine v4",
-    "filename": "centrifuge_machine_v4.svg",
-    "category": "Laboratory Equipment",
-    "description": "Laboratory centrifuge machine, version 4",
-    "downloads": 0,
-    "tags": ["centrifuge", "machine", "separation", "laboratory"]
-  },
-  {
-    "id": 21,
-    "name": "Centrifuge Machine v5",
-    "filename": "centrifuge_machine_v5.svg",
-    "category": "Laboratory Equipment",
-    "description": "Laboratory centrifuge machine, version 5",
-    "downloads": 0,
-    "tags": ["centrifuge", "machine", "separation", "laboratory"]
-  },
-  {
-    "id": 22,
-    "name": "Lab Glassware",
-    "filename": "lab glassware.svg",
-    "category": "Laboratory Glassware",
-    "description": "Generic icon representing various laboratory glassware",
-    "downloads": 0,
-    "tags": ["glassware", "laboratory", "chemistry", "generic"]
-  },
-  {
-    "id": 23,
-    "name": "Microscope",
-    "filename": "microscope.svg",
-    "category": "Microscopy",
-    "description": "Standard optical microscope for viewing magnified specimens",
-    "downloads": 0,
-    "tags": ["microscope", "optics", "biology", "magnification"]
-  },
-  {
-    "id": 24,
-    "name": "Microscope v2",
-    "filename": "microscope_v2.svg",
-    "category": "Microscopy",
-    "description": "Microscope with enhanced detail or different design, version 2",
-    "downloads": 0,
-    "tags": ["microscope", "optics", "biology", "magnification", "detailed"]
-  },
-  {
-    "id": 25,
-    "name": "Syringe v1",
-    "filename": "syringe v1.svg",
-    "category": "Laboratory Tools",
-    "description": "Medical or laboratory syringe for fluid handling",
-    "downloads": 0,
-    "tags": ["syringe", "injection", "fluid", "medical", "laboratory"]
+    "category": "Lab_Glassware",
+    "filename": "volumetric_flask.svg"
   }
 ]
