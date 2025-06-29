@@ -3,7 +3,7 @@ const react = require('@vitejs/plugin-react')
 
 module.exports = defineConfig({
   plugins: [react()],
-  base: '/IconBub/',
+  base: '/ReseachBub/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets'
