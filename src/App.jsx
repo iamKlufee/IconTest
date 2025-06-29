@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     // Load icon data from public/icons/metadata.json
-    fetch('/IconBub/icons/metadata.json')
+    fetch('./icons/metadata.json')
       .then(res => {
         if (!res.ok) throw new Error('Failed to load icon data');
         return res.json();
@@ -28,7 +28,7 @@ export default function App() {
           ...item,
           id: item.id || index + 1,
           downloads: item.downloads || 0,
-          imageUrl: `/IconBub/icons/${item.filename}`,
+          imageUrl: `./icons/${item.filename}`,
         }));
         setIcons(fullData);
         setLoading(false);
