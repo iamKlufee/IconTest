@@ -223,5 +223,59 @@
     "description": "Medical or laboratory syringe for fluid handling",
     "downloads": 0,
     "tags": ["syringe", "injection", "fluid", "medical", "laboratory"]
+  },
+  {
+    "id": 26,
+    "name": "Pipette v1",
+    "filename": "pipette_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Standard laboratory pipette for precise liquid transfer, version 1",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory", "biology", "chemistry"]
+  },
+  {
+    "id": 27,
+    "name": "Pipette v2",
+    "filename": "pipette_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette with a slightly different design, version 2",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 28,
+    "name": "Pipette v3",
+    "filename": "pipette_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 3",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 29,
+    "name": "Pipette v4",
+    "filename": "pipette_v4.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 4",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 30,
+    "name": "Pipette v5",
+    "filename": "pipette_v5.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 5",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 31,
+    "name": "Pipette v6",
+    "filename": "pipette_v6.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 6",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
   }
 ]
