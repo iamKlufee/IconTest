@@ -153,11 +153,40 @@ function Home() {
 function About() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold mb-4 text-scientific-dark">关于本站</h2>
-      <p className="mb-4 text-gray-700">ReseachBub 致力于为科研和教育提供高质量的科学图标资源，所有图标均可免费下载和使用。</p>
-      <p className="mb-4 text-gray-700">本项目开源，遵循 MIT 许可协议，欢迎贡献和反馈。</p>
-      <p className="mb-4 text-gray-700">图标资源仅供学术、教学和非商业用途，若需商业使用请联系作者。</p>
-      <p className="mb-4 text-gray-700">GitHub仓库地址：<a href="https://github.com/iamKlufee/ReseachBub" className="text-scientific-blue underline" target="_blank" rel="noopener noreferrer">https://github.com/iamKlufee/ReseachBub</a></p>
+      <h2 className="text-3xl font-bold mb-4 text-scientific-dark">About ReseachBub</h2>
+      <p className="mb-4 text-gray-700">Hello, I'm GlauFee, the creator of this website.</p>
+      <p className="mb-4 text-gray-700">As a postdoctoral researcher in Biomedical Engineering with over 12 years of lab experience, I know firsthand how much time and effort goes into preparing compelling figures for slides and papers. The process can be a huge time sink, pulling focus away from the actual research. That's why I created this website—to make it easier for fellow researchers to create powerful scientific presentations, seminars, and publications.</p>
+      <p className="mb-4 text-gray-700">A Note on the Name...</p>
+      <p className="mb-4 text-gray-700">You might have noticed the unusual spelling of our domain name. I originally intended to register "ResearchBub" but accidentally missed the 'R' and ended up with ReseachBub. Due to a limited budget, I decided to embrace the typo and stick with this quirky name. My hope is that despite the small spelling error, this site can still be a valuable hub for your research needs.</p>
+      <p className="mb-4 text-gray-700">The icons you'll find here are ones I created for my own work over the years. I hope they prove helpful to you and save you a little time on your journey.</p>
+      
+      <div className="mt-12 pt-8 border-t border-gray-200">
+        <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Icon License</h3>
+        <p className="mb-4 text-gray-700">All icons on this website are copyrighted by the site owner unless otherwise specified.</p>
+        
+        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Permitted Use (Free for Non-Commercial Purposes):</h4>
+        <p className="mb-4 text-gray-700">You are welcome to use these icons for any academic and educational projects, including:</p>
+        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
+          <li>Academic research and papers</li>
+          <li>Educational materials and presentations</li>
+          <li>University seminars and talks</li>
+          <li>Student projects and theses</li>
+        </ul>
+        
+        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Prohibited Use (Strictly Not Allowed):</h4>
+        <p className="mb-4 text-gray-700">The use of these icons is strictly prohibited in any commercial context. This includes, but is not limited to:</p>
+        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
+          <li>Business websites and social media</li>
+          <li>Advertisements and marketing materials</li>
+          <li>Product packaging and branding</li>
+          <li>Corporate projects and apps</li>
+        </ul>
+        
+        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Additional Terms:</h4>
+        <p className="mb-4 text-gray-700">Redistribution, resale, or inclusion of these icons in any download platform or package without explicit permission is strictly prohibited.</p>
+        <p className="mb-4 text-gray-700">For commercial licensing or special use cases, please contact me at: [your email].</p>
+        <p className="text-gray-700">The website owner reserves the right to interpret these terms of use.</p>
+      </div>
     </main>
   );
 }

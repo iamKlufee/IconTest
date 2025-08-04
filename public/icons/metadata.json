@@ -1072,15 +1072,6 @@
   },
   {
     "id": 120,
-    "name": "pH Meter v4",
-    "filename": "pH_meter_v4.svg",
-    "category": "Laboratory Equipment",
-    "description": "A pH meter for measuring the acidity or alkalinity of a solution, version 4",
-    "downloads": 0,
-    "tags": ["pH meter", "pH", "measurement", "chemistry", "equipment"]
-  },
-  {
-    "id": 121,
     "name": "pH Test Paper v1",
     "filename": "pH_test_paper_v1.svg",
     "category": "Laboratory Consumables",
@@ -1089,7 +1080,7 @@
     "tags": ["pH paper", "test paper", "consumables", "chemistry", "measurement"]
   },
   {
-    "id": 122,
+    "id": 121,
     "name": "Pipette",
     "filename": "pipette.svg",
     "category": "Laboratory Tools",
@@ -1098,7 +1089,7 @@
     "tags": ["pipette", "liquid transfer", "measurement", "tool"]
   },
   {
-    "id": 123,
+    "id": 122,
     "name": "Pipette Tips",
     "filename": "pipette_tips.svg",
     "category": "Laboratory Consumables",
@@ -1107,7 +1098,7 @@
     "tags": ["pipette tips", "tips", "consumables", "liquid transfer"]
   },
   {
-    "id": 124,
+    "id": 123,
     "name": "Rubber Suction Bulb v1",
     "filename": "rubber_suction_bulb_v1.svg",
     "category": "Laboratory Tools",
@@ -1116,7 +1107,7 @@
     "tags": ["suction bulb", "rubber bulb", "pipette aid", "tool"]
   },
   {
-    "id": 125,
+    "id": 124,
     "name": "Rubber Suction Bulb v2",
     "filename": "rubber_suction_bulb_v2.svg",
     "category": "Laboratory Tools",
@@ -1125,7 +1116,7 @@
     "tags": ["suction bulb", "rubber bulb", "pipette aid", "tool"]
   },
   {
-    "id": 126,
+    "id": 125,
     "name": "Rubber Suction Bulb v3",
     "filename": "rubbter_suction_bulb_v3.svg",
     "category": "Laboratory Tools",
@@ -1134,7 +1125,7 @@
     "tags": ["suction bulb", "rubber bulb", "pipette aid", "tool"]
   },
   {
-    "id": 127,
+    "id": 126,
     "name": "Saline v1",
     "filename": "saline_v1.svg",
     "category": "Laboratory Consumables",
@@ -1143,7 +1134,7 @@
     "tags": ["saline", "solution", "consumables", "chemistry"]
   },
   {
-    "id": 128,
+    "id": 127,
     "name": "Scalpel v1",
     "filename": "scalpel_v1.svg",
     "category": "Laboratory Tools",
@@ -1152,7 +1143,7 @@
     "tags": ["scalpel", "cutting", "tool", "surgical"]
   },
   {
-    "id": 129,
+    "id": 128,
     "name": "Scalpel v2",
     "filename": "scalpel_v2.svg",
     "category": "Laboratory Tools",
@@ -1161,7 +1152,7 @@
     "tags": ["scalpel", "cutting", "tool", "surgical"]
   },
   {
-    "id": 130,
+    "id": 129,
     "name": "Scalpel v3",
     "filename": "scalpel_v3.svg",
     "category": "Laboratory Tools",
@@ -1170,7 +1161,7 @@
     "tags": ["scalpel", "cutting", "tool", "surgical"]
   },
   {
-    "id": 131,
+    "id": 130,
     "name": "Scissor",
     "filename": "scissor.svg",
     "category": "Laboratory Tools",
@@ -1179,7 +1170,7 @@
     "tags": ["scissor", "cutting", "tool"]
   },
   {
-    "id": 132,
+    "id": 131,
     "name": "Spectrometer v1",
     "filename": "spectrometer_v1.svg",
     "category": "Laboratory Equipment",
@@ -1188,7 +1179,7 @@
     "tags": ["spectrometer", "spectroscopy", "measurement", "equipment", "chemistry"]
   },
   {
-    "id": 133,
+    "id": 132,
     "name": "Spray v2",
     "filename": "spray_v2.svg",
     "category": "Laboratory Tools",
@@ -1197,7 +1188,7 @@
     "tags": ["spray", "bottle", "laboratory", "tool"]
   },
   {
-    "id": 134,
+    "id": 133,
     "name": "Spray v3",
     "filename": "spray_v3.svg",
     "category": "Laboratory Tools",
@@ -1206,7 +1197,7 @@
     "tags": ["spray", "bottle", "laboratory", "tool"]
   },
   {
-    "id": 135,
+    "id": 134,
     "name": "Surgical Scissor v1",
     "filename": "surgical_scissor_v1.svg",
     "category": "Laboratory Tools",
@@ -1215,7 +1206,7 @@
     "tags": ["surgical scissor", "cutting", "tool", "surgical"]
   },
   {
-    "id": 136,
+    "id": 135,
     "name": "Surgical Scissor v2",
     "filename": "surgical_scissor_v2.svg",
     "category": "Laboratory Tools",
@@ -1224,7 +1215,7 @@
     "tags": ["surgical scissor", "cutting", "tool", "surgical"]
   },
   {
-    "id": 137,
+    "id": 136,
     "name": "Thermometer v1",
     "filename": "thermometer_v1.svg",
     "category": "Laboratory Tools",
@@ -1233,7 +1224,7 @@
     "tags": ["thermometer", "temperature", "measurement", "tool"]
   },
   {
-    "id": 138,
+    "id": 137,
     "name": "Thermometer v2",
     "filename": "thermometer_v2.svg",
     "category": "Laboratory Tools",
@@ -1242,7 +1233,7 @@
     "tags": ["thermometer", "temperature", "measurement", "tool"]
   },
   {
-    "id": 139,
+    "id": 138,
     "name": "Thermometer v3",
     "filename": "thermometer_v3.svg",
     "category": "Laboratory Tools",
@@ -1251,7 +1242,7 @@
     "tags": ["thermometer", "temperature", "measurement", "tool"]
   },
   {
-    "id": 140,
+    "id": 139,
     "name": "Three-Necked Flask v1",
     "filename": "three_necked_flash_v1.svg",
     "category": "Laboratory Glassware",
@@ -1260,7 +1251,7 @@
     "tags": ["three-necked flask", "flask", "glassware", "chemistry"]
   },
   {
-    "id": 141,
+    "id": 140,
     "name": "Three-Necked Flask v2",
     "filename": "three_necked_flash_v2.svg",
     "category": "Laboratory Glassware",
@@ -1269,7 +1260,7 @@
     "tags": ["three-necked flask", "flask", "glassware", "chemistry"]
   },
   {
-    "id": 142,
+    "id": 141,
     "name": "Timer v1",
     "filename": "timer_v1.svg",
     "category": "Laboratory Equipment",
@@ -1278,7 +1269,7 @@
     "tags": ["timer", "stopwatch", "measurement", "equipment", "lab"]
   },
   {
-    "id": 143,
+    "id": 142,
     "name": "Timer v2",
     "filename": "timer_v2.svg",
     "category": "Laboratory Equipment",
@@ -1287,7 +1278,7 @@
     "tags": ["timer", "stopwatch", "measurement", "equipment", "lab"]
   },
   {
-    "id": 144,
+    "id": 143,
     "name": "Timer v3",
     "filename": "timer_v3.svg",
     "category": "Laboratory Equipment",
@@ -1296,7 +1287,7 @@
     "tags": ["timer", "stopwatch", "measurement", "equipment", "lab"]
   },
   {
-    "id": 145,
+    "id": 144,
     "name": "Tube Rack v1",
     "filename": "tube_rack_v1.svg",
     "category": "Laboratory Consumables",
@@ -1305,7 +1296,7 @@
     "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
   },
   {
-    "id": 146,
+    "id": 145,
     "name": "Tube Rack v2",
     "filename": "tube_rack_v2.svg",
     "category": "Laboratory Consumables",
@@ -1314,7 +1305,7 @@
     "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
   },
   {
-    "id": 147,
+    "id": 146,
     "name": "Tube Rack v3",
     "filename": "tube_rack_v3.svg",
     "category": "Laboratory Consumables",
@@ -1323,7 +1314,7 @@
     "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
   },
   {
-    "id": 148,
+    "id": 147,
     "name": "Tube Rack v4",
     "filename": "tube_rack_v4.svg",
     "category": "Laboratory Consumables",
@@ -1332,7 +1323,7 @@
     "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
   },
   {
-    "id": 149,
+    "id": 148,
     "name": "Tweezer v1",
     "filename": "tweezer_v1.svg",
     "category": "Laboratory Tools",
@@ -1341,7 +1332,7 @@
     "tags": ["tweezer", "forceps", "tool", "precision"]
   },
   {
-    "id": 150,
+    "id": 149,
     "name": "Tweezer v2",
     "filename": "tweezer_v2.svg",
     "category": "Laboratory Tools",
@@ -1350,7 +1341,7 @@
     "tags": ["tweezer", "forceps", "tool", "precision"]
   },
   {
-    "id": 151,
+    "id": 150,
     "name": "Tweezer v3",
     "filename": "tweezer_v3.svg",
     "category": "Laboratory Tools",
@@ -1359,7 +1350,7 @@
     "tags": ["tweezer", "forceps", "tool", "precision"]
   },
   {
-    "id": 152,
+    "id": 151,
     "name": "Ultrasonic Cleaner v1",
     "filename": "ultrasonic_cleaner_v1.svg",
     "category": "Laboratory Equipment",
@@ -1368,7 +1359,7 @@
     "tags": ["ultrasonic", "cleaner", "equipment", "cleaning", "lab"]
   },
   {
-    "id": 153,
+    "id": 152,
     "name": "Ultrasonic Cleaner v2",
     "filename": "ultrasonic_cleaner_v2.svg",
     "category": "Laboratory Equipment",
@@ -1377,7 +1368,7 @@
     "tags": ["ultrasonic", "cleaner", "equipment", "cleaning", "lab"]
   },
   {
-    "id": 154,
+    "id": 153,
     "name": "Vial v1",
     "filename": "vial_v1.svg",
     "category": "Laboratory Consumables",
@@ -1386,7 +1377,7 @@
     "tags": ["vial", "sample", "storage", "consumables"]
   },
   {
-    "id": 155,
+    "id": 154,
     "name": "Wash Bottle v1",
     "filename": "wash_bottle_v1.svg",
     "category": "Laboratory Glassware",
@@ -1395,7 +1386,7 @@
     "tags": ["wash bottle", "glassware", "cleaning", "chemistry"]
   },
   {
-    "id": 156,
+    "id": 155,
     "name": "Water Bath v1",
     "filename": "water_bath_v1.svg",
     "category": "Laboratory Equipment",
@@ -1404,7 +1395,7 @@
     "tags": ["water bath", "incubation", "temperature", "equipment"]
   },
   {
-    "id": 157,
+    "id": 156,
     "name": "Water Bath v2",
     "filename": "water_bath_v2.svg",
     "category": "Laboratory Equipment",
@@ -1413,7 +1404,7 @@
     "tags": ["water bath", "incubation", "temperature", "equipment"]
   },
   {
-    "id": 158,
+    "id": 157,
     "name": "Water Bath v3",
     "filename": "water_bath_v3.svg",
     "category": "Laboratory Equipment",
@@ -1422,7 +1413,7 @@
     "tags": ["water bath", "incubation", "temperature", "equipment"]
   },
   {
-    "id": 159,
+    "id": 158,
     "name": "Water for Injection v1",
     "filename": "water_for_injection_v1.svg",
     "category": "Laboratory Consumables",
@@ -1431,7 +1422,7 @@
     "tags": ["water for injection", "sterile water", "consumables", "medical"]
   },
   {
-    "id": 160,
+    "id": 159,
     "name": "Water for Injection v2",
     "filename": "water_for_injection_v2.svg",
     "category": "Laboratory Consumables",
@@ -1440,7 +1431,7 @@
     "tags": ["water for injection", "sterile water", "consumables", "medical"]
   },
   {
-    "id": 161,
+    "id": 160,
     "name": "Water for Injection v3",
     "filename": "water_for_injection_v3.svg",
     "category": "Laboratory Consumables",
