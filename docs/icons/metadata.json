@@ -1,0 +1,1442 @@
+[
+  {
+    "id": 1,
+    "name": "Beaker",
+    "filename": "beaker.svg",
+    "category": "Laboratory Glassware",
+    "description": "Standard laboratory beaker for mixing and heating liquids",
+    "downloads": 1250,
+    "tags": ["beaker", "glassware", "laboratory", "chemistry"]
+  },
+  {
+    "id": 2,
+    "name": "Centrifuge Tube v1",
+    "filename": "Centrifuge_Tube_ver1.svg",
+    "category": "Laboratory Equipment",
+    "description": "Centrifuge tube for separating substances by density",
+    "downloads": 890,
+    "tags": ["centrifuge", "tube", "laboratory", "biology"]
+  },
+  {
+    "id": 3,
+    "name": "Centrifuge Tube v2",
+    "filename": "Centrifuge_Tube_ver2.svg",
+    "category": "Laboratory Equipment",
+    "description": "Centrifuge tube with enhanced detail for scientific illustrations",
+    "downloads": 756,
+    "tags": ["centrifuge", "tube", "laboratory", "biology", "detailed"]
+  },
+  {
+    "id": 4,
+    "name": "Flask",
+    "filename": "flask.svg",
+    "category": "Laboratory Glassware",
+    "description": "Erlenmeyer flask for chemical reactions and titrations",
+    "downloads": 1100,
+    "tags": ["flask", "erlenmeyer", "glassware", "chemistry"]
+  },
+  {
+    "id": 5,
+    "name": "Graduated Cylinder",
+    "filename": "graduated_cylinder.svg",
+    "category": "Laboratory Glassware",
+    "description": "Graduated cylinder for precise volume measurements",
+    "downloads": 980,
+    "tags": ["cylinder", "graduated", "measurement", "volume", "chemistry"]
+  },
+  {
+    "id": 6,
+    "name": "Petri Dish",
+    "filename": "Petri_dish.svg",
+    "category": "Laboratory Equipment",
+    "description": "Petri dish for culturing microorganisms and cells",
+    "downloads": 1340,
+    "tags": ["petri", "dish", "microbiology", "culture", "biology"]
+  },
+  {
+    "id": 7,
+    "name": "Test Tube v1",
+    "filename": "test_tube_ver1.svg",
+    "category": "Laboratory Glassware",
+    "description": "Standard test tube for small-scale experiments",
+    "downloads": 1450,
+    "tags": ["test", "tube", "glassware", "laboratory", "chemistry"]
+  },
+  {
+    "id": 8,
+    "name": "Test Tube v2",
+    "filename": "test_tube_ver2.svg",
+    "category": "Laboratory Glassware",
+    "description": "Test tube with enhanced detail for scientific illustrations",
+    "downloads": 1120,
+    "tags": ["test", "tube", "glassware", "laboratory", "chemistry", "detailed"]
+  },
+  {
+    "id": 9,
+    "name": "Volumetric Flask",
+    "filename": "volumetric_flask.svg",
+    "category": "Laboratory Glassware",
+    "description": "Volumetric flask for preparing precise solutions",
+    "downloads": 920,
+    "tags": ["volumetric", "flask", "glassware", "chemistry", "measurement"]
+  },
+  {
+    "id": 10,
+    "name": "DI Water Machine",
+    "filename": "DI_water_machine.svg",
+    "category": "Laboratory Equipment",
+    "description": "Machine for producing deionized water, essential for laboratory purity",
+    "downloads": 0,
+    "tags": ["DI water", "deionized water", "purification", "laboratory"]
+  },
+  {
+    "id": 11,
+    "name": "Incubator v1",
+    "filename": "Incubator_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "Laboratory incubator for maintaining optimal temperature for cultures",
+    "downloads": 0,
+    "tags": ["incubator", "culture", "biology", "temperature control"]
+  },
+  {
+    "id": 12,
+    "name": "Lab Glassware v2",
+    "filename": "Lab glassware_v2.svg",
+    "category": "Laboratory Glassware",
+    "description": "Collection of various laboratory glassware, version 2",
+    "downloads": 0,
+    "tags": ["glassware", "laboratory", "chemistry", "assorted"]
+  },
+  {
+    "id": 13,
+    "name": "Lab Digital Scale v1",
+    "filename": "Lab_Digital_Scale_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "Digital laboratory scale for precise mass measurements, version 1",
+    "downloads": 0,
+    "tags": ["scale", "balance", "measurement", "laboratory"]
+  },
+  {
+    "id": 14,
+    "name": "Lab Digital Scale v2",
+    "filename": "Lab_Digital_Scale_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "Digital laboratory scale with enhanced detail, version 2",
+    "downloads": 0,
+    "tags": ["scale", "balance", "measurement", "laboratory", "detailed"]
+  },
+  {
+    "id": 15,
+    "name": "SEM",
+    "filename": "SEM.svg",
+    "category": "Microscopy",
+    "description": "Scanning Electron Microscope for high-resolution imaging of surfaces",
+    "downloads": 0,
+    "tags": ["SEM", "microscope", "electron microscope", "imaging", "nanotechnology"]
+  },
+  {
+    "id": 16,
+    "name": "Scanning Electron Microscope",
+    "filename": "Scanning Electron Microscope.svg",
+    "category": "Microscopy",
+    "description": "Detailed icon for a Scanning Electron Microscope",
+    "downloads": 0,
+    "tags": ["SEM", "microscope", "electron microscope", "imaging", "detailed"]
+  },
+  {
+    "id": 17,
+    "name": "Centrifuge Machine v1",
+    "filename": "centrifuge_machine_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "Laboratory centrifuge machine for separating components by rapid rotation, version 1",
+    "downloads": 0,
+    "tags": ["centrifuge", "machine", "separation", "laboratory"]
+  },
+  {
+    "id": 18,
+    "name": "Centrifuge Machine v2",
+    "filename": "centrifuge_machine_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "Laboratory centrifuge machine, version 2",
+    "downloads": 0,
+    "tags": ["centrifuge", "machine", "separation", "laboratory"]
+  },
+  {
+    "id": 19,
+    "name": "Centrifuge Machine v3",
+    "filename": "centrifuge_machine_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "Laboratory centrifuge machine, version 3",
+    "downloads": 0,
+    "tags": ["centrifuge", "machine", "separation", "laboratory"]
+  },
+  {
+    "id": 20,
+    "name": "Centrifuge Machine v4",
+    "filename": "centrifuge_machine_v4.svg",
+    "category": "Laboratory Equipment",
+    "description": "Laboratory centrifuge machine, version 4",
+    "downloads": 0,
+    "tags": ["centrifuge", "machine", "separation", "laboratory"]
+  },
+  {
+    "id": 21,
+    "name": "Centrifuge Machine v5",
+    "filename": "centrifuge_machine_v5.svg",
+    "category": "Laboratory Equipment",
+    "description": "Laboratory centrifuge machine, version 5",
+    "downloads": 0,
+    "tags": ["centrifuge", "machine", "separation", "laboratory"]
+  },
+  {
+    "id": 22,
+    "name": "Lab Glassware",
+    "filename": "lab glassware.svg",
+    "category": "Laboratory Glassware",
+    "description": "Generic icon representing various laboratory glassware",
+    "downloads": 0,
+    "tags": ["glassware", "laboratory", "chemistry", "generic"]
+  },
+  {
+    "id": 23,
+    "name": "Microscope",
+    "filename": "microscope.svg",
+    "category": "Microscopy",
+    "description": "Standard optical microscope for viewing magnified specimens",
+    "downloads": 0,
+    "tags": ["microscope", "optics", "biology", "magnification"]
+  },
+  {
+    "id": 24,
+    "name": "Microscope v2",
+    "filename": "microscope_v2.svg",
+    "category": "Microscopy",
+    "description": "Microscope with enhanced detail or different design, version 2",
+    "downloads": 0,
+    "tags": ["microscope", "optics", "biology", "magnification", "detailed"]
+  },
+  {
+    "id": 25,
+    "name": "Syringe v1",
+    "filename": "syringe v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Medical or laboratory syringe for fluid handling",
+    "downloads": 0,
+    "tags": ["syringe", "injection", "fluid", "medical", "laboratory"]
+  },
+  {
+    "id": 26,
+    "name": "Pipette v1",
+    "filename": "pipette_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Standard laboratory pipette for precise liquid transfer, version 1",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory", "biology", "chemistry"]
+  },
+  {
+    "id": 27,
+    "name": "Pipette v2",
+    "filename": "pipette_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette with a slightly different design, version 2",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 28,
+    "name": "Pipette v3",
+    "filename": "pipette_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 3",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 29,
+    "name": "Pipette v4",
+    "filename": "pipette_v4.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 4",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 30,
+    "name": "Pipette v5",
+    "filename": "pipette_v5.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 5",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 31,
+    "name": "Pipette v6",
+    "filename": "pipette_v6.svg",
+    "category": "Laboratory Tools",
+    "description": "Laboratory pipette, version 6",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "laboratory"]
+  },
+  {
+    "id": 32,
+    "name": "24-Well Culture Plate v1",
+    "filename": "24_well_culture_plate_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A 24-well plate used for cell culture and assays",
+    "downloads": 0,
+    "tags": ["cell culture", "plate", "consumables", "biology", "24-well"]
+  },
+  {
+    "id": 33,
+    "name": "6-Well Culture Plate v1",
+    "filename": "6_well_culture_plate_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A 6-well plate used for cell culture and assays",
+    "downloads": 0,
+    "tags": ["cell culture", "plate", "consumables", "biology", "6-well"]
+  },
+  {
+    "id": 34,
+    "name": "Biosafety Cabinet v1",
+    "filename": "Biosafey_cabinet_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A biosafety cabinet for working with biological materials in a sterile environment",
+    "downloads": 0,
+    "tags": ["biosafety", "cabinet", "sterile", "biology", "equipment"]
+  },
+  {
+    "id": 35,
+    "name": "Biosafety Cabinet v2",
+    "filename": "Biosafey_cabinet_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A biosafety cabinet, version 2",
+    "downloads": 0,
+    "tags": ["biosafety", "cabinet", "sterile", "biology", "equipment"]
+  },
+  {
+    "id": 36,
+    "name": "Biosafety Cabinet v3",
+    "filename": "Biosafey_cabinet_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A biosafety cabinet, version 3",
+    "downloads": 0,
+    "tags": ["biosafety", "cabinet", "sterile", "biology", "equipment"]
+  },
+  {
+    "id": 37,
+    "name": "Biosafety Cabinet v4",
+    "filename": "Biosafey_cabinet_v4.svg",
+    "category": "Laboratory Equipment",
+    "description": "A biosafety cabinet, version 4",
+    "downloads": 0,
+    "tags": ["biosafety", "cabinet", "sterile", "biology", "equipment"]
+  },
+  {
+    "id": 38,
+    "name": "Biosafety Cabinet v5",
+    "filename": "Biosafey_cabinet_v5.svg",
+    "category": "Laboratory Equipment",
+    "description": "A biosafety cabinet, version 5",
+    "downloads": 0,
+    "tags": ["biosafety", "cabinet", "sterile", "biology", "equipment"]
+  },
+  {
+    "id": 39,
+    "name": "Scanning Electron Microscope v2",
+    "filename": "Scanning_electron_microscope_v2.svg",
+    "category": "Microscopy",
+    "description": "Scanning Electron Microscope for high-resolution imaging, version 2",
+    "downloads": 0,
+    "tags": ["SEM", "microscope", "electron microscope", "imaging", "nanotechnology"]
+  },
+  {
+    "id": 40,
+    "name": "Spray v1",
+    "filename": "Spray_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Spray bottle for lab use, version 1",
+    "downloads": 0,
+    "tags": ["spray", "bottle", "laboratory", "tool"]
+  },
+  {
+    "id": 41,
+    "name": "Alcohol Burner v1",
+    "filename": "alcohol_burner_v1.svg",
+    "category": "Laboratory Glassware",
+    "description": "Alcohol burner for heating purposes in the lab, version 1",
+    "downloads": 0,
+    "tags": ["alcohol burner", "heat", "glassware", "chemistry", "lab"]
+  },
+  {
+    "id": 42,
+    "name": "Alcohol Burner v2",
+    "filename": "alcohol_burner_v2.svg",
+    "category": "Laboratory Glassware",
+    "description": "Alcohol burner for heating purposes in the lab, version 2",
+    "downloads": 0,
+    "tags": ["alcohol burner", "heat", "glassware", "chemistry", "lab"]
+  },
+  {
+    "id": 43,
+    "name": "Alcohol Burner v3",
+    "filename": "alcohol_burner_v3.svg",
+    "category": "Laboratory Glassware",
+    "description": "Alcohol burner for heating purposes in the lab, version 3",
+    "downloads": 0,
+    "tags": ["alcohol burner", "heat", "glassware", "chemistry", "lab"]
+  },
+  {
+    "id": 44,
+    "name": "Ampoule",
+    "filename": "ampoule.svg",
+    "category": "Laboratory Consumables",
+    "description": "A sealed glass ampoule for containing chemicals or samples",
+    "downloads": 0,
+    "tags": ["ampoule", "glass", "vial", "chemistry", "sample"]
+  },
+  {
+    "id": 45,
+    "name": "Autoclave v1",
+    "filename": "autoclave_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "An autoclave for sterilizing lab equipment, version 1",
+    "downloads": 0,
+    "tags": ["autoclave", "sterilization", "equipment", "lab", "microbiology"]
+  },
+  {
+    "id": 46,
+    "name": "Autoclave v2",
+    "filename": "autoclave_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "An autoclave for sterilizing lab equipment, version 2",
+    "downloads": 0,
+    "tags": ["autoclave", "sterilization", "equipment", "lab", "microbiology"]
+  },
+  {
+    "id": 47,
+    "name": "Bacterial Culture Flask v1",
+    "filename": "bacterial_culture_flask_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A flask specifically for growing bacterial cultures",
+    "downloads": 0,
+    "tags": ["bacterial culture", "flask", "microbiology", "cell culture"]
+  },
+  {
+    "id": 48,
+    "name": "Burette v1",
+    "filename": "burette_v1.svg",
+    "category": "Laboratory Glassware",
+    "description": "A burette for precise liquid dispensing in titrations, version 1",
+    "downloads": 0,
+    "tags": ["burette", "titration", "glassware", "chemistry", "measurement"]
+  },
+  {
+    "id": 49,
+    "name": "Burette v2",
+    "filename": "burette_v2.svg",
+    "category": "Laboratory Glassware",
+    "description": "A burette for precise liquid dispensing in titrations, version 2",
+    "downloads": 0,
+    "tags": ["burette", "titration", "glassware", "chemistry", "measurement"]
+  },
+  {
+    "id": 50,
+    "name": "Caliper v1",
+    "filename": "caliper_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A caliper for measuring dimensions with high accuracy, version 1",
+    "downloads": 0,
+    "tags": ["caliper", "measurement", "tool", "precision"]
+  },
+  {
+    "id": 51,
+    "name": "Caliper v2",
+    "filename": "caliper_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A caliper for measuring dimensions with high accuracy, version 2",
+    "downloads": 0,
+    "tags": ["caliper", "measurement", "tool", "precision"]
+  },
+  {
+    "id": 52,
+    "name": "Camera v1",
+    "filename": "camera_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A camera icon representing lab photography or imaging, version 1",
+    "downloads": 0,
+    "tags": ["camera", "imaging", "photography", "equipment"]
+  },
+  {
+    "id": 53,
+    "name": "Camera v2",
+    "filename": "camera_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A camera icon representing lab photography or imaging, version 2",
+    "downloads": 0,
+    "tags": ["camera", "imaging", "photography", "equipment"]
+  },
+  {
+    "id": 54,
+    "name": "Cell Counter v1",
+    "filename": "cell_counter_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A cell counter for counting cells in a sample, version 1",
+    "downloads": 0,
+    "tags": ["cell counter", "cell", "biology", "equipment", "measurement"]
+  },
+  {
+    "id": 55,
+    "name": "Cell Counter v2",
+    "filename": "cell_counter_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A cell counter for counting cells in a sample, version 2",
+    "downloads": 0,
+    "tags": ["cell counter", "cell", "biology", "equipment", "measurement"]
+  },
+  {
+    "id": 56,
+    "name": "Cell Culture Flask v1",
+    "filename": "cell_culture_flask_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A flask for growing cells in a laboratory setting, version 1",
+    "downloads": 0,
+    "tags": ["cell culture", "flask", "biology", "consumables"]
+  },
+  {
+    "id": 57,
+    "name": "Cell Culture Flask v2",
+    "filename": "cell_culture_flask_v2.svg",
+    "category": "Laboratory Consumables",
+    "description": "A flask for growing cells in a laboratory setting, version 2",
+    "downloads": 0,
+    "tags": ["cell culture", "flask", "biology", "consumables"]
+  },
+  {
+    "id": 58,
+    "name": "Cleanroom Garment v1",
+    "filename": "cleanroom_garment_v1.svg",
+    "category": "Safety & PPE",
+    "description": "A garment worn in a cleanroom to prevent contamination, version 1",
+    "downloads": 0,
+    "tags": ["cleanroom", "garment", "PPE", "safety", "contamination"]
+  },
+  {
+    "id": 59,
+    "name": "Cleanroom Garment v2",
+    "filename": "cleanroom_garment_v2.svg",
+    "category": "Safety & PPE",
+    "description": "A garment worn in a cleanroom to prevent contamination, version 2",
+    "downloads": 0,
+    "tags": ["cleanroom", "garment", "PPE", "safety", "contamination"]
+  },
+  {
+    "id": 60,
+    "name": "Cleanroom Garment v3",
+    "filename": "cleanroom_garment_v3.svg",
+    "category": "Safety & PPE",
+    "description": "A garment worn in a cleanroom to prevent contamination, version 3",
+    "downloads": 0,
+    "tags": ["cleanroom", "garment", "PPE", "safety", "contamination"]
+  },
+  {
+    "id": 61,
+    "name": "Cleanroom Garment v4",
+    "filename": "cleanroom_garment_v4.svg",
+    "category": "Safety & PPE",
+    "description": "A garment worn in a cleanroom to prevent contamination, version 4",
+    "downloads": 0,
+    "tags": ["cleanroom", "garment", "PPE", "safety", "contamination"]
+  },
+  {
+    "id": 62,
+    "name": "Cleanroom v1",
+    "filename": "cleanroom_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "An icon representing a cleanroom environment, version 1",
+    "downloads": 0,
+    "tags": ["cleanroom", "sterile", "environment", "laboratory", "equipment"]
+  },
+  {
+    "id": 63,
+    "name": "Crucible Tongs v1",
+    "filename": "crucible_tongs_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Tongs used for handling hot crucibles, version 1",
+    "downloads": 0,
+    "tags": ["crucible", "tongs", "tool", "heat", "chemistry"]
+  },
+  {
+    "id": 64,
+    "name": "Crucible Tongs v2",
+    "filename": "crucible_tongs_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "Tongs used for handling hot crucibles, version 2",
+    "downloads": 0,
+    "tags": ["crucible", "tongs", "tool", "heat", "chemistry"]
+  },
+  {
+    "id": 65,
+    "name": "Cryoboxes v1",
+    "filename": "cryoboxes_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "Boxes used for storing frozen samples in a freezer or liquid nitrogen, version 1",
+    "downloads": 0,
+    "tags": ["cryoboxes", "storage", "sample", "freezer", "biology"]
+  },
+  {
+    "id": 66,
+    "name": "Culture Medium v1",
+    "filename": "culture_medium_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A container of culture medium for growing cells or microorganisms, version 1",
+    "downloads": 0,
+    "tags": ["culture medium", "media", "cell culture", "microbiology"]
+  },
+  {
+    "id": 67,
+    "name": "Culture Medium v2",
+    "filename": "culture_medium_v2.svg",
+    "category": "Laboratory Consumables",
+    "description": "A container of culture medium, version 2",
+    "downloads": 0,
+    "tags": ["culture medium", "media", "cell culture", "microbiology"]
+  },
+  {
+    "id": 68,
+    "name": "Culture Medium v3",
+    "filename": "culture_medium_v3.svg",
+    "category": "Laboratory Consumables",
+    "description": "A container of culture medium, version 3",
+    "downloads": 0,
+    "tags": ["culture medium", "media", "cell culture", "microbiology"]
+  },
+  {
+    "id": 69,
+    "name": "Culture Medium v4",
+    "filename": "culture_medium_v4.svg",
+    "category": "Laboratory Consumables",
+    "description": "A container of culture medium, version 4",
+    "downloads": 0,
+    "tags": ["culture medium", "media", "cell culture", "microbiology"]
+  },
+  {
+    "id": 70,
+    "name": "Culture Plate v1",
+    "filename": "culture_plate_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A generic culture plate for various lab applications, version 1",
+    "downloads": 0,
+    "tags": ["culture plate", "cell culture", "biology", "consumables"]
+  },
+  {
+    "id": 71,
+    "name": "Cuvette v1",
+    "filename": "cuvette_v1.svg",
+    "category": "Laboratory Glassware",
+    "description": "A cuvette for holding liquid samples in a spectrophotometer, version 1",
+    "downloads": 0,
+    "tags": ["cuvette", "spectrophotometer", "glassware", "measurement", "chemistry"]
+  },
+  {
+    "id": 72,
+    "name": "Cuvette v2",
+    "filename": "cuvette_v2.svg",
+    "category": "Laboratory Glassware",
+    "description": "A cuvette for holding liquid samples in a spectrophotometer, version 2",
+    "downloads": 0,
+    "tags": ["cuvette", "spectrophotometer", "glassware", "measurement", "chemistry"]
+  },
+  {
+    "id": 73,
+    "name": "Desiccator v1",
+    "filename": "desiccator_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A desiccator for preserving moisture-sensitive items, version 1",
+    "downloads": 0,
+    "tags": ["desiccator", "storage", "moisture", "chemistry", "equipment"]
+  },
+  {
+    "id": 74,
+    "name": "Dropper v1",
+    "filename": "dropper_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A dropper for dispensing small amounts of liquid, version 1",
+    "downloads": 0,
+    "tags": ["dropper", "pipette", "liquid", "tool", "chemistry"]
+  },
+  {
+    "id": 75,
+    "name": "Flow Cytometry v1",
+    "filename": "flow_cytometry_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "An icon representing a flow cytometer, version 1",
+    "downloads": 0,
+    "tags": ["flow cytometry", "cell analysis", "biology", "equipment"]
+  },
+  {
+    "id": 76,
+    "name": "Funnel v1",
+    "filename": "funnel_v1.svg",
+    "category": "Laboratory Glassware",
+    "description": "A funnel for pouring liquids or powders, version 1",
+    "downloads": 0,
+    "tags": ["funnel", "glassware", "chemistry", "tool"]
+  },
+  {
+    "id": 77,
+    "name": "Funnel v2",
+    "filename": "funnel_v2.svg",
+    "category": "Laboratory Glassware",
+    "description": "A funnel for pouring liquids or powders, version 2",
+    "downloads": 0,
+    "tags": ["funnel", "glassware", "chemistry", "tool"]
+  },
+  {
+    "id": 78,
+    "name": "Funnel v3",
+    "filename": "funnel_v3.svg",
+    "category": "Laboratory Glassware",
+    "description": "A funnel for pouring liquids or powders, version 3",
+    "downloads": 0,
+    "tags": ["funnel", "glassware", "chemistry", "tool"]
+  },
+  {
+    "id": 79,
+    "name": "Hemostatic Forceps v1",
+    "filename": "hemostatic_forceps_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Forceps used for clamping and holding, version 1",
+    "downloads": 0,
+    "tags": ["forceps", "hemostatic", "clamp", "tool", "surgical"]
+  },
+  {
+    "id": 80,
+    "name": "Hemostatic Forceps v2",
+    "filename": "hemostatic_forceps_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "Forceps used for clamping and holding, version 2",
+    "downloads": 0,
+    "tags": ["forceps", "hemostatic", "clamp", "tool", "surgical"]
+  },
+  {
+    "id": 81,
+    "name": "Hemostatic Forceps v3",
+    "filename": "hemostatic_forceps_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "Forceps used for clamping and holding, version 3",
+    "downloads": 0,
+    "tags": ["forceps", "hemostatic", "clamp", "tool", "surgical"]
+  },
+  {
+    "id": 82,
+    "name": "Lab Coat v1",
+    "filename": "lab_coat_v1.svg",
+    "category": "Safety & PPE",
+    "description": "A lab coat for personal protection, version 1",
+    "downloads": 0,
+    "tags": ["lab coat", "PPE", "safety", "clothing"]
+  },
+  {
+    "id": 83,
+    "name": "Lab Coat v2",
+    "filename": "lab_coat_v2.svg",
+    "category": "Safety & PPE",
+    "description": "A lab coat for personal protection, version 2",
+    "downloads": 0,
+    "tags": ["lab coat", "PPE", "safety", "clothing"]
+  },
+  {
+    "id": 84,
+    "name": "Lab Coat v3",
+    "filename": "lab_coat_v3.svg",
+    "category": "Safety & PPE",
+    "description": "A lab coat for personal protection, version 3",
+    "downloads": 0,
+    "tags": ["lab coat", "PPE", "safety", "clothing"]
+  },
+  {
+    "id": 85,
+    "name": "Lab Fume Hood v1",
+    "filename": "lab_fume_hood_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A fume hood for safely working with hazardous chemicals, version 1",
+    "downloads": 0,
+    "tags": ["fume hood", "safety", "ventilation", "chemistry", "equipment"]
+  },
+  {
+    "id": 86,
+    "name": "Lab Fume Hood v2",
+    "filename": "lab_fume_hood_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A fume hood for safely working with hazardous chemicals, version 2",
+    "downloads": 0,
+    "tags": ["fume hood", "safety", "ventilation", "chemistry", "equipment"]
+  },
+  {
+    "id": 87,
+    "name": "Lab Fume Hood v3",
+    "filename": "lab_fume_hood_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A fume hood for safely working with hazardous chemicals, version 3",
+    "downloads": 0,
+    "tags": ["fume hood", "safety", "ventilation", "chemistry", "equipment"]
+  },
+  {
+    "id": 88,
+    "name": "Lab Fume Hood v4",
+    "filename": "lab_fume_hood_v4.svg",
+    "category": "Laboratory Equipment",
+    "description": "A fume hood for safely working with hazardous chemicals, version 4",
+    "downloads": 0,
+    "tags": ["fume hood", "safety", "ventilation", "chemistry", "equipment"]
+  },
+  {
+    "id": 89,
+    "name": "Lab Glasses v1",
+    "filename": "lab_glasses_v1.svg",
+    "category": "Safety & PPE",
+    "description": "Safety glasses for eye protection in the lab, version 1",
+    "downloads": 0,
+    "tags": ["safety glasses", "PPE", "eye protection", "safety"]
+  },
+  {
+    "id": 90,
+    "name": "Lab Glasses v2",
+    "filename": "lab_glasses_v2.svg",
+    "category": "Safety & PPE",
+    "description": "Safety glasses for eye protection in the lab, version 2",
+    "downloads": 0,
+    "tags": ["safety glasses", "PPE", "eye protection", "safety"]
+  },
+  {
+    "id": 91,
+    "name": "Lab Glasses v3",
+    "filename": "lab_glasses_v3.svg",
+    "category": "Safety & PPE",
+    "description": "Safety glasses for eye protection in the lab, version 3",
+    "downloads": 0,
+    "tags": ["safety glasses", "PPE", "eye protection", "safety"]
+  },
+  {
+    "id": 92,
+    "name": "Lab Glove v1",
+    "filename": "lab_glove_v1.svg",
+    "category": "Safety & PPE",
+    "description": "A lab glove for hand protection, version 1",
+    "downloads": 0,
+    "tags": ["lab glove", "PPE", "safety", "hand protection"]
+  },
+  {
+    "id": 93,
+    "name": "Lab Glove v2",
+    "filename": "lab_glove_v2.svg",
+    "category": "Safety & PPE",
+    "description": "A lab glove for hand protection, version 2",
+    "downloads": 0,
+    "tags": ["lab glove", "PPE", "safety", "hand protection"]
+  },
+  {
+    "id": 94,
+    "name": "Lab Glove v3",
+    "filename": "lab_glove_v3.svg",
+    "category": "Safety & PPE",
+    "description": "A lab glove for hand protection, version 3",
+    "downloads": 0,
+    "tags": ["lab glove", "PPE", "safety", "hand protection"]
+  },
+  {
+    "id": 95,
+    "name": "Lab Glove v4",
+    "filename": "lab_glove_v4.svg",
+    "category": "Safety & PPE",
+    "description": "A lab glove for hand protection, version 4",
+    "downloads": 0,
+    "tags": ["lab glove", "PPE", "safety", "hand protection"]
+  },
+  {
+    "id": 96,
+    "name": "Lab Wipes",
+    "filename": "lab_wipes.svg",
+    "category": "Laboratory Consumables",
+    "description": "Generic icon for laboratory wipes",
+    "downloads": 0,
+    "tags": ["wipes", "cleaning", "consumables", "lab"]
+  },
+  {
+    "id": 97,
+    "name": "Lab Wipes v1",
+    "filename": "lab_wipes_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "Laboratory wipes for cleaning surfaces, version 1",
+    "downloads": 0,
+    "tags": ["wipes", "cleaning", "consumables", "lab"]
+  },
+  {
+    "id": 98,
+    "name": "Lab Wipes v2",
+    "filename": "lab_wipes_v2.svg",
+    "category": "Laboratory Consumables",
+    "description": "Laboratory wipes for cleaning surfaces, version 2",
+    "downloads": 0,
+    "tags": ["wipes", "cleaning", "consumables", "lab"]
+  },
+  {
+    "id": 99,
+    "name": "Labeling Machine v1",
+    "filename": "labeling_machine_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A machine for labeling samples and tubes, version 1",
+    "downloads": 0,
+    "tags": ["labeling", "machine", "equipment", "sample"]
+  },
+  {
+    "id": 100,
+    "name": "Labeling Machine v2",
+    "filename": "labeling_machine_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A machine for labeling samples and tubes, version 2",
+    "downloads": 0,
+    "tags": ["labeling", "machine", "equipment", "sample"]
+  },
+  {
+    "id": 101,
+    "name": "Labeling Machine v3",
+    "filename": "labeling_machine_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A machine for labeling samples and tubes, version 3",
+    "downloads": 0,
+    "tags": ["labeling", "machine", "equipment", "sample"]
+  },
+  {
+    "id": 102,
+    "name": "Liquid Chromatography v1",
+    "filename": "liquid_chromatography_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "An icon representing a liquid chromatography system, version 1",
+    "downloads": 0,
+    "tags": ["liquid chromatography", "chromatography", "separation", "chemistry"]
+  },
+  {
+    "id": 103,
+    "name": "Liquid Chromatography v2",
+    "filename": "liquid_chromatography_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "An icon representing a liquid chromatography system, version 2",
+    "downloads": 0,
+    "tags": ["liquid chromatography", "chromatography", "separation", "chemistry"]
+  },
+  {
+    "id": 104,
+    "name": "Liquid Chromatography v3",
+    "filename": "liquid_chromatography_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "An icon representing a liquid chromatography system, version 3",
+    "downloads": 0,
+    "tags": ["liquid chromatography", "chromatography", "separation", "chemistry"]
+  },
+  {
+    "id": 105,
+    "name": "Liquid Nitrogen Tank v1",
+    "filename": "liquid_nitrogen_tank_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A tank for storing liquid nitrogen for cryopreservation, version 1",
+    "downloads": 0,
+    "tags": ["liquid nitrogen", "tank", "cryopreservation", "storage", "equipment"]
+  },
+  {
+    "id": 106,
+    "name": "Liquid Nitrogen Tank v2",
+    "filename": "liquid_nitrogen_tank_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A tank for storing liquid nitrogen for cryopreservation, version 2",
+    "downloads": 0,
+    "tags": ["liquid nitrogen", "tank", "cryopreservation", "storage", "equipment"]
+  },
+  {
+    "id": 107,
+    "name": "Liquid Nitrogen Tank v3",
+    "filename": "liquid_nitrogen_tank_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A tank for storing liquid nitrogen for cryopreservation, version 3",
+    "downloads": 0,
+    "tags": ["liquid nitrogen", "tank", "cryopreservation", "storage", "equipment"]
+  },
+  {
+    "id": 108,
+    "name": "Lyophilizer v1",
+    "filename": "lyophilizer_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A lyophilizer or freeze dryer, version 1",
+    "downloads": 0,
+    "tags": ["lyophilizer", "freeze dryer", "equipment", "chemistry"]
+  },
+  {
+    "id": 109,
+    "name": "Lyophilizer v2",
+    "filename": "lyophilizer_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A lyophilizer or freeze dryer, version 2",
+    "downloads": 0,
+    "tags": ["lyophilizer", "freeze dryer", "equipment", "chemistry"]
+  },
+  {
+    "id": 110,
+    "name": "Lyophilizer v3",
+    "filename": "lyophilizer_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A lyophilizer or freeze dryer, version 3",
+    "downloads": 0,
+    "tags": ["lyophilizer", "freeze dryer", "equipment", "chemistry"]
+  },
+  {
+    "id": 111,
+    "name": "Magnetic Stirrer v1",
+    "filename": "magnetic_stirrer_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A magnetic stirrer for mixing liquids, version 1",
+    "downloads": 0,
+    "tags": ["magnetic stirrer", "mixer", "chemistry", "equipment"]
+  },
+  {
+    "id": 112,
+    "name": "Magnetic Stirrer v2",
+    "filename": "magnetic_stirrer_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A magnetic stirrer for mixing liquids, version 2",
+    "downloads": 0,
+    "tags": ["magnetic stirrer", "mixer", "chemistry", "equipment"]
+  },
+  {
+    "id": 113,
+    "name": "Magnetic Stirrer v3",
+    "filename": "magnetic_stirrer_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A magnetic stirrer for mixing liquids, version 3",
+    "downloads": 0,
+    "tags": ["magnetic stirrer", "mixer", "chemistry", "equipment"]
+  },
+  {
+    "id": 114,
+    "name": "Medicine Spoon v1",
+    "filename": "medicine_spoon_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A spoon for dispensing small amounts of solid chemicals, version 1",
+    "downloads": 0,
+    "tags": ["medicine spoon", "spatula", "tool", "solid", "chemistry"]
+  },
+  {
+    "id": 115,
+    "name": "Medicine Spoon v2",
+    "filename": "medicine_spoon_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A spoon for dispensing small amounts of solid chemicals, version 2",
+    "downloads": 0,
+    "tags": ["medicine spoon", "spatula", "tool", "solid", "chemistry"]
+  },
+  {
+    "id": 116,
+    "name": "Multichannel Pipette",
+    "filename": "multichannel_pipette.svg",
+    "category": "Laboratory Tools",
+    "description": "A multichannel pipette for transferring multiple samples at once",
+    "downloads": 0,
+    "tags": ["pipette", "multichannel", "liquid transfer", "measurement"]
+  },
+  {
+    "id": 117,
+    "name": "pH Meter v1",
+    "filename": "pH_meter_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A pH meter for measuring the acidity or alkalinity of a solution, version 1",
+    "downloads": 0,
+    "tags": ["pH meter", "pH", "measurement", "chemistry", "equipment"]
+  },
+  {
+    "id": 118,
+    "name": "pH Meter v2",
+    "filename": "pH_meter_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A pH meter for measuring the acidity or alkalinity of a solution, version 2",
+    "downloads": 0,
+    "tags": ["pH meter", "pH", "measurement", "chemistry", "equipment"]
+  },
+  {
+    "id": 119,
+    "name": "pH Meter v3",
+    "filename": "pH_meter_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A pH meter for measuring the acidity or alkalinity of a solution, version 3",
+    "downloads": 0,
+    "tags": ["pH meter", "pH", "measurement", "chemistry", "equipment"]
+  },
+  {
+    "id": 120,
+    "name": "pH Test Paper v1",
+    "filename": "pH_test_paper_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "pH test paper for quick measurement of acidity or alkalinity, version 1",
+    "downloads": 0,
+    "tags": ["pH paper", "test paper", "consumables", "chemistry", "measurement"]
+  },
+  {
+    "id": 121,
+    "name": "Pipette",
+    "filename": "pipette.svg",
+    "category": "Laboratory Tools",
+    "description": "A generic icon for a single-channel pipette",
+    "downloads": 0,
+    "tags": ["pipette", "liquid transfer", "measurement", "tool"]
+  },
+  {
+    "id": 122,
+    "name": "Pipette Tips",
+    "filename": "pipette_tips.svg",
+    "category": "Laboratory Consumables",
+    "description": "A box of disposable pipette tips",
+    "downloads": 0,
+    "tags": ["pipette tips", "tips", "consumables", "liquid transfer"]
+  },
+  {
+    "id": 123,
+    "name": "Rubber Suction Bulb v1",
+    "filename": "rubber_suction_bulb_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A rubber suction bulb for use with pipettes or burettes, version 1",
+    "downloads": 0,
+    "tags": ["suction bulb", "rubber bulb", "pipette aid", "tool"]
+  },
+  {
+    "id": 124,
+    "name": "Rubber Suction Bulb v2",
+    "filename": "rubber_suction_bulb_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A rubber suction bulb for use with pipettes or burettes, version 2",
+    "downloads": 0,
+    "tags": ["suction bulb", "rubber bulb", "pipette aid", "tool"]
+  },
+  {
+    "id": 125,
+    "name": "Rubber Suction Bulb v3",
+    "filename": "rubbter_suction_bulb_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "A rubber suction bulb for use with pipettes or burettes, version 3",
+    "downloads": 0,
+    "tags": ["suction bulb", "rubber bulb", "pipette aid", "tool"]
+  },
+  {
+    "id": 126,
+    "name": "Saline v1",
+    "filename": "saline_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "An icon representing a saline solution, version 1",
+    "downloads": 0,
+    "tags": ["saline", "solution", "consumables", "chemistry"]
+  },
+  {
+    "id": 127,
+    "name": "Scalpel v1",
+    "filename": "scalpel_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A scalpel for precision cutting in the lab, version 1",
+    "downloads": 0,
+    "tags": ["scalpel", "cutting", "tool", "surgical"]
+  },
+  {
+    "id": 128,
+    "name": "Scalpel v2",
+    "filename": "scalpel_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A scalpel for precision cutting in the lab, version 2",
+    "downloads": 0,
+    "tags": ["scalpel", "cutting", "tool", "surgical"]
+  },
+  {
+    "id": 129,
+    "name": "Scalpel v3",
+    "filename": "scalpel_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "A scalpel for precision cutting in the lab, version 3",
+    "downloads": 0,
+    "tags": ["scalpel", "cutting", "tool", "surgical"]
+  },
+  {
+    "id": 130,
+    "name": "Scissor",
+    "filename": "scissor.svg",
+    "category": "Laboratory Tools",
+    "description": "A generic lab scissor",
+    "downloads": 0,
+    "tags": ["scissor", "cutting", "tool"]
+  },
+  {
+    "id": 131,
+    "name": "Spectrometer v1",
+    "filename": "spectrometer_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A spectrometer for measuring light intensity, version 1",
+    "downloads": 0,
+    "tags": ["spectrometer", "spectroscopy", "measurement", "equipment", "chemistry"]
+  },
+  {
+    "id": 132,
+    "name": "Spray v2",
+    "filename": "spray_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A spray bottle for lab use, version 2",
+    "downloads": 0,
+    "tags": ["spray", "bottle", "laboratory", "tool"]
+  },
+  {
+    "id": 133,
+    "name": "Spray v3",
+    "filename": "spray_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "A spray bottle for lab use, version 3",
+    "downloads": 0,
+    "tags": ["spray", "bottle", "laboratory", "tool"]
+  },
+  {
+    "id": 134,
+    "name": "Surgical Scissor v1",
+    "filename": "surgical_scissor_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Surgical scissors for precision cutting, version 1",
+    "downloads": 0,
+    "tags": ["surgical scissor", "cutting", "tool", "surgical"]
+  },
+  {
+    "id": 135,
+    "name": "Surgical Scissor v2",
+    "filename": "surgical_scissor_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "Surgical scissors for precision cutting, version 2",
+    "downloads": 0,
+    "tags": ["surgical scissor", "cutting", "tool", "surgical"]
+  },
+  {
+    "id": 136,
+    "name": "Thermometer v1",
+    "filename": "thermometer_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A thermometer for measuring temperature in the lab, version 1",
+    "downloads": 0,
+    "tags": ["thermometer", "temperature", "measurement", "tool"]
+  },
+  {
+    "id": 137,
+    "name": "Thermometer v2",
+    "filename": "thermometer_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A thermometer for measuring temperature in the lab, version 2",
+    "downloads": 0,
+    "tags": ["thermometer", "temperature", "measurement", "tool"]
+  },
+  {
+    "id": 138,
+    "name": "Thermometer v3",
+    "filename": "thermometer_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "A thermometer for measuring temperature in the lab, version 3",
+    "downloads": 0,
+    "tags": ["thermometer", "temperature", "measurement", "tool"]
+  },
+  {
+    "id": 139,
+    "name": "Three-Necked Flask v1",
+    "filename": "three_necked_flash_v1.svg",
+    "category": "Laboratory Glassware",
+    "description": "A flask with three necks for complex chemical setups, version 1",
+    "downloads": 0,
+    "tags": ["three-necked flask", "flask", "glassware", "chemistry"]
+  },
+  {
+    "id": 140,
+    "name": "Three-Necked Flask v2",
+    "filename": "three_necked_flash_v2.svg",
+    "category": "Laboratory Glassware",
+    "description": "A flask with three necks for complex chemical setups, version 2",
+    "downloads": 0,
+    "tags": ["three-necked flask", "flask", "glassware", "chemistry"]
+  },
+  {
+    "id": 141,
+    "name": "Timer v1",
+    "filename": "timer_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A lab timer for time-sensitive experiments, version 1",
+    "downloads": 0,
+    "tags": ["timer", "stopwatch", "measurement", "equipment", "lab"]
+  },
+  {
+    "id": 142,
+    "name": "Timer v2",
+    "filename": "timer_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A lab timer for time-sensitive experiments, version 2",
+    "downloads": 0,
+    "tags": ["timer", "stopwatch", "measurement", "equipment", "lab"]
+  },
+  {
+    "id": 143,
+    "name": "Timer v3",
+    "filename": "timer_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A lab timer for time-sensitive experiments, version 3",
+    "downloads": 0,
+    "tags": ["timer", "stopwatch", "measurement", "equipment", "lab"]
+  },
+  {
+    "id": 144,
+    "name": "Tube Rack v1",
+    "filename": "tube_rack_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A rack for holding test tubes or other vials, version 1",
+    "downloads": 0,
+    "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
+  },
+  {
+    "id": 145,
+    "name": "Tube Rack v2",
+    "filename": "tube_rack_v2.svg",
+    "category": "Laboratory Consumables",
+    "description": "A rack for holding test tubes or other vials, version 2",
+    "downloads": 0,
+    "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
+  },
+  {
+    "id": 146,
+    "name": "Tube Rack v3",
+    "filename": "tube_rack_v3.svg",
+    "category": "Laboratory Consumables",
+    "description": "A rack for holding test tubes or other vials, version 3",
+    "downloads": 0,
+    "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
+  },
+  {
+    "id": 147,
+    "name": "Tube Rack v4",
+    "filename": "tube_rack_v4.svg",
+    "category": "Laboratory Consumables",
+    "description": "A rack for holding test tubes or other vials, version 4",
+    "downloads": 0,
+    "tags": ["tube rack", "rack", "test tube", "storage", "lab"]
+  },
+  {
+    "id": 148,
+    "name": "Tweezer v1",
+    "filename": "tweezer_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "Tweezers for handling small objects, version 1",
+    "downloads": 0,
+    "tags": ["tweezer", "forceps", "tool", "precision"]
+  },
+  {
+    "id": 149,
+    "name": "Tweezer v2",
+    "filename": "tweezer_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "Tweezers for handling small objects, version 2",
+    "downloads": 0,
+    "tags": ["tweezer", "forceps", "tool", "precision"]
+  },
+  {
+    "id": 150,
+    "name": "Tweezer v3",
+    "filename": "tweezer_v3.svg",
+    "category": "Laboratory Tools",
+    "description": "Tweezers for handling small objects, version 3",
+    "downloads": 0,
+    "tags": ["tweezer", "forceps", "tool", "precision"]
+  },
+  {
+    "id": 151,
+    "name": "Ultrasonic Cleaner v1",
+    "filename": "ultrasonic_cleaner_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "An ultrasonic cleaner for cleaning lab instruments, version 1",
+    "downloads": 0,
+    "tags": ["ultrasonic", "cleaner", "equipment", "cleaning", "lab"]
+  },
+  {
+    "id": 152,
+    "name": "Ultrasonic Cleaner v2",
+    "filename": "ultrasonic_cleaner_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "An ultrasonic cleaner for cleaning lab instruments, version 2",
+    "downloads": 0,
+    "tags": ["ultrasonic", "cleaner", "equipment", "cleaning", "lab"]
+  },
+  {
+    "id": 153,
+    "name": "Vial v1",
+    "filename": "vial_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A generic vial for storing samples, version 1",
+    "downloads": 0,
+    "tags": ["vial", "sample", "storage", "consumables"]
+  },
+  {
+    "id": 154,
+    "name": "Wash Bottle v1",
+    "filename": "wash_bottle_v1.svg",
+    "category": "Laboratory Glassware",
+    "description": "A wash bottle for rinsing glassware, version 1",
+    "downloads": 0,
+    "tags": ["wash bottle", "glassware", "cleaning", "chemistry"]
+  },
+  {
+    "id": 155,
+    "name": "Water Bath v1",
+    "filename": "water_bath_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A water bath for incubating samples at a constant temperature, version 1",
+    "downloads": 0,
+    "tags": ["water bath", "incubation", "temperature", "equipment"]
+  },
+  {
+    "id": 156,
+    "name": "Water Bath v2",
+    "filename": "water_bath_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A water bath for incubating samples at a constant temperature, version 2",
+    "downloads": 0,
+    "tags": ["water bath", "incubation", "temperature", "equipment"]
+  },
+  {
+    "id": 157,
+    "name": "Water Bath v3",
+    "filename": "water_bath_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A water bath for incubating samples at a constant temperature, version 3",
+    "downloads": 0,
+    "tags": ["water bath", "incubation", "temperature", "equipment"]
+  },
+  {
+    "id": 158,
+    "name": "Water for Injection v1",
+    "filename": "water_for_injection_v1.svg",
+    "category": "Laboratory Consumables",
+    "description": "A vial of sterile water for injection, version 1",
+    "downloads": 0,
+    "tags": ["water for injection", "sterile water", "consumables", "medical"]
+  },
+  {
+    "id": 159,
+    "name": "Water for Injection v2",
+    "filename": "water_for_injection_v2.svg",
+    "category": "Laboratory Consumables",
+    "description": "A vial of sterile water for injection, version 2",
+    "downloads": 0,
+    "tags": ["water for injection", "sterile water", "consumables", "medical"]
+  },
+  {
+    "id": 160,
+    "name": "Water for Injection v3",
+    "filename": "water_for_injection_v3.svg",
+    "category": "Laboratory Consumables",
+    "description": "A vial of sterile water for injection, version 3",
+    "downloads": 0,
+    "tags": ["water for injection", "sterile water", "consumables", "medical"]
+  }
+]
