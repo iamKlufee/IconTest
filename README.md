@@ -1,20 +1,23 @@
-# SciIcon Repository
+# ReseachBub
 
 A clean, minimalist website for hosting scientific icon resources with a focus on laboratory equipment and glassware. Built as a static site for easy deployment on GitHub Pages.
 
 ## Features
 
 - 🧪 **Scientific Aesthetic**: Clean, professional design inspired by scientific research
-- 📂 **Category Organization**: Icons organized by categories (Laboratory Glassware, Laboratory Equipment)
+- 📂 **Category Organization**: Icons organized by categories (Laboratory Glassware, Laboratory Equipment, Microscopy, Laboratory Tools)
 - 📱 **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 - ⬇️ **Easy Downloads**: One-click SVG downloads for all icons
+- 🔍 **Search Functionality**: Search icons by name or category
 - 🎨 **Modern UI**: Built with React and Tailwind CSS for a polished look
 - 🚀 **Static Site**: Ready for GitHub Pages deployment
 
 ## Icon Categories
 
 - **Laboratory Glassware**: Beakers, flasks, graduated cylinders, test tubes, volumetric flasks
-- **Laboratory Equipment**: Centrifuge tubes, Petri dishes
+- **Laboratory Equipment**: Centrifuge tubes, Petri dishes, incubators, digital scales
+- **Microscopy**: Optical microscopes, SEM, electron microscopes
+- **Laboratory Tools**: Pipettes, syringes, scalpels, tweezers
 
 ## Getting Started
 
@@ -27,8 +30,8 @@ A clean, minimalist website for hosting scientific icon resources with a focus o
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd scicon-repository
+git clone https://github.com/iamKlufee/ReseachBub.git
+cd ReseachBub
 ```
 
 2. Install dependencies:
@@ -79,32 +82,9 @@ The built files will be in the `dist` directory.
 1. Push your code to a GitHub repository
 2. Go to Settings > Pages
 3. Set the source to "GitHub Actions"
-4. Create a `.github/workflows/deploy.yml` file:
+4. The `.github/workflows/deploy.yml` file is already configured for automatic deployment
 
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      - run: npm ci
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
-
-5. Your site will be available at `https://yourusername.github.io/your-repo-name`
+5. Your site will be available at `https://iamKlufee.github.io/ReseachBub/`
 
 ### Other Static Hosting
 
@@ -117,7 +97,7 @@ The built files in the `dist` directory can be deployed to any static hosting se
 ## Project Structure
 
 ```
-scicon-repository/
+ReseachBub/
 ├── public/
 │   └── icons/
 │       ├── metadata.json
@@ -163,6 +143,10 @@ To add new categories, simply include them in the `category` field of your icon 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## About
+
+Created by GlauFee, a postdoctoral researcher in Biomedical Engineering with over 12 years of lab experience. This website aims to help fellow researchers create compelling scientific presentations and publications by providing high-quality, free scientific icons.
 
 ## Acknowledgments
 

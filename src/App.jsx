@@ -9,7 +9,7 @@ function Home() {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-  // 获取base路径
+  // Get base path
   const base = import.meta.env.BASE_URL;
 
   // Get all unique categories
@@ -20,7 +20,7 @@ function Home() {
     activeCategory === 'All'
       ? icons
       : icons.filter(icon => icon.category === activeCategory);
-  // 搜索过滤
+  // Search filter
   const searchedIcons = search.trim() === ''
     ? filteredIcons
     : filteredIcons.filter(icon =>
@@ -93,11 +93,11 @@ function Home() {
         </div>
       </div>
 
-      {/* 搜索框 */}
+      {/* Search Box */}
       <div className="mb-8 flex justify-end">
         <input
           type="text"
-          placeholder="搜索图标名称或类别..."
+          placeholder="Search icon names or categories..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-scientific-blue"
@@ -142,8 +142,8 @@ function Home() {
               <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
             </svg>
           </div>
-          <p className="text-gray-600 text-lg">未找到符合条件的图标。</p>
-          <p className="text-gray-500 text-sm mt-2">请尝试更换类别或修改搜索关键词。</p>
+          <p className="text-gray-600 text-lg">No icons found matching your criteria.</p>
+          <p className="text-gray-500 text-sm mt-2">Try selecting a different category or modifying your search terms.</p>
         </div>
       )}
     </main>
@@ -184,7 +184,7 @@ function About() {
         
         <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Additional Terms:</h4>
         <p className="mb-4 text-gray-700">Redistribution, resale, or inclusion of these icons in any download platform or package without explicit permission is strictly prohibited.</p>
-        <p className="mb-4 text-gray-700">For commercial licensing or special use cases, please contact me at: [your email].</p>
+        <p className="mb-4 text-gray-700">For commercial licensing or special use cases, please contact me at: [support@reseachbub.org].</p>
         <p className="text-gray-700">The website owner reserves the right to interpret these terms of use.</p>
       </div>
     </main>
