@@ -28,6 +28,35 @@ function Home() {
         (icon.category && icon.category.toLowerCase().includes(search.toLowerCase()))
       );
 
+  // Optimized download function
+  const handleDownload = async (icon) => {
+    try {
+      const response = await fetch(icon.imageUrl);
+      if (!response.ok) throw new Error('Failed to fetch SVG');
+      
+      const svgContent = await response.text();
+      const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = icon.filename || `${icon.name}.svg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up the blob URL
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback to original method
+      const link = document.createElement('a');
+      link.href = icon.imageUrl;
+      link.download = icon.filename || `${icon.name}.svg`;
+      link.click();
+    }
+  };
+
   useEffect(() => {
     // Load icon data from public/icons/metadata.json
     fetch(`${base}icons/metadata.json`)
@@ -123,13 +152,12 @@ function Home() {
               <h3 className="font-semibold text-scientific-dark mb-1 truncate">{icon.name}</h3>
               <p className="text-sm text-gray-600 mb-2">Category: {icon.category}</p>
               <p className="text-sm text-gray-600 mb-4">Downloads: {icon.downloads.toLocaleString()}</p>
-              <a
-                href={icon.imageUrl}
-                download
-                className="download-button"
+              <button
+                onClick={() => handleDownload(icon)}
+                className="download-button w-full"
               >
                 Download SVG
-              </a>
+              </button>
             </div>
           </div>
         ))}
