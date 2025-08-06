@@ -182,8 +182,8 @@ function About() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-16">
       <h2 className="text-3xl font-bold mb-4 text-scientific-dark">About ReseachBub</h2>
-      <p className="mb-4 text-gray-700">Hello, I'm GlauFee, the creator of this website.</p>
-      <p className="mb-4 text-gray-700">As a postdoctoral researcher in Biomedical Engineering with over 12 years of lab experience, I know firsthand how much time and effort goes into preparing compelling figures for slides and papers. The process can be a huge time sink, pulling focus away from the actual research. That's why I created this website—to make it easier for fellow researchers to create powerful scientific presentations, seminars, and publications.</p>
+      <p className="mb-4 text-gray-700">Hello, I'm GlauNee, the creator of this website.</p>
+      <p className="mb-4 text-gray-700">As a postdoctoral researcher in Biotechnology filed with over 12 years of lab experience, I know firsthand how much time and effort goes into preparing compelling figures for slides and papers. The process can be a huge time sink, pulling focus away from the actual research. That's why I created this website—to make it easier for fellow researchers to create powerful scientific presentations, seminars, and publications.</p>
       <p className="mb-4 text-gray-700">A Note on the Name...</p>
       <p className="mb-4 text-gray-700">You might have noticed the unusual spelling of our domain name. I originally intended to register "ResearchBub" but accidentally missed the 'R' and ended up with ReseachBub. Due to a limited budget, I decided to embrace the typo and stick with this quirky name. My hope is that despite the small spelling error, this site can still be a valuable hub for your research needs.</p>
       <p className="mb-4 text-gray-700">The icons you'll find here are ones I created for my own work over the years. I hope they prove helpful to you and save you a little time on your journey.</p>
