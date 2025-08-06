@@ -9,9 +9,6 @@ function Home() {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-  // Get base path
-  const base = import.meta.env.BASE_URL;
-
   // Get all unique categories
   const categories = ['All', ...new Set(icons.map(icon => icon.category))];
 
@@ -59,7 +56,7 @@ function Home() {
 
   useEffect(() => {
     // Load icon data from public/icons/metadata.json
-    fetch(`${base}icons/metadata.json`)
+    fetch('/icons/metadata.json')
       .then(res => {
         if (!res.ok) throw new Error('Failed to load icon data');
         return res.json();
@@ -70,7 +67,7 @@ function Home() {
           ...item,
           id: item.id || index + 1,
           downloads: item.downloads || 0,
-          imageUrl: `${base}icons/${item.filename}`,
+          imageUrl: `/icons/${item.filename}`,
         }));
         setIcons(fullData);
         setLoading(false);
@@ -79,7 +76,7 @@ function Home() {
         setError(err.message);
         setLoading(false);
       });
-  }, [base]);
+  }, []);
 
   if (loading)
     return (
