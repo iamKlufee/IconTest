@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 
 function Home() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -228,7 +228,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-scientific-dark">ReseachBub</h1>
+              <Link to="/" className="text-3xl font-bold text-scientific-dark hover:text-scientific-blue transition-colors">
+                ReseachBub
+              </Link>
               <p className="text-gray-600 mt-1">Scientific Icon Resources for Research & Education</p>
             </div>
             <button
