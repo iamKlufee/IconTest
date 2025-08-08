@@ -1438,5 +1438,365 @@
     "description": "A vial of sterile water for injection, version 3",
     "downloads": 0,
     "tags": ["water for injection", "sterile water", "consumables", "medical"]
+  },
+  {
+    "id": 161,
+    "name": "CT Scanner v1",
+    "filename": "CT_scanner_v1.svg",
+    "category": "Medical Equipment",
+    "description": "A CT scanner for creating detailed cross-sectional images of the body, version 1.",
+    "downloads": 0,
+    "tags": ["ct scanner", "medical", "imaging", "equipment"]
+  },
+  {
+    "id": 162,
+    "name": "CT Scanner v2",
+    "filename": "CT_scanner_v2.svg",
+    "category": "Medical Equipment",
+    "description": "A CT scanner for creating detailed cross-sectional images of the body, version 2.",
+    "downloads": 0,
+    "tags": ["ct scanner", "medical", "imaging", "equipment"]
+  },
+  {
+    "id": 163,
+    "name": "CT Scanner v3",
+    "filename": "CT_scanner_v3.svg",
+    "category": "Medical Equipment",
+    "description": "A CT scanner for creating detailed cross-sectional images of the body, version 3.",
+    "downloads": 0,
+    "tags": ["ct scanner", "medical", "imaging", "equipment"]
+  },
+  {
+    "id": 164,
+    "name": "DC Power Supply v1",
+    "filename": "DC_power_supply_v1.svg",
+    "category": "Electronic Equipment",
+    "description": "A DC power supply for providing electrical power to electronic circuits, version 1.",
+    "downloads": 0,
+    "tags": ["dc power supply", "electronics", "power", "equipment"]
+  },
+  {
+    "id": 165,
+    "name": "DC Power Supply v2",
+    "filename": "DC_power_supply_v2.svg",
+    "category": "Electronic Equipment",
+    "description": "A DC power supply for providing electrical power to electronic circuits, version 2.",
+    "downloads": 0,
+    "tags": ["dc power supply", "electronics", "power", "equipment"]
+  },
+  {
+    "id": 166,
+    "name": "DC Power Supply v3",
+    "filename": "DC_power_supply_v3.svg",
+    "category": "Electronic Equipment",
+    "description": "A DC power supply for providing electrical power to electronic circuits, version 3.",
+    "downloads": 0,
+    "tags": ["dc power supply", "electronics", "power", "equipment"]
+  },
+  {
+    "id": 167,
+    "name": "Laboratory Refrigerator v1",
+    "filename": "Laboratory_refrigerator_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laboratory refrigerator for storing temperature-sensitive samples, version 1.",
+    "downloads": 0,
+    "tags": ["refrigerator", "laboratory", "storage", "equipment", "cooling"]
+  },
+  {
+    "id": 168,
+    "name": "Laboratory Refrigerator v2",
+    "filename": "Laboratory_refrigerator_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laboratory refrigerator for storing temperature-sensitive samples, version 2.",
+    "downloads": 0,
+    "tags": ["refrigerator", "laboratory", "storage", "equipment", "cooling"]
+  },
+  {
+    "id": 169,
+    "name": "Laboratory Refrigerator v3",
+    "filename": "Laboratory_refrigerator_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laboratory refrigerator for storing temperature-sensitive samples, version 3.",
+    "downloads": 0,
+    "tags": ["refrigerator", "laboratory", "storage", "equipment", "cooling"]
+  },
+  {
+    "id": 170,
+    "name": "Laboratory Refrigerator v4",
+    "filename": "Laboratory_refrigerator_v4.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laboratory refrigerator for storing temperature-sensitive samples, version 4.",
+    "downloads": 0,
+    "tags": ["refrigerator", "laboratory", "storage", "equipment", "cooling"]
+  },
+  {
+    "id": 171,
+    "name": "Laboratory Refrigerator v5",
+    "filename": "Laboratory_refrigerator_v5.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laboratory refrigerator for storing temperature-sensitive samples, version 5.",
+    "downloads": 0,
+    "tags": ["refrigerator", "laboratory", "storage", "equipment", "cooling"]
+  },
+  {
+    "id": 172,
+    "name": "Laboratory Refrigerator v6",
+    "filename": "Laboratory_refrigerator_v6.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laboratory refrigerator for storing temperature-sensitive samples, version 6.",
+    "downloads": 0,
+    "tags": ["refrigerator", "laboratory", "storage", "equipment", "cooling"]
+  },
+  {
+    "id": 173,
+    "name": "PCB v1",
+    "filename": "PCB_v1.svg",
+    "category": "Electronics",
+    "description": "A printed circuit board for mounting electronic components, version 1.",
+    "downloads": 0,
+    "tags": ["pcb", "circuit board", "electronics", "component"]
+  },
+  {
+    "id": 174,
+    "name": "PCB v2",
+    "filename": "PCB_v2.svg",
+    "category": "Electronics",
+    "description": "A printed circuit board for mounting electronic components, version 2.",
+    "downloads": 0,
+    "tags": ["pcb", "circuit board", "electronics", "component"]
+  },
+  {
+    "id": 175,
+    "name": "PCB v3",
+    "filename": "PCB_v3.svg",
+    "category": "Electronics",
+    "description": "A printed circuit board for mounting electronic components, version 3.",
+    "downloads": 0,
+    "tags": ["pcb", "circuit board", "electronics", "component"]
+  },
+  {
+    "id": 176,
+    "name": "Syringe Pump v1",
+    "filename": "Syringe_Pump_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A syringe pump for precise and controlled fluid delivery, version 1.",
+    "downloads": 0,
+    "tags": ["syringe pump", "fluid delivery", "laboratory", "equipment"]
+  },
+  {
+    "id": 177,
+    "name": "Tape v1",
+    "filename": "Tape_v1.svg",
+    "category": "Laboratory Supplies",
+    "description": "A roll of tape for various laboratory applications, version 1.",
+    "downloads": 0,
+    "tags": ["tape", "adhesive", "supplies", "lab"]
+  },
+  {
+    "id": 178,
+    "name": "Tape v2",
+    "filename": "Tape_v2.svg",
+    "category": "Laboratory Supplies",
+    "description": "A roll of tape for various laboratory applications, version 2.",
+    "downloads": 0,
+    "tags": ["tape", "adhesive", "supplies", "lab"]
+  },
+  {
+    "id": 179,
+    "name": "Tape v3",
+    "filename": "Tape_v3.svg",
+    "category": "Laboratory Supplies",
+    "description": "A roll of tape for various laboratory applications, version 3.",
+    "downloads": 0,
+    "tags": ["tape", "adhesive", "supplies", "lab"]
+  },
+  {
+    "id": 180,
+    "name": "Tape v4",
+    "filename": "Tape_v4.svg",
+    "category": "Laboratory Supplies",
+    "description": "A roll of tape for various laboratory applications, version 4.",
+    "downloads": 0,
+    "tags": ["tape", "adhesive", "supplies", "lab"]
+  },
+  {
+    "id": 181,
+    "name": "Transmission Electron Microscope v1",
+    "filename": "Transmission_Electron_Microscope_v1.svg",
+    "category": "Microscopy",
+    "description": "A transmission electron microscope for high-resolution imaging of internal structures, version 1.",
+    "downloads": 0,
+    "tags": ["TEM", "electron microscope", "microscopy", "imaging", "nanotechnology"]
+  },
+  {
+    "id": 182,
+    "name": "Hair Dryer v1",
+    "filename": "hair_dryer_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A hair dryer used as a portable heat source in the lab, version 1.",
+    "downloads": 0,
+    "tags": ["hair dryer", "heat gun", "tool", "heat", "lab"]
+  },
+  {
+    "id": 183,
+    "name": "Microcontroller v1",
+    "filename": "microcontroller_v1.svg",
+    "category": "Electronics",
+    "description": "A microcontroller for controlling electronic devices, version 1.",
+    "downloads": 0,
+    "tags": ["microcontroller", "electronics", "arduino", "raspberry pi", "component"]
+  },
+  {
+    "id": 184,
+    "name": "Microcontroller v2",
+    "filename": "microcontroller_v2.svg",
+    "category": "Electronics",
+    "description": "A microcontroller for controlling electronic devices, version 2.",
+    "downloads": 0,
+    "tags": ["microcontroller", "electronics", "component"]
+  },
+  {
+    "id": 185,
+    "name": "Microcontroller v3",
+    "filename": "microcontroller_v3.svg",
+    "category": "Electronics",
+    "description": "A microcontroller for controlling electronic devices, version 3.",
+    "downloads": 0,
+    "tags": ["microcontroller", "electronics", "component"]
+  },
+  {
+    "id": 186,
+    "name": "Orbital Shaker v1",
+    "filename": "orbital_shaker_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "An orbital shaker for mixing substances in flasks or beakers, version 1.",
+    "downloads": 0,
+    "tags": ["orbital shaker", "mixer", "mixing", "equipment", "chemistry"]
+  },
+  {
+    "id": 187,
+    "name": "Orbital Shaker v2",
+    "filename": "orbital_shaker_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "An orbital shaker for mixing substances in flasks or beakers, version 2.",
+    "downloads": 0,
+    "tags": ["orbital shaker", "mixer", "mixing", "equipment", "chemistry"]
+  },
+  {
+    "id": 188,
+    "name": "Solder v1",
+    "filename": "solder_v1.svg",
+    "category": "Electronics",
+    "description": "A piece of solder wire for connecting electronic components, version 1.",
+    "downloads": 0,
+    "tags": ["solder", "soldering", "electronics", "wire"]
+  },
+  {
+    "id": 189,
+    "name": "Soldering Station v1",
+    "filename": "soldering_station_v1.svg",
+    "category": "Electronic Equipment",
+    "description": "A soldering station for electronic assembly, version 1.",
+    "downloads": 0,
+    "tags": ["soldering station", "soldering", "electronics", "equipment", "tool"]
+  },
+  {
+    "id": 190,
+    "name": "Soldering Station v2",
+    "filename": "soldering_station_v2.svg",
+    "category": "Electronic Equipment",
+    "description": "A soldering station for electronic assembly, version 2.",
+    "downloads": 0,
+    "tags": ["soldering station", "soldering", "electronics", "equipment", "tool"]
+  },
+  {
+    "id": 191,
+    "name": "Ultrasonic Imager v1",
+    "filename": "ultrasonic_imager_v1.svg",
+    "category": "Medical Equipment",
+    "description": "An ultrasonic imager for creating images using sound waves, version 1.",
+    "downloads": 0,
+    "tags": ["ultrasonic", "imager", "medical", "imaging", "equipment"]
+  },
+  {
+    "id": 192,
+    "name": "Ultrasonic Imager v2",
+    "filename": "ultrasonic_imager_v2.svg",
+    "category": "Medical Equipment",
+    "description": "An ultrasonic imager for creating images using sound waves, version 2.",
+    "downloads": 0,
+    "tags": ["ultrasonic", "imager", "medical", "imaging", "equipment"]
+  },
+  {
+    "id": 193,
+    "name": "Ultrasonic Imager v3",
+    "filename": "ultrasonic_imager_v3.svg",
+    "category": "Medical Equipment",
+    "description": "An ultrasonic imager for creating images using sound waves, version 3.",
+    "downloads": 0,
+    "tags": ["ultrasonic", "imager", "medical", "imaging", "equipment"]
+  },
+  {
+    "id": 194,
+    "name": "Vacuum Drying Oven v1",
+    "filename": "vaccum_drying_oven_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A vacuum drying oven for drying samples under low pressure, version 1.",
+    "downloads": 0,
+    "tags": ["vacuum", "drying oven", "oven", "equipment", "chemistry"]
+  },
+  {
+    "id": 195,
+    "name": "Vacuum Drying Oven v2",
+    "filename": "vaccum_drying_oven_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A vacuum drying oven for drying samples under low pressure, version 2.",
+    "downloads": 0,
+    "tags": ["vacuum", "drying oven", "oven", "equipment", "chemistry"]
+  },
+  {
+    "id": 196,
+    "name": "Vacuum Drying Oven v3",
+    "filename": "vaccum_drying_oven_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A vacuum drying oven for drying samples under low pressure, version 3.",
+    "downloads": 0,
+    "tags": ["vacuum", "drying oven", "oven", "equipment", "chemistry"]
+  },
+  {
+    "id": 197,
+    "name": "Waste Container v1",
+    "filename": "waste_container_v1.svg",
+    "category": "Safety & Disposal",
+    "description": "A waste container for disposing of laboratory materials, version 1.",
+    "downloads": 0,
+    "tags": ["waste container", "disposal", "safety", "lab"]
+  },
+  {
+    "id": 198,
+    "name": "Waste Container v2",
+    "filename": "waste_container_v2.svg",
+    "category": "Safety & Disposal",
+    "description": "A waste container for disposing of laboratory materials, version 2.",
+    "downloads": 0,
+    "tags": ["waste container", "disposal", "safety", "lab"]
+  },
+  {
+    "id": 199,
+    "name": "Waste Container v3",
+    "filename": "waste_container_v3.svg",
+    "category": "Safety & Disposal",
+    "description": "A waste container for disposing of laboratory materials, version 3.",
+    "downloads": 0,
+    "tags": ["waste container", "disposal", "safety", "lab"]
+  },
+  {
+    "id": 200,
+    "name": "Waste Container v4",
+    "filename": "waste_container_v4.svg",
+    "category": "Safety & Disposal",
+    "description": "A waste container for disposing of laboratory materials, version 4.",
+    "downloads": 0,
+    "tags": ["waste container", "disposal", "safety", "lab"]
   }
 ]
