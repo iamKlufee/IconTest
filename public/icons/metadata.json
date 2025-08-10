@@ -1620,6 +1620,15 @@
     "tags": ["tape", "adhesive", "supplies", "lab"]
   },
   {
+    "id": 181,
+    "name": "Transmission Electron Microscope v1",
+    "filename": "Transmission_Electron_Microscope_v1.svg",
+    "category": "Microscopy",
+    "description": "A transmission electron microscope for high-resolution imaging of internal structures, version 1.",
+    "downloads": 0,
+    "tags": ["TEM", "electron microscope", "microscopy", "imaging", "nanotechnology"]
+  },
+  {
     "id": 182,
     "name": "Hair Dryer v1",
     "filename": "hair_dryer_v1.svg",
@@ -1681,6 +1690,24 @@
     "description": "A piece of solder wire for connecting electronic components, version 1.",
     "downloads": 0,
     "tags": ["solder", "soldering", "electronics", "wire"]
+  },
+  {
+    "id": 189,
+    "name": "Soldering Station v1",
+    "filename": "soldering_station_v1.svg",
+    "category": "Electronic Equipment",
+    "description": "A soldering station for electronic assembly, version 1.",
+    "downloads": 0,
+    "tags": ["soldering station", "soldering", "electronics", "equipment", "tool"]
+  },
+  {
+    "id": 190,
+    "name": "Soldering Station v2",
+    "filename": "soldering_station_v2.svg",
+    "category": "Electronic Equipment",
+    "description": "A soldering station for electronic assembly, version 2.",
+    "downloads": 0,
+    "tags": ["soldering station", "soldering", "electronics", "equipment", "tool"]
   },
   {
     "id": 191,
