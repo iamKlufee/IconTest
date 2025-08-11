@@ -1798,5 +1798,446 @@
     "description": "A waste container for disposing of laboratory materials, version 4.",
     "downloads": 0,
     "tags": ["waste container", "disposal", "safety", "lab"]
+  },
+  {
+    "id": 201,
+    "name": "3D Printer v1",
+    "filename": "3D_printer_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A 3D printer for rapid prototyping and creating custom lab components, version 1.",
+    "downloads": 0,
+    "tags": ["3d printer", "prototyping", "fabrication", "equipment"]
+  },
+  {
+    "id": 202,
+    "name": "3D Printer v2",
+    "filename": "3D_printer_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A 3D printer for rapid prototyping and creating custom lab components, version 2.",
+    "downloads": 0,
+    "tags": ["3d printer", "prototyping", "fabrication", "equipment"]
+  },
+  {
+    "id": 203,
+    "name": "3D Printer v3",
+    "filename": "3D_printer_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A 3D printer for rapid prototyping and creating custom lab components, version 3.",
+    "downloads": 0,
+    "tags": ["3d printer", "prototyping", "fabrication", "equipment"]
+  },
+  {
+    "id": 204,
+    "name": "Antistatic Mat v1",
+    "filename": "Antistatic_Mat_v1.svg",
+    "category": "Safety & PPE",
+    "description": "An antistatic mat to protect sensitive electronic components from static discharge, version 1.",
+    "downloads": 0,
+    "tags": ["antistatic", "mat", "safety", "electronics", "ESD"]
+  },
+  {
+    "id": 205,
+    "name": "UV Lamp v1",
+    "filename": "UV_lamp_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A UV lamp for sterilization or other photochemical processes, version 1.",
+    "downloads": 0,
+    "tags": ["uv lamp", "sterilization", "photochemistry", "equipment"]
+  },
+  {
+    "id": 206,
+    "name": "UV Lamp v2",
+    "filename": "UV_lamp_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A UV lamp for sterilization or other photochemical processes, version 2.",
+    "downloads": 0,
+    "tags": ["uv lamp", "sterilization", "photochemistry", "equipment"]
+  },
+  {
+    "id": 207,
+    "name": "UV Lamp v3",
+    "filename": "UV_lamp_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A UV lamp for sterilization or other photochemical processes, version 3.",
+    "downloads": 0,
+    "tags": ["uv lamp", "sterilization", "photochemistry", "equipment"]
+  },
+  {
+    "id": 208,
+    "name": "Antistatic Wrist Strap v1",
+    "filename": "antistatic_wrist_strap_v1.svg",
+    "category": "Safety & PPE",
+    "description": "An antistatic wrist strap to ground a person and prevent static discharge, version 1.",
+    "downloads": 0,
+    "tags": ["antistatic", "wrist strap", "safety", "electronics", "ESD"]
+  },
+  {
+    "id": 209,
+    "name": "Antistatic Wrist Strap v2",
+    "filename": "antistatic_wrist_strap_v2.svg",
+    "category": "Safety & PPE",
+    "description": "An antistatic wrist strap to ground a person and prevent static discharge, version 2.",
+    "downloads": 0,
+    "tags": ["antistatic", "wrist strap", "safety", "electronics", "ESD"]
+  },
+  {
+    "id": 210,
+    "name": "Antistatic Wrist Strap v3",
+    "filename": "antistatic_wrist_strap_v3.svg",
+    "category": "Safety & PPE",
+    "description": "An antistatic wrist strap to ground a person and prevent static discharge, version 3.",
+    "downloads": 0,
+    "tags": ["antistatic", "wrist strap", "safety", "electronics", "ESD"]
+  },
+  {
+    "id": 211,
+    "name": "Digital Multimeter v1",
+    "filename": "digital_multimeter_v1.svg",
+    "category": "Electronic Equipment",
+    "description": "A digital multimeter for measuring electrical properties, version 1.",
+    "downloads": 0,
+    "tags": ["multimeter", "electrical", "measurement", "electronics", "equipment"]
+  },
+  {
+    "id": 212,
+    "name": "Digital Multimeter v2",
+    "filename": "digital_multimeter_v2.svg",
+    "category": "Electronic Equipment",
+    "description": "A digital multimeter for measuring electrical properties, version 2.",
+    "downloads": 0,
+    "tags": ["multimeter", "electrical", "measurement", "electronics", "equipment"]
+  },
+  {
+    "id": 213,
+    "name": "Digital Multimeter v3",
+    "filename": "digital_multimeter_v3.svg",
+    "category": "Electronic Equipment",
+    "description": "A digital multimeter for measuring electrical properties, version 3.",
+    "downloads": 0,
+    "tags": ["multimeter", "electrical", "measurement", "electronics", "equipment"]
+  },
+  {
+    "id": 214,
+    "name": "Digital Multimeter v4",
+    "filename": "digital_multimeter_v4.svg",
+    "category": "Electronic Equipment",
+    "description": "A digital multimeter for measuring electrical properties, version 4.",
+    "downloads": 0,
+    "tags": ["multimeter", "electrical", "measurement", "electronics", "equipment"]
+  },
+  {
+    "id": 215,
+    "name": "Digital Multimeter v5",
+    "filename": "digital_multimeter_v5.svg",
+    "category": "Electronic Equipment",
+    "description": "A digital multimeter for measuring electrical properties, version 5.",
+    "downloads": 0,
+    "tags": ["multimeter", "electrical", "measurement", "electronics", "equipment"]
+  },
+  {
+    "id": 216,
+    "name": "Digital Multimeter v6",
+    "filename": "digital_multimeter_v6.svg",
+    "category": "Electronic Equipment",
+    "description": "A digital multimeter for measuring electrical properties, version 6.",
+    "downloads": 0,
+    "tags": ["multimeter", "electrical", "measurement", "electronics", "equipment"]
+  },
+  {
+    "id": 217,
+    "name": "Electrophoresis System v1",
+    "filename": "electrophoresis_system_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "An electrophoresis system for separating DNA, RNA, or proteins, version 1.",
+    "downloads": 0,
+    "tags": ["electrophoresis", "gel", "dna", "rna", "protein", "biology"]
+  },
+  {
+    "id": 218,
+    "name": "Electrophoresis System v2",
+    "filename": "electrophoresis_system_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "An electrophoresis system for separating DNA, RNA, or proteins, version 2.",
+    "downloads": 0,
+    "tags": ["electrophoresis", "gel", "dna", "rna", "protein", "biology"]
+  },
+  {
+    "id": 219,
+    "name": "Faraday Cage v1",
+    "filename": "faraday_cage_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A Faraday cage to shield against electromagnetic fields, version 1.",
+    "downloads": 0,
+    "tags": ["faraday cage", "shielding", "electromagnetism", "equipment"]
+  },
+  {
+    "id": 220,
+    "name": "Faraday Cage v2",
+    "filename": "faraday_cage_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A Faraday cage to shield against electromagnetic fields, version 2.",
+    "downloads": 0,
+    "tags": ["faraday cage", "shielding", "electromagnetism", "equipment"]
+  },
+  {
+    "id": 221,
+    "name": "Faraday Cage v3",
+    "filename": "faraday_cage_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A Faraday cage to shield against electromagnetic fields, version 3.",
+    "downloads": 0,
+    "tags": ["faraday cage", "shielding", "electromagnetism", "equipment"]
+  },
+  {
+    "id": 222,
+    "name": "Gas Bottle v1",
+    "filename": "gas_bottle_v1.svg",
+    "category": "Laboratory Supplies",
+    "description": "A gas bottle for storing compressed gases, version 1.",
+    "downloads": 0,
+    "tags": ["gas bottle", "cylinder", "storage", "chemistry", "supplies"]
+  },
+  {
+    "id": 223,
+    "name": "Gas Bottle v2",
+    "filename": "gas_bottle_v2.svg",
+    "category": "Laboratory Supplies",
+    "description": "A gas bottle for storing compressed gases, version 2.",
+    "downloads": 0,
+    "tags": ["gas bottle", "cylinder", "storage", "chemistry", "supplies"]
+  },
+  {
+    "id": 224,
+    "name": "Gas Bottle v3",
+    "filename": "gas_bottle_v3.svg",
+    "category": "Laboratory Supplies",
+    "description": "A gas bottle for storing compressed gases, version 3.",
+    "downloads": 0,
+    "tags": ["gas bottle", "cylinder", "storage", "chemistry", "supplies"]
+  },
+  {
+    "id": 225,
+    "name": "Lab Cart v1",
+    "filename": "lab_cart_v1.svg",
+    "category": "Laboratory Furniture",
+    "description": "A lab cart for transporting equipment and supplies, version 1.",
+    "downloads": 0,
+    "tags": ["lab cart", "furniture", "transport", "equipment"]
+  },
+  {
+    "id": 226,
+    "name": "Lab Cart v2",
+    "filename": "lab_cart_v2.svg",
+    "category": "Laboratory Furniture",
+    "description": "A lab cart for transporting equipment and supplies, version 2.",
+    "downloads": 0,
+    "tags": ["lab cart", "furniture", "transport", "equipment"]
+  },
+  {
+    "id": 227,
+    "name": "Lab Cart v3",
+    "filename": "lab_cart_v3.svg",
+    "category": "Laboratory Furniture",
+    "description": "A lab cart for transporting equipment and supplies, version 3.",
+    "downloads": 0,
+    "tags": ["lab cart", "furniture", "transport", "equipment"]
+  },
+  {
+    "id": 228,
+    "name": "Lab Table v1",
+    "filename": "lab_table_v1.svg",
+    "category": "Laboratory Furniture",
+    "description": "A laboratory table or workbench, version 1.",
+    "downloads": 0,
+    "tags": ["lab table", "workbench", "furniture"]
+  },
+  {
+    "id": 229,
+    "name": "Lab Table v2",
+    "filename": "lab_table_v2.svg",
+    "category": "Laboratory Furniture",
+    "description": "A laboratory table or workbench, version 2.",
+    "downloads": 0,
+    "tags": ["lab table", "workbench", "furniture"]
+  },
+  {
+    "id": 230,
+    "name": "Lab Table v3",
+    "filename": "lab_table_v3.svg",
+    "category": "Laboratory Furniture",
+    "description": "A laboratory table or workbench, version 3.",
+    "downloads": 0,
+    "tags": ["lab table", "workbench", "furniture"]
+  },
+  {
+    "id": 231,
+    "name": "Lab Table v4",
+    "filename": "lab_table_v4.svg",
+    "category": "Laboratory Furniture",
+    "description": "A laboratory table or workbench, version 4.",
+    "downloads": 0,
+    "tags": ["lab table", "workbench", "furniture"]
+  },
+  {
+    "id": 232,
+    "name": "Lab Table v5",
+    "filename": "lab_table_v5.svg",
+    "category": "Laboratory Furniture",
+    "description": "A laboratory table or workbench, version 5.",
+    "downloads": 0,
+    "tags": ["lab table", "workbench", "furniture"]
+  },
+  {
+    "id": 233,
+    "name": "Lab Table v6",
+    "filename": "lab_table_v6.svg",
+    "category": "Laboratory Furniture",
+    "description": "A laboratory table or workbench, version 6.",
+    "downloads": 0,
+    "tags": ["lab table", "workbench", "furniture"]
+  },
+  {
+    "id": 234,
+    "name": "Laser Cutter v1",
+    "filename": "laser_cutter_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laser cutter for precision cutting materials, version 1.",
+    "downloads": 0,
+    "tags": ["laser cutter", "cutting", "fabrication", "equipment"]
+  },
+  {
+    "id": 235,
+    "name": "Laser Cutter v2",
+    "filename": "laser_cutter_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laser cutter for precision cutting materials, version 2.",
+    "downloads": 0,
+    "tags": ["laser cutter", "cutting", "fabrication", "equipment"]
+  },
+  {
+    "id": 236,
+    "name": "Laser Engraver v1",
+    "filename": "laser_engraver_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laser engraver for marking or engraving materials, version 1.",
+    "downloads": 0,
+    "tags": ["laser engraver", "engraving", "marking", "equipment"]
+  },
+  {
+    "id": 237,
+    "name": "Laser Engraver v2",
+    "filename": "laser_engraver_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A laser engraver for marking or engraving materials, version 2.",
+    "downloads": 0,
+    "tags": ["laser engraver", "engraving", "marking", "equipment"]
+  },
+  {
+    "id": 238,
+    "name": "Laser Rangefinder v1",
+    "filename": "laser_rangefinder_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A laser rangefinder for measuring distances, version 1.",
+    "downloads": 0,
+    "tags": ["laser rangefinder", "measurement", "distance", "tool"]
+  },
+  {
+    "id": 239,
+    "name": "Laser Rangefinder v2",
+    "filename": "laser_rangefinder_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A laser rangefinder for measuring distances, version 2.",
+    "downloads": 0,
+    "tags": ["laser rangefinder", "measurement", "distance", "tool"]
+  },
+  {
+    "id": 240,
+    "name": "Oscilloscope v1",
+    "filename": "oscilloscope_v1.svg",
+    "category": "Electronic Equipment",
+    "description": "An oscilloscope for visualizing electronic signals, version 1.",
+    "downloads": 0,
+    "tags": ["oscilloscope", "electronics", "signal", "measurement", "equipment"]
+  },
+  {
+    "id": 241,
+    "name": "Oscilloscope v2",
+    "filename": "oscilloscope_v2.svg",
+    "category": "Electronic Equipment",
+    "description": "An oscilloscope for visualizing electronic signals, version 2.",
+    "downloads": 0,
+    "tags": ["oscilloscope", "electronics", "signal", "measurement", "equipment"]
+  },
+  {
+    "id": 242,
+    "name": "Oscilloscope v3",
+    "filename": "oscilloscope_v3.svg",
+    "category": "Electronic Equipment",
+    "description": "An oscilloscope for visualizing electronic signals, version 3.",
+    "downloads": 0,
+    "tags": ["oscilloscope", "electronics", "signal", "measurement", "equipment"]
+  },
+  {
+    "id": 243,
+    "name": "Potentiostat v1",
+    "filename": "potentiostat_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A potentiostat for controlling electrochemical cells, version 1.",
+    "downloads": 0,
+    "tags": ["potentiostat", "electrochemistry", "equipment", "chemistry"]
+  },
+  {
+    "id": 244,
+    "name": "Potentiostat v2",
+    "filename": "potentiostat_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A potentiostat for controlling electrochemical cells, version 2.",
+    "downloads": 0,
+    "tags": ["potentiostat", "electrochemistry", "equipment", "chemistry"]
+  },
+  {
+    "id": 245,
+    "name": "Potentiostat v3",
+    "filename": "potentiostat_v3.svg",
+    "category": "Laboratory Equipment",
+    "description": "A potentiostat for controlling electrochemical cells, version 3.",
+    "downloads": 0,
+    "tags": ["potentiostat", "electrochemistry", "equipment", "chemistry"]
+  },
+  {
+    "id": 246,
+    "name": "Potentiostat v4",
+    "filename": "potentiostat_v4.svg",
+    "category": "Laboratory Equipment",
+    "description": "A potentiostat for controlling electrochemical cells, version 4.",
+    "downloads": 0,
+    "tags": ["potentiostat", "electrochemistry", "equipment", "chemistry"]
+  },
+  {
+    "id": 247,
+    "name": "Thickness Gauge v1",
+    "filename": "thickness_gauge_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A thickness gauge for measuring the thickness of materials, version 1.",
+    "downloads": 0,
+    "tags": ["thickness gauge", "measurement", "tool", "material science"]
+  },
+  {
+    "id": 248,
+    "name": "Three Electrodes System v1",
+    "filename": "three_electrodes_system_v1.svg",
+    "category": "Laboratory Equipment",
+    "description": "A three-electrode system for electrochemical experiments, version 1.",
+    "downloads": 0,
+    "tags": ["three electrodes", "electrochemistry", "system", "chemistry"]
+  },
+  {
+    "id": 249,
+    "name": "Three Electrodes System v2",
+    "filename": "three_electrodes_system_v2.svg",
+    "category": "Laboratory Equipment",
+    "description": "A three-electrode system for electrochemical experiments, version 2.",
+    "downloads": 0,
+    "tags": ["three electrodes", "electrochemistry", "system", "chemistry"]
   }
 ]
