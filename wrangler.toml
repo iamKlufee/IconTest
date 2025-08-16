@@ -9,7 +9,9 @@ publish = "dist"
 NODE_VERSION = "18"
 CF_PAGES = "true"
 
+# 只对HTML路由进行重定向，保留静态文件访问
 [[redirects]]
 from = "/*"
 to = "/index.html"
-status = 200 
+status = 200
+conditions = {exclude = ["*.svg", "*.js", "*.css", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.ico", "*.json"]} 
