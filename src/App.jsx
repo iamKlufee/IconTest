@@ -191,31 +191,10 @@ function About() {
       <p className="mb-4 text-gray-700">The icons you'll find here are ones I created for my own work over the years. I hope they prove helpful to you and save you a little time on your journey.</p>
       
       <div className="mt-12 pt-8 border-t border-gray-200">
-        <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Icon License</h3>
-        <p className="mb-4 text-gray-700">All icons on this website are copyrighted by the site owner unless otherwise specified.</p>
-        
-        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Permitted Use (Free for Non-Commercial Purposes):</h4>
-        <p className="mb-4 text-gray-700">You are welcome to use these icons for any academic and educational projects, including:</p>
-        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
-          <li>Academic research and papers</li>
-          <li>Educational materials and presentations</li>
-          <li>University seminars and talks</li>
-          <li>Student projects and theses</li>
-        </ul>
-        
-        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Prohibited Use (Strictly Not Allowed):</h4>
-        <p className="mb-4 text-gray-700">The use of these icons is strictly prohibited in any commercial context. This includes, but is not limited to:</p>
-        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
-          <li>Business websites and social media</li>
-          <li>Advertisements and marketing materials</li>
-          <li>Product packaging and branding</li>
-          <li>Corporate projects and apps</li>
-        </ul>
-        
-        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Additional Terms:</h4>
-        <p className="mb-4 text-gray-700">Redistribution, resale, or inclusion of these icons in any download platform or package without explicit permission is strictly prohibited.</p>
-        <p className="mb-4 text-gray-700">For commercial licensing or special use cases, please contact me at: [support@reseachbub.org].</p>
-        <p className="text-gray-700">The website owner reserves the right to interpret these terms of use.</p>
+        <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Software and Licensing</h3>
+        <p className="mb-4 text-gray-700">This website offers a curated collection of links to open-source and free software that we believe are valuable to researchers. We do not host or distribute these software packages ourselves. All software, icons, and trademarks are the property of their respective owners.</p>
+        <p className="mb-4 text-gray-700">The software we list includes a mix of open-source and proprietary tools that are free for academic use. Before using any of the software listed on this site, you must visit its official website to review and comply with the specific license agreement.</p>
+        <p className="mb-4 text-gray-700">If you believe any software listed here infringes upon a copyright or license, please contact me immediately, and I will remove it without delay.</p>
       </div>
     </main>
   );
@@ -310,6 +289,160 @@ function SoftBub() {
       website: "https://www.libreoffice.org/",
       license: "MPL-2.0",
       platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 9,
+      name: "RStudio",
+      category: "Development Environment",
+      description: "Integrated development environment for R programming language with powerful debugging and visualization tools",
+      icon: "💻",
+      downloadUrl: "https://posit.co/download/rstudio-desktop/",
+      website: "https://posit.co/products/rstudio/",
+      license: "AGPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 10,
+      name: "Scilab",
+      category: "Numerical Computing",
+      description: "Open-source alternative to MATLAB for numerical computations and scientific simulations",
+      icon: "🧮",
+      downloadUrl: "https://www.scilab.org/download",
+      website: "https://www.scilab.org/",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 11,
+      name: "draw.io",
+      category: "Diagram Creation",
+      description: "Free online diagram software for creating flowcharts, network diagrams, and scientific illustrations",
+      icon: "📋",
+      downloadUrl: "https://github.com/jgraph/drawio-desktop/releases",
+      website: "https://app.diagrams.net/",
+      license: "Apache-2.0",
+      platforms: ["Windows", "macOS", "Linux", "Web"]
+    },
+    {
+      id: 12,
+      name: "Blender",
+      category: "3D Modeling",
+      description: "Professional 3D computer graphics software for modeling, animation, and scientific visualization",
+      icon: "🎭",
+      downloadUrl: "https://www.blender.org/download/",
+      website: "https://www.blender.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 13,
+      name: "Zotero",
+      category: "Reference Management",
+      description: "Free reference manager to help collect, organize, cite, and share research sources",
+      icon: "📚",
+      downloadUrl: "https://www.zotero.org/download/",
+      website: "https://www.zotero.org/",
+      license: "AGPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 14,
+      name: "Mendeley",
+      category: "Reference Management",
+      description: "Reference manager and academic social network for organizing research papers and collaboration",
+      icon: "📖",
+      downloadUrl: "https://www.mendeley.com/download-desktop/",
+      website: "https://www.mendeley.com/",
+      license: "Proprietary",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 15,
+      name: "LibreCAD",
+      category: "CAD Software",
+      description: "Free 2D CAD application for creating technical drawings and engineering designs",
+      icon: "📐",
+      downloadUrl: "https://librecad.org/download/",
+      website: "https://librecad.org/",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 16,
+      name: "SciDAVis",
+      category: "Data Analysis",
+      description: "Free application for scientific data analysis and visualization, alternative to Origin",
+      icon: "📈",
+      downloadUrl: "https://scidavis.sourceforge.net/download.html",
+      website: "https://scidavis.sourceforge.net/",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 17,
+      name: "JabRef",
+      category: "Reference Management",
+      description: "Open-source bibliography reference manager for BibTeX, designed for researchers and academics",
+      icon: "📑",
+      downloadUrl: "https://www.jabref.org/#downloads",
+      website: "https://www.jabref.org/",
+      license: "MIT",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 18,
+      name: "QuPath",
+      category: "Image Analysis",
+      description: "Open-source software for digital pathology and whole slide image analysis",
+      icon: "🔍",
+      downloadUrl: "https://qupath.github.io/downloads",
+      website: "https://qupath.github.io/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 19,
+      name: "DWSIM",
+      category: "Chemical Engineering",
+      description: "Open-source chemical process simulator for modeling and simulation of chemical processes",
+      icon: "⚗️",
+      downloadUrl: "https://dwsim.org/download/",
+      website: "https://dwsim.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 20,
+      name: "Obsidian",
+      category: "Note Taking",
+      description: "Powerful knowledge base that works on top of a local folder of plain text Markdown files",
+      icon: "💎",
+      downloadUrl: "https://obsidian.md/download",
+      website: "https://obsidian.md/",
+      license: "Proprietary",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 21,
+      name: "Fusion 360",
+      category: "CAD Software",
+      description: "Professional 3D CAD/CAM software for product design and manufacturing, free for students and educators",
+      icon: "🔧",
+      downloadUrl: "https://www.autodesk.com/products/fusion-360/overview",
+      website: "https://www.autodesk.com/products/fusion-360",
+      license: "Proprietary",
+      platforms: ["Windows", "macOS"]
+    },
+    {
+      id: 22,
+      name: "LTspice",
+      category: "Circuit Simulation",
+      description: "High-performance SPICE simulation software for electronic circuit design and analysis",
+      icon: "⚡",
+      downloadUrl: "https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html",
+      website: "https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html",
+      license: "Proprietary",
+      platforms: ["Windows", "macOS"]
     }
   ]);
 
