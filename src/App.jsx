@@ -443,6 +443,116 @@ function SoftBub() {
       website: "https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html",
       license: "Proprietary",
       platforms: ["Windows", "macOS"]
+    },
+    {
+      id: 23,
+      name: "FreeMind",
+      category: "Mind Mapping",
+      description: "Free mind mapping software for brainstorming, organizing ideas, and project planning",
+      icon: "🧠",
+      downloadUrl: "https://sourceforge.net/projects/freemind/",
+      website: "https://freemind.sourceforge.net/",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 24,
+      name: "Sumatra PDF",
+      category: "PDF Reader",
+      description: "Fast, lightweight PDF reader for Windows with minimal resource usage",
+      icon: "📄",
+      downloadUrl: "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
+      website: "https://www.sumatrapdfreader.org/",
+      license: "GPL-3",
+      platforms: ["Windows"]
+    },
+    {
+      id: 25,
+      name: "VMware Fusion",
+      category: "Virtualization",
+      description: "Professional virtualization software for running Windows and other operating systems on macOS",
+      icon: "🖥️",
+      downloadUrl: "https://www.vmware.com/products/fusion/fusion-evaluation.html",
+      website: "https://www.vmware.com/products/fusion.html",
+      license: "Proprietary",
+      platforms: ["macOS"]
+    },
+    {
+      id: 26,
+      name: "Krita",
+      category: "Digital Art",
+      description: "Professional free and open-source painting program for digital artists and illustrators",
+      icon: "🎨",
+      downloadUrl: "https://krita.org/en/download/krita-desktop/",
+      website: "https://krita.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 27,
+      name: "AutoDock",
+      category: "Molecular Docking",
+      description: "Automated docking software for predicting the binding of small molecules to protein targets",
+      icon: "🧬",
+      downloadUrl: "http://autodock.scripps.edu/downloads",
+      website: "http://autodock.scripps.edu/",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 28,
+      name: "VirtualBox",
+      category: "Virtualization",
+      description: "Free and open-source virtualization software for running multiple operating systems",
+      icon: "💻",
+      downloadUrl: "https://www.virtualbox.org/wiki/Downloads",
+      website: "https://www.virtualbox.org/",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 29,
+      name: "GNU Octave",
+      category: "Numerical Computing",
+      description: "Free software for numerical computations, largely compatible with MATLAB",
+      icon: "📊",
+      downloadUrl: "https://octave.org/download",
+      website: "https://octave.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 30,
+      name: "Cytoscape",
+      category: "Network Analysis",
+      description: "Open-source platform for visualizing complex networks and integrating these with any type of attribute data",
+      icon: "🕸️",
+      downloadUrl: "https://cytoscape.org/download.html",
+      website: "https://cytoscape.org/",
+      license: "LGPL-2.1",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 31,
+      name: "SageMath",
+      category: "Mathematical Software",
+      description: "Free open-source mathematics software system for algebra, geometry, number theory, and calculus",
+      icon: "🔢",
+      downloadUrl: "https://www.sagemath.org/download.html",
+      website: "https://www.sagemath.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 32,
+      name: "ParaView",
+      category: "Scientific Visualization",
+      description: "Open-source multi-platform data analysis and visualization application for scientific datasets",
+      icon: "📊",
+      downloadUrl: "https://www.paraview.org/download/",
+      website: "https://www.paraview.org/",
+      license: "BSD-3",
+      platforms: ["Windows", "macOS", "Linux"]
     }
   ]);
 
