@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://reseachbub.org/</loc></url>
   <url><loc>https://reseachbub.org/about</loc></url>
+  <url><loc>https://reseachbub.org/softbub</loc></url>
   <url><loc>https://reseachbub.org/icons/beaker.svg</loc></url>
   <url><loc>https://reseachbub.org/icons/Centrifuge_Tube_ver1.svg</loc></url>
   <url><loc>https://reseachbub.org/icons/Centrifuge_Tube_ver2.svg</loc></url>
@@ -162,4 +163,93 @@
   <url><loc>https://reseachbub.org/icons/water_for_injection_v1.svg</loc></url>
   <url><loc>https://reseachbub.org/icons/water_for_injection_v2.svg</loc></url>
   <url><loc>https://reseachbub.org/icons/water_for_injection_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/CT_scanner_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/CT_scanner_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/CT_scanner_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/DC_power_supply_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/DC_power_supply_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/DC_power_supply_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Laboratory_refrigerator_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Laboratory_refrigerator_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Laboratory_refrigerator_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Laboratory_refrigerator_v4.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Laboratory_refrigerator_v5.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Laboratory_refrigerator_v6.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/PCB_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/PCB_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/PCB_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Syringe_Pump_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Tape_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Tape_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Tape_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Tape_v4.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/TEM_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/hair_dryer_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/microcontroller_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/microcontroller_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/microcontroller_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/orbital_shaker_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/orbital_shaker_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/solder_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/soldering_station_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/soldering_station_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/ultrasonic_imager_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/ultrasonic_imager_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/ultrasonic_imager_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/vaccum_drying_oven_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/vaccum_drying_oven_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/vaccum_drying_oven_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/waste_container_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/waste_container_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/waste_container_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/waste_container_v4.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/3D_printer_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/3D_printer_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/3D_printer_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/Antistatic_Mat_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/UV_lamp_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/UV_lamp_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/UV_lamp_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/antistatic_wrist_strap_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/antistatic_wrist_strap_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/antistatic_wrist_strap_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/digital_multimeter_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/digital_multimeter_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/digital_multimeter_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/digital_multimeter_v4.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/digital_multimeter_v5.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/digital_multimeter_v6.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/electrophoresis_system_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/electrophoresis_system_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/faraday_cage_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/faraday_cage_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/faraday_cage_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/gas_bottle_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/gas_bottle_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/gas_bottle_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_cart_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_cart_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_cart_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_table_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_table_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_table_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_table_v4.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_table_v5.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/lab_table_v6.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/laser_cutter_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/laser_cutter_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/laser_engraver_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/laser_engraver_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/laser_rangefinder_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/laser_rangefinder_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/oscilloscope_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/oscilloscope_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/oscilloscope_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/potentiostat_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/potentiostat_v2.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/potentiostat_v3.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/potentiostat_v4.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/thickness_gauge_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/three_electrodes_system_v1.svg</loc></url>
+  <url><loc>https://reseachbub.org/icons/three_electrodes_system_v2.svg</loc></url>
 </urlset>
