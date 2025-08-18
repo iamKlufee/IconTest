@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 
-function Home() {
+function IconBub() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [icons, setIcons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState('');
-  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 30;
 
   // Get base path
   const base = import.meta.env.BASE_URL;
@@ -28,28 +29,33 @@ function Home() {
         (icon.category && icon.category.toLowerCase().includes(search.toLowerCase()))
       );
 
+  // Pagination
+  const totalPages = Math.max(1, Math.ceil(searchedIcons.length / pageSize));
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedIcons = searchedIcons.slice(startIndex, startIndex + pageSize);
+
+  // Adjust current page if filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, search]);
+
   // Optimized download function
   const handleDownload = async (icon) => {
     try {
       const response = await fetch(icon.imageUrl);
       if (!response.ok) throw new Error('Failed to fetch SVG');
-      
       const svgContent = await response.text();
       const blob = new Blob([svgContent], { type: 'image/svg+xml' });
       const url = URL.createObjectURL(blob);
-      
       const link = document.createElement('a');
       link.href = url;
       link.download = icon.filename || `${icon.name}.svg`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
-      // Clean up the blob URL
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Download failed:', error);
-      // Fallback to original method
       const link = document.createElement('a');
       link.href = icon.imageUrl;
       link.download = icon.filename || `${icon.name}.svg`;
@@ -102,6 +108,12 @@ function Home() {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Page Title */}
+      <div className="mb-8">
+        <h1 className="text-2xl font-semibold text-scientific-dark">IconBub</h1>
+        <p className="text-gray-600 mt-1">Browse scientific icons. 30 per page.</p>
+      </div>
+
       {/* Category Filter */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold text-scientific-dark mb-4">Categories</h2>
@@ -136,7 +148,7 @@ function Home() {
 
       {/* Icons Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-        {searchedIcons.map(icon => (
+        {paginatedIcons.map(icon => (
           <div
             key={icon.id}
             className="icon-card group"
@@ -174,6 +186,106 @@ function Home() {
           <p className="text-gray-500 text-sm mt-2">Try selecting a different category or modifying your search terms.</p>
         </div>
       )}
+
+      {/* Pagination Controls */}
+      {searchedIcons.length > 0 && (
+        <div className="flex items-center justify-center gap-2 mt-10">
+          <button
+            className="px-3 py-1 border rounded disabled:opacity-50"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+          >
+            Prev
+          </button>
+          <span className="text-sm text-gray-600">Page {currentPage} of {totalPages}</span>
+          <button
+            className="px-3 py-1 border rounded disabled:opacity-50"
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+          >
+            Next
+          </button>
+        </div>
+      )}
+    </main>
+  );
+}
+
+function Home() {
+  const [icons, setIcons] = useState([]);
+  const base = import.meta.env.BASE_URL;
+
+  useEffect(() => {
+    fetch(`${base}icons/metadata.json`)
+      .then(res => res.ok ? res.json() : [])
+      .then(data => {
+        const fullData = data.map((item, index) => ({
+          ...item,
+          id: item.id || index + 1,
+          imageUrl: `${base}icons/${item.filename}`,
+        }));
+        setIcons(fullData);
+      })
+      .catch(() => setIcons([]));
+  }, [base]);
+
+  const featuredIcons = icons.slice(0, 10);
+
+  const recommendedSoftware = [
+    { name: 'ImageJ', desc: 'Open-source image analysis', link: '/softbub' },
+    { name: 'R', desc: 'Statistical computing', link: '/softbub' },
+    { name: 'Python', desc: 'Scientific computing', link: '/softbub' },
+    { name: 'Blender', desc: '3D visualization', link: '/softbub' },
+  ];
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Hero */}
+      <section className="text-center mb-12">
+        <h1 className="text-4xl font-extrabold text-scientific-dark mb-4">ResearchBub</h1>
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          A curated hub for scientific resources: icons, software, and tools to accelerate your research.
+        </p>
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <Link to="/iconbub" className="px-5 py-2 bg-scientific-blue text-white rounded-lg hover:bg-blue-600">Explore Icons</Link>
+          <Link to="/softbub" className="px-5 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200">Explore Software</Link>
+        </div>
+      </section>
+
+      {/* Featured Icons */}
+      <section className="mb-12">
+        <div className="flex items-baseline justify-between mb-4">
+          <h2 className="text-2xl font-semibold text-scientific-dark">Featured Icons</h2>
+          <Link to="/iconbub" className="text-scientific-blue hover:underline">View all</Link>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
+          {featuredIcons.map(icon => (
+            <div key={icon.id} className="p-4 bg-white rounded shadow-sm">
+              <img src={icon.imageUrl} alt={icon.name} className="w-full h-20 object-contain" />
+              <p className="mt-2 text-sm text-center text-gray-700 truncate">{icon.name}</p>
+            </div>
+          ))}
+          {featuredIcons.length === 0 && (
+            <p className="text-gray-600">No icons to show yet.</p>
+          )}
+        </div>
+      </section>
+
+      {/* Recommended Software */}
+      <section>
+        <div className="flex items-baseline justify-between mb-4">
+          <h2 className="text-2xl font-semibold text-scientific-dark">Recommended Software</h2>
+          <Link to="/softbub" className="text-scientific-blue hover:underline">View more</Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {recommendedSoftware.map(item => (
+            <Link key={item.name} to={item.link} className="block bg-white rounded-lg p-4 border hover:shadow">
+              <h3 className="font-semibold text-scientific-dark">{item.name}</h3>
+              <p className="text-gray-600 text-sm mt-1">{item.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
@@ -195,6 +307,31 @@ function About() {
         <p className="mb-4 text-gray-700">This website offers a curated collection of links to open-source and free software that we believe are valuable to researchers. We do not host or distribute these software packages ourselves. All software, icons, and trademarks are the property of their respective owners.</p>
         <p className="mb-4 text-gray-700">The software we list includes a mix of open-source and proprietary tools that are free for academic use. Before using any of the software listed on this site, you must visit its official website to review and comply with the specific license agreement.</p>
         <p className="mb-4 text-gray-700">If you believe any software listed here infringes upon a copyright or license, please contact me immediately, and I will remove it without delay.</p>
+      </div>
+
+      <div className="mt-12 pt-8 border-t border-gray-200">
+        <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Icon License</h3>
+        <p className="mb-4 text-gray-700">All icons on this website are copyrighted by the site owner unless otherwise specified.</p>
+        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Permitted Use (Free for Non-Commercial Purposes):</h4>
+        <p className="mb-4 text-gray-700">You are welcome to use these icons for any academic and educational projects, including:</p>
+        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
+          <li>Academic research and papers</li>
+          <li>Educational materials and presentations</li>
+          <li>University seminars and talks</li>
+          <li>Student projects and theses</li>
+        </ul>
+        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Prohibited Use (Strictly Not Allowed):</h4>
+        <p className="mb-4 text-gray-700">The use of these icons is strictly prohibited in any commercial context. This includes, but is not limited to:</p>
+        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
+          <li>Business websites and social media</li>
+          <li>Advertisements and marketing materials</li>
+          <li>Product packaging and branding</li>
+          <li>Corporate projects and apps</li>
+        </ul>
+        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Additional Terms:</h4>
+        <p className="mb-4 text-gray-700">Redistribution, resale, or inclusion of these icons in any download platform or package without explicit permission is strictly prohibited.</p>
+        <p className="mb-4 text-gray-700">For commercial licensing or special use cases, please contact me at: [support@reseachbub.org].</p>
+        <p className="text-gray-700">The website owner reserves the right to interpret these terms of use.</p>
       </div>
     </main>
   );
@@ -708,9 +845,15 @@ export default function App() {
               <Link to="/" className="text-3xl font-bold text-scientific-dark hover:text-scientific-blue transition-colors">
                 ReseachBub
               </Link>
-              <p className="text-gray-600 mt-1">Scientific Icon Resources for Research & Education</p>
+              <p className="text-gray-600 mt-1">Scientific Resources for Research & Education</p>
             </div>
             <div className="flex space-x-3">
+              <button
+                className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
+                onClick={() => navigate('/iconbub')}
+              >
+                IconBub
+              </button>
               <button
                 className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
                 onClick={() => navigate('/softbub')}
@@ -729,8 +872,9 @@ export default function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/iconbub" element={<IconBub />} />
         <Route path="/softbub" element={<SoftBub />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 mt-16">

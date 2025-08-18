@@ -10,6 +10,7 @@ sitemap += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 sitemap += `  <url><loc>${BASE_URL}/</loc></url>\n`;
 sitemap += `  <url><loc>${BASE_URL}/about</loc></url>\n`;
 sitemap += `  <url><loc>${BASE_URL}/softbub</loc></url>\n`;
+sitemap += `  <url><loc>${BASE_URL}/iconbub</loc></url>\n`;
 
 metadata.forEach(icon => {
   sitemap += `  <url><loc>${BASE_URL}/icons/${icon.filename}</loc></url>\n`;
