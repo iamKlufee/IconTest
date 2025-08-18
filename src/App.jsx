@@ -719,7 +719,7 @@ function SoftBub() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-scientific-dark mb-4">SoftBub</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Curated collection of open-source scientific software, providing researchers with the most suitable tools
+        Explore essential software for researchers and educators. This collection includes both powerful open-source tools and proprietary software that's free for academic or personal use.
         </p>
       </div>
 
@@ -884,7 +884,7 @@ export default function App() {
               © 2025 ReseachBub. All rights reserved.
             </p>
             <p className="text-sm text-gray-500">
-              High-quality scientific icons for research and educational purposes
+              High-quality scientific resources for research and educational purposes
             </p>
           </div>
         </div>
