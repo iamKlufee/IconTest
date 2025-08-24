@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, Link } from 'react-router-dom';
+import { loadAllBlogPosts, loadBlogPost } from './utils/markdownParser.jsx';
 
 function IconBub() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -833,6 +834,199 @@ function SoftBub() {
   );
 }
 
+function Blog() {
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  useEffect(() => {
+    loadAllBlogPosts()
+      .then(posts => {
+        setBlogPosts(posts);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  const handlePostClick = async (post) => {
+    if (post.parsedContent) {
+      setSelectedPost(post);
+    } else {
+      // Load the full post if not already loaded
+      const fullPost = await loadBlogPost(post.filename);
+      if (fullPost) {
+        setSelectedPost(fullPost);
+      }
+    }
+  };
+
+  const handleBackToList = () => {
+    setSelectedPost(null);
+  };
+
+  if (loading) {
+    return (
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-scientific-blue mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading blog posts...</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center text-red-500">
+          <p className="text-lg font-medium">Error: {error}</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (selectedPost) {
+    return (
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <button
+          onClick={handleBackToList}
+          className="mb-6 flex items-center text-scientific-blue hover:text-blue-700 transition-colors"
+        >
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Blog
+        </button>
+        
+        {/* Article Header */}
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-scientific-dark mb-4">{selectedPost.title}</h1>
+          <div className="flex items-center space-x-4 text-gray-600 mb-6">
+            <span>By {selectedPost.author}</span>
+            <span>•</span>
+            <span>{selectedPost.date}</span>
+            <span>•</span>
+            <span>{selectedPost.readTime}</span>
+            <span>•</span>
+            <span className="px-3 py-1 bg-scientific-blue text-white text-sm rounded-full">
+              {selectedPost.category}
+            </span>
+          </div>
+        </div>
+
+        {/* Featured Image */}
+        {selectedPost.image && (
+          <div className="mb-8">
+            <img 
+              src={selectedPost.image} 
+              alt={selectedPost.title}
+              className="w-full h-64 object-cover rounded-lg shadow-md" 
+            />
+          </div>
+        )}
+
+        {/* Article Content */}
+        <div className="prose prose-lg max-w-none">
+          {selectedPost.parsedContent}
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Page Title */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-scientific-dark mb-4">Research Blog</h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Practical tutorials and guides for researchers and educators. Learn about useful tools 
+          and techniques to enhance your research workflow.
+        </p>
+      </div>
+
+      {/* Featured Post */}
+      {blogPosts.filter(post => post.featured === 'true' || post.featured === true).map(post => (
+        <div key={post.filename} className="mb-12">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="md:flex">
+              <div className="md:w-1/3">
+                <img 
+                  src={post.image || "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"} 
+                  alt={post.title}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div className="md:w-2/3 p-8">
+                <div className="flex items-center space-x-2 mb-4">
+                  <span className="px-3 py-1 bg-scientific-blue text-white text-sm rounded-full">
+                    {post.category}
+                  </span>
+                  <span className="text-sm text-gray-500">{post.readTime}</span>
+                </div>
+                <h2 className="text-2xl font-bold text-scientific-dark mb-4">{post.title}</h2>
+                <p className="text-gray-600 mb-6 leading-relaxed">{post.excerpt}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4 text-sm text-gray-500">
+                    <span>By {post.author}</span>
+                    <span>•</span>
+                    <span>{post.date}</span>
+                  </div>
+                  <button
+                    onClick={() => handlePostClick(post)}
+                    className="px-6 py-2 bg-scientific-blue text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {/* All Posts */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogPosts.map(post => (
+          <div key={post.filename} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img 
+              src={post.image || "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"} 
+              alt={post.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <div className="flex items-center space-x-2 mb-3">
+                <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                  {post.category}
+                </span>
+                <span className="text-xs text-gray-500">{post.readTime}</span>
+              </div>
+              <h3 className="text-lg font-semibold text-scientific-dark mb-3 line-clamp-2">{post.title}</h3>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
+              <div className="flex items-center justify-between">
+                <div className="text-xs text-gray-500">
+                  {post.date} • {post.author}
+                </div>
+                <button
+                  onClick={() => handlePostClick(post)}
+                  className="text-scientific-blue hover:text-blue-700 text-sm font-medium transition-colors"
+                >
+                  Read More →
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+
+    </main>
+  );
+}
+
 export default function App() {
   const navigate = useNavigate();
   return (
@@ -848,6 +1042,12 @@ export default function App() {
               <p className="text-gray-600 mt-1">Scientific Resources for Research & Education</p>
             </div>
             <div className="flex space-x-3">
+              <button
+                className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
+                onClick={() => navigate('/blog')}
+              >
+                Blog
+              </button>
               <button
                 className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
                 onClick={() => navigate('/iconbub')}
@@ -872,6 +1072,7 @@ export default function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/iconbub" element={<IconBub />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
