@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# 允许访问sitemap
+Sitemap: https://reseachbub.org/sitemap.xml
+
+# 允许访问静态资源
+Allow: /icons/
+Allow: /images/
+Allow: /assets/
+Allow: /public/
+
+# 禁止访问管理文件
+Disallow: /wrangler.toml
+Disallow: /_redirects
+Disallow: /package.json
+Disallow: /package-lock.json

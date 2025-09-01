@@ -3,7 +3,7 @@ const react = require('@vitejs/plugin-react')
 
 module.exports = defineConfig({
   plugins: [react()],
-  base: process.env.CF_PAGES ? '/' : '/ReseachBub/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets'

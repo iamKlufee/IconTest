@@ -9,9 +9,15 @@ publish = "dist"
 NODE_VERSION = "18"
 CF_PAGES = "true"
 
-# 只对HTML路由进行重定向，保留静态文件访问
+# SPA路由处理 - 只对HTML路由进行重定向，保留静态文件访问
 [[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
-conditions = {exclude = ["*.svg", "*.js", "*.css", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.ico", "*.json"]} 
+conditions = {exclude = ["*.svg", "*.js", "*.css", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.ico", "*.json", "*.woff", "*.woff2", "*.ttf", "*.eot"]}
+
+# 添加sitemap.xml的访问规则
+[[redirects]]
+from = "/sitemap.xml"
+to = "/sitemap.xml"
+status = 200 
