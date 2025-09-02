@@ -120,7 +120,8 @@ export async function getBlogPostFiles() {
       // In a real application, you might have an API endpoint that lists available files
   // For now, we'll return a hardcoded list based on what we know exists
   return [
-    'Apply-fusion360.md'
+    'Apply-fusion360.md',
+    'HowToFindPI.md'
   ];
   } catch (error) {
     console.error('Error getting blog post files:', error);
