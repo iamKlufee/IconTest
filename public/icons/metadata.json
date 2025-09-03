@@ -2239,5 +2239,149 @@
     "description": "A three-electrode system for electrochemical experiments, version 2.",
     "downloads": 0,
     "tags": ["three electrodes", "electrochemistry", "system", "chemistry"]
+  },
+  {
+    "id": 250,
+    "name": "Bioreactor",
+    "filename": "bioreactor.svg",
+    "category": "Laboratory Equipment",
+    "description": "A bioreactor for cultivating cells or organisms under controlled conditions.",
+    "downloads": 0,
+    "tags": ["bioreactor", "cell culture", "fermentation", "biology"]
+  },
+  {
+    "id": 251,
+    "name": "Cell Scraper v1",
+    "filename": "cell_scraper_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A tool used to scrape and detach cells from a culture surface, version 1.",
+    "downloads": 0,
+    "tags": ["cell scraper", "cell culture", "tool", "biology"]
+  },
+  {
+    "id": 252,
+    "name": "Cell Scraper v2",
+    "filename": "cell_scraper_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A tool used to scrape and detach cells from a culture surface, version 2.",
+    "downloads": 0,
+    "tags": ["cell scraper", "cell culture", "tool", "biology"]
+  },
+  {
+    "id": 253,
+    "name": "Cell v1",
+    "filename": "cell_v1.svg",
+    "category": "Biology",
+    "description": "A generic icon representing a biological cell, version 1.",
+    "downloads": 0,
+    "tags": ["cell", "biology", "microorganism"]
+  },
+  {
+    "id": 254,
+    "name": "Dry Ice v1",
+    "filename": "dry_ice_v1.svg",
+    "category": "Laboratory Supplies",
+    "description": "An icon representing dry ice (solid carbon dioxide) for cryogenic applications, version 1.",
+    "downloads": 0,
+    "tags": ["dry ice", "cryogenic", "cooling", "storage", "supplies"]
+  },
+  {
+    "id": 255,
+    "name": "Dry Ice v2",
+    "filename": "dry_ice_v2.svg",
+    "category": "Laboratory Supplies",
+    "description": "An icon representing dry ice (solid carbon dioxide) for cryogenic applications, version 2.",
+    "downloads": 0,
+    "tags": ["dry ice", "cryogenic", "cooling", "storage", "supplies"]
+  },
+  {
+    "id": 256,
+    "name": "Extracellular Matrix v1",
+    "filename": "extracellular_matrix_v1.svg",
+    "category": "Biology",
+    "description": "An icon representing the extracellular matrix, version 1.",
+    "downloads": 0,
+    "tags": ["extracellular matrix", "ECM", "biology", "cell"]
+  },
+  {
+    "id": 257,
+    "name": "Needle Holder v1",
+    "filename": "needle_holder_v1.svg",
+    "category": "Laboratory Tools",
+    "description": "A tool for holding and manipulating needles, version 1.",
+    "downloads": 0,
+    "tags": ["needle holder", "tool", "surgical", "suture"]
+  },
+  {
+    "id": 258,
+    "name": "Needle Holder v2",
+    "filename": "needle_holder_v2.svg",
+    "category": "Laboratory Tools",
+    "description": "A tool for holding and manipulating needles, version 2.",
+    "downloads": 0,
+    "tags": ["needle holder", "tool", "surgical", "suture"]
+  },
+  {
+    "id": 259,
+    "name": "Plasmid v1",
+    "filename": "plasmid_v1.svg",
+    "category": "Biology",
+    "description": "An icon representing a plasmid, a small DNA molecule, version 1.",
+    "downloads": 0,
+    "tags": ["plasmid", "dna", "genetics", "biology", "molecule"]
+  },
+  {
+    "id": 260,
+    "name": "Sharps Container v1",
+    "filename": "sharps_container_v1.svg",
+    "category": "Safety & Disposal",
+    "description": "A sharps container for safe disposal of needles and other sharp objects, version 1.",
+    "downloads": 0,
+    "tags": ["sharps container", "safety", "disposal", "medical", "lab"]
+  },
+  {
+    "id": 261,
+    "name": "Sharps Container v2",
+    "filename": "sharps_container_v2.svg",
+    "category": "Safety & Disposal",
+    "description": "A sharps container for safe disposal of needles and other sharp objects, version 2.",
+    "downloads": 0,
+    "tags": ["sharps container", "safety", "disposal", "medical", "lab"]
+  },
+  {
+    "id": 262,
+    "name": "Sharps Container v3",
+    "filename": "sharps_container_v3.svg",
+    "category": "Safety & Disposal",
+    "description": "A sharps container for safe disposal of needles and other sharp objects, version 3.",
+    "downloads": 0,
+    "tags": ["sharps container", "safety", "disposal", "medical", "lab"]
+  },
+  {
+    "id": 263,
+    "name": "Sterilization Pouch v1",
+    "filename": "sterilization_pouch_v1.svg",
+    "category": "Laboratory Supplies",
+    "description": "A pouch for sterilizing lab instruments, version 1.",
+    "downloads": 0,
+    "tags": ["sterilization", "pouch", "autoclave", "supplies", "medical"]
+  },
+  {
+    "id": 264,
+    "name": "Sterilization Pouch v2",
+    "filename": "sterilization_pouch_v2.svg",
+    "category": "Laboratory Supplies",
+    "description": "A pouch for sterilizing lab instruments, version 2.",
+    "downloads": 0,
+    "tags": ["sterilization", "pouch", "autoclave", "supplies", "medical"]
+  },
+  {
+    "id": 265,
+    "name": "Sterilization Pouch v3",
+    "filename": "sterilization_pouch_v3.svg",
+    "category": "Laboratory Supplies",
+    "description": "A pouch for sterilizing lab instruments, version 3.",
+    "downloads": 0,
+    "tags": ["sterilization", "pouch", "autoclave", "supplies", "medical"]
   }
 ]

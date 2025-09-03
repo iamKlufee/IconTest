@@ -17,8 +17,6 @@ This isn't just about finding someone in your field; it's about finding the righ
 
 1. Know Yourself First
    
-![alt text](/images/blog/HowToFindPI/fig1.png)
-
 Before you can find the right advisor, you need to understand your own needs, goals, and working style. Ask yourself some key questions:
 
 - What are my research interests? Be specific. Instead of just "I'm interested in AI," think about what problems you want to solve. Is it in natural language processing, computer vision, or something else entirely? A good fit means a professor whose work excites you.
@@ -31,8 +29,6 @@ Answering these questions will help you create a mental checklist of what you're
 
 2. Research, Research, Research
 
-![alt text](/images/blog/HowToFindPI/fig2.png)
-
 Once you have a clear idea of what you need, it's time to start your research. This goes beyond just looking at department websites.
 
 - Read their publications. This is a must. Don't just look at the titles; read their recent papers. Pay attention to the journals they publish in. This shows you the type of work they do, their research quality, and whether their interests are still active. A prolific publication record is a good sign, but also check to see if their students are first-named authors on those papers. This indicates that their students are actively leading research.
@@ -42,8 +38,6 @@ Once you have a clear idea of what you need, it's time to start your research. T
 - Use academic databases. Sites like Google Scholar and Semantic Scholar can help you see a professor's citation count and publication history. This can give you a good sense of their influence in the field.
 
 3. Talk to People
-
-![alt text](/images/blog/HowToFindPI/fig3.png)
 
 This is arguably the most important step. Don't rely solely on online research. The best way to get a feel for a potential advisor's working style and personality is to talk to those who know them best: their current and former students.
 
@@ -56,8 +50,7 @@ This is arguably the most important step. Don't rely solely on online research. 
 - Connect at conferences or events. If you have the opportunity, a conference is a great place to meet professors and their students in person. It allows for a more natural conversation and can give you a better sense of their dynamic. Be mindful that some professors are very social at conferences, primarily engaging with other faculty members. If you approach such a professor, be patient and avoid interrupting their ongoing conversations. It's often better to catch them during a coffee break or a less busy moment, or to connect with their students first.
 
 4. The Initial Contact
-   
-![alt text](/images/blog/HowToFindPI/fig4.png)
+
 
 Once you've narrowed down your list, it's time to make contact with potential advisors.
 
