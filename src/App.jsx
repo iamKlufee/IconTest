@@ -948,24 +948,17 @@ function SoftBub() {
                 <span className="text-sm text-gray-600">{software.license}</span>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex space-x-2">
-                <a
-                  href={software.downloadUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-scientific-blue text-white text-center py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-200 font-medium"
-                >
-                  Download
-                </a>
-                <a
-                  href={software.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-gray-100 text-scientific-dark text-center py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors duration-200 font-medium"
-                >
-                  Website
-                </a>
+              {/* Additional Information */}
+              <div className="space-y-3">
+                <div className="text-center">
+                  <p className="text-sm text-gray-500 mb-2">
+                    Visit the official website for download and more information
+                  </p>
+                  <div className="flex justify-center space-x-4 text-xs text-gray-400">
+                    <span>✓ Free for academic use</span>
+                    <span>✓ Open source</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
