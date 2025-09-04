@@ -691,6 +691,160 @@ function SoftBub() {
       website: "https://www.paraview.org/",
       license: "BSD-3",
       platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 33,
+      name: "Thunderbird",
+      category: "Email Client",
+      description: "Free and open-source email client developed by Mozilla, supporting multiple email protocols and extensions",
+      icon: "📧",
+      downloadUrl: "https://www.thunderbird.net/zh-CN/",
+      website: "https://www.thunderbird.net/",
+      license: "MPL-2.0",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 34,
+      name: "Arduino IDE",
+      category: "Development Environment",
+      description: "Official integrated development environment for Arduino microcontrollers, perfect for electronics prototyping and learning",
+      icon: "🔌",
+      downloadUrl: "https://www.arduino.cc/en/software",
+      website: "https://www.arduino.cc/en/software",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 35,
+      name: "LibrePCB",
+      category: "CAD Software",
+      description: "Free and open-source EDA software for designing printed circuit boards (PCB) with schematic capture capabilities",
+      icon: "🔧",
+      downloadUrl: "https://librepcb.org/download/",
+      website: "https://librepcb.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 36,
+      name: "Visual Studio Code",
+      category: "Development Environment",
+      description: "Free source-code editor developed by Microsoft, supporting multiple programming languages with rich extensions",
+      icon: "💻",
+      downloadUrl: "https://code.visualstudio.com/Download",
+      website: "https://code.visualstudio.com/",
+      license: "MIT",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 37,
+      name: "KiCAD",
+      category: "CAD Software",
+      description: "Open-source EDA software suite for creating electronic schematic diagrams and printed circuit board layouts",
+      icon: "⚡",
+      downloadUrl: "https://www.kicad.org/download/",
+      website: "https://www.kicad.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 38,
+      name: "ImageOptim",
+      category: "Image Editing",
+      description: "Tool for optimizing images to reduce file sizes without quality loss, supporting multiple image formats",
+      icon: "🖼️",
+      downloadUrl: "https://imageoptim.com/mac",
+      website: "https://imageoptim.com/",
+      license: "GPL-3",
+      platforms: ["macOS"]
+    },
+    {
+      id: 39,
+      name: "OpenShot",
+      category: "Video Editing",
+      description: "Free and open-source video editor with multi-track timeline, effects, and transitions for all skill levels",
+      icon: "🎬",
+      downloadUrl: "https://www.openshot.org/download/",
+      website: "https://www.openshot.org/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 40,
+      name: "RustDesk",
+      category: "Remote Access",
+      description: "Open-source remote desktop software supporting cross-platform remote control with security features",
+      icon: "🖥️",
+      downloadUrl: "https://rustdesk.com/",
+      website: "https://rustdesk.com/",
+      license: "AGPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 41,
+      name: "Zettlr",
+      category: "Note Taking",
+      description: "Markdown editor designed for academic writing with citation management and multiple export formats",
+      icon: "📝",
+      downloadUrl: "https://www.zettlr.com/download",
+      website: "https://www.zettlr.com/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 42,
+      name: "Simplenote",
+      category: "Note Taking",
+      description: "Cross-platform note-taking app by Automattic with real-time sync and Markdown support",
+      icon: "📄",
+      downloadUrl: "https://simplenote.com/downloads/",
+      website: "https://simplenote.com/",
+      license: "GPL-2",
+      platforms: ["Windows", "macOS", "Linux", "Web"]
+    },
+    {
+      id: 43,
+      name: "MarkText",
+      category: "Note Taking",
+      description: "Open-source Markdown editor with real-time preview, multiple themes, and clean interface",
+      icon: "✏️",
+      downloadUrl: "https://github.com/marktext/marktext/releases",
+      website: "https://marktext.app/",
+      license: "MIT",
+      platforms: ["Windows", "macOS", "Linux"]
+    },
+    {
+      id: 44,
+      name: "Skim",
+      category: "PDF Reader",
+      description: "PDF reader and note-taking application for macOS with annotation and highlighting features for academic reading",
+      icon: "📖",
+      downloadUrl: "https://skim-app.sourceforge.io/",
+      website: "https://skim-app.sourceforge.io/",
+      license: "BSD-2",
+      platforms: ["macOS"]
+    },
+    {
+      id: 45,
+      name: "Notepads",
+      category: "Text Editor",
+      description: "Modern Windows text editor with multi-tab support, Markdown preview, and syntax highlighting",
+      icon: "📝",
+      downloadUrl: "https://www.microsoft.com/store/apps/9nhl4nsc67wm",
+      website: "https://www.notepads.app/",
+      license: "MIT",
+      platforms: ["Windows"]
+    },
+    {
+      id: 46,
+      name: "Calibre",
+      category: "E-book Management",
+      description: "Powerful e-book management software supporting multiple formats for reading, converting, and editing e-books",
+      icon: "📚",
+      downloadUrl: "https://calibre-ebook.com/download",
+      website: "https://calibre-ebook.com/",
+      license: "GPL-3",
+      platforms: ["Windows", "macOS", "Linux"]
     }
   ]);
 
