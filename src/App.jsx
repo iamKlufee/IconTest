@@ -948,14 +948,6 @@ function SoftBub() {
                 <span className="text-sm text-gray-600">{software.license}</span>
               </div>
 
-              {/* Additional Information */}
-              <div className="space-y-3">
-                <div className="text-center">
-                  <p className="text-sm text-gray-500">
-                    Visit the official website for download and more information
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         ))}
