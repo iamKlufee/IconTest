@@ -1,0 +1,4 @@
+# ads.txt file for reseachbub.org
+# This file authorizes Google AdSense to serve ads on this domain
+
+google.com, pub-6336477221835114, DIRECT, f08c47fec0942fa0

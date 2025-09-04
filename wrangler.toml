@@ -14,7 +14,7 @@ CF_PAGES = "true"
 from = "/*"
 to = "/index.html"
 status = 200
-conditions = {exclude = ["*.svg", "*.js", "*.css", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.ico", "*.json", "*.woff", "*.woff2", "*.ttf", "*.eot"]}
+conditions = {exclude = ["*.svg", "*.js", "*.css", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.ico", "*.json", "*.woff", "*.woff2", "*.ttf", "*.eot", "*.txt"]}
 
 # 添加sitemap.xml的访问规则
 [[redirects]]
