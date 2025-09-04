@@ -951,13 +951,9 @@ function SoftBub() {
               {/* Additional Information */}
               <div className="space-y-3">
                 <div className="text-center">
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500">
                     Visit the official website for download and more information
                   </p>
-                  <div className="flex justify-center space-x-4 text-xs text-gray-400">
-                    <span>✓ Free for academic use</span>
-                    <span>✓ Open source</span>
-                  </div>
                 </div>
               </div>
             </div>
