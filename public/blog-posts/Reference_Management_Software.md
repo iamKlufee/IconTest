@@ -31,7 +31,7 @@ EndNote, developed by Clarivate Analytics (formerly Thomson Scientific), is a pa
 Mendeley, developed by Elsevier, is a free reference management tool that doubles as an academic social network. Known for its cloud synchronization and PDF annotation capabilities, it’s well-suited for team collaboration and cross-platform use.
 
 ![alt text](/images/blog/Reference_Management_Software/fig1.png)
-<center>Mendeley's main interface</center>
+<center> Mendeley's main interface </center>
 
 ### Key Features
 - Literature Import: Supports drag-and-drop PDF imports with automatic metadata extraction (requires DOI). Webpage literature scraping is available but lacks in-app search.
@@ -41,7 +41,9 @@ Mendeley, developed by Elsevier, is a free reference management tool that double
 - Word Integration: Supports Microsoft Word and LibreOffice for inserting citations and generating bibliographies.
 
 ![alt text](/images/blog/Reference_Management_Software/fig2.png)
-<center>PDF Reader</center>
+<center> 
+PDF Reader 
+</center>
 
 ### Strengths
 - Free to use (premium features require payment), with 2GB storage sufficient for most users.
@@ -50,16 +52,22 @@ Mendeley, developed by Elsevier, is a free reference management tool that double
 - Academic social features facilitate team collaboration and literature sharing.
 
 ![alt text](/images/blog/Reference_Management_Software/fig3.png)
-<center>Plugin Tool for Word</center>
+<center>
+Plugin Tool for Word
+</center>
 
 ## Zotero
 Zotero is a free, open-source reference management tool developed by a non-profit organization. It’s highly customizable with a robust plugin ecosystem and excels in flexible organization.
 
 ![alt text](/images/blog/Reference_Management_Software/fig4.png)
-<center>Zotero's main interface(dark)</center>
+<center>
+Zotero's main interface(dark)
+</center>
 
 ![alt text](/images/blog/Reference_Management_Software/fig7.png)
-<center>Zotero's main interface(light)</center>
+<center>
+Zotero's main interface(light)
+</center>
 
 ### Key Features
 - Literature Capture: The Zotero Connector browser plugin enables one-click capture from platforms like PubMed, Google Scholar, and even non-academic sites like Wikipedia.
@@ -69,7 +77,9 @@ Zotero is a free, open-source reference management tool developed by a non-profi
 - Word Integration: Compatible with Word, LibreOffice, and LaTeX, though citation insertion requires two steps (inserting numbers and generating bibliographies).
 
 ![alt text](/images/blog/Reference_Management_Software/fig5.png)
-<center>Built-in PDF Reader</center>
+<center>
+Built-in PDF Reader
+</center>
 
 ### Strengths
 - Completely free and open-source, ideal for budget-conscious users.
@@ -78,16 +88,22 @@ Zotero is a free, open-source reference management tool developed by a non-profi
 - Powerful web scraping, even from non-academic platforms.
 
 ![alt text](/images/blog/Reference_Management_Software/fig6.png)
-<center>Plugin Tool for Word</center>
+<center>
+Plugin Tool for Word
+</center>
 
 ## ReadCube Papers
 ReadCube Papers (formerly ReadCube) is a subscription-based tool known for its sleek interface and superior PDF reading experience, catering to researchers prioritizing usability and aesthetics.
 
 ![alt text](/images/blog/Reference_Management_Software/fig9.png)
-<center>ReadCube's desktop main interface</center>
+<center>
+ReadCube's desktop main interface
+</center>
 
 ![alt text](/images/blog/Reference_Management_Software/fig13.png)
-<center>ReadCube's web main interface</center>
+<center>
+ReadCube's web main interface
+</center>
 
 ### Key Features
 - Literature Management: Supports drag-and-drop PDF imports with automatic metadata organization and reference list generation.
@@ -98,7 +114,9 @@ ReadCube Papers (formerly ReadCube) is a subscription-based tool known for its s
 - Word Integration: Supports Microsoft Word and Google docs for inserting citations.
 
 ![alt text](/images/blog/Reference_Management_Software/fig12.png)
-<center>Built-in PDF Reader</center>
+<center>
+Built-in PDF Reader
+</center>
 
 ### Strengths
 - Visually appealing interface with an intuitive user experience.
@@ -107,13 +125,17 @@ ReadCube Papers (formerly ReadCube) is a subscription-based tool known for its s
 - Supports MacOS, Windows, Android, IOS and Web.
   
 ![alt text](/images/blog/Reference_Management_Software/fig14.png)
-<center>Plugin Tool for Word</center>
+<center>
+Plugin Tool for Word
+</center>
 
 ## JabRef
 JabRef is a free, open-source reference management tool designed specifically for LaTeX users, using BibTeX and BibLaTeX as its native formats. It is ideal for researchers working with LaTeX documents and seeking a lightweight, customizable solution.
 
 ![alt text](/images/blog/Reference_Management_Software/fig10.png)
-<center>JabRef's main interface</center>
+<center>
+JabRef's main interface
+</center>
 
 ### Key Features
 - Literature Import: Supports imports from over 15 formats and online databases like Google Scholar, PubMed, arXiv, and Springer, with metadata retrieval via identifiers (e.g., DOI, ISBN).
