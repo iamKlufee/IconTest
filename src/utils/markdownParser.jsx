@@ -121,7 +121,8 @@ export async function getBlogPostFiles() {
   // For now, we'll return a hardcoded list based on what we know exists
   return [
     'Apply-fusion360.md',
-    'HowToFindPI.md'
+    'HowToFindPI.md',
+    'Reference_Management_Software.md'
   ];
   } catch (error) {
     console.error('Error getting blog post files:', error);
