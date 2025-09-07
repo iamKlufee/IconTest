@@ -31,7 +31,9 @@ EndNote, developed by Clarivate Analytics (formerly Thomson Scientific), is a pa
 Mendeley, developed by Elsevier, is a free reference management tool that doubles as an academic social network. Known for its cloud synchronization and PDF annotation capabilities, it’s well-suited for team collaboration and cross-platform use.
 
 ![alt text](/images/blog/Reference_Management_Software/fig1.png)
-<center> Mendeley's main interface </center>
+<center>
+ Mendeley's main interface 
+</center>
 
 ### Key Features
 - Literature Import: Supports drag-and-drop PDF imports with automatic metadata extraction (requires DOI). Webpage literature scraping is available but lacks in-app search.
