@@ -50,7 +50,7 @@ PDF Reader
 - Strong PDF annotation tools for in-depth literature review.
 - Academic social features facilitate team collaboration and literature sharing.
 
-![alt text](/images/blog/Reference_Management_Software_Improved/fig3.png)
+![alt text](/images/blog/Reference_Management_Software_Improved/fig3a.png)
 Plugin Tool for Word
 
 ## Zotero
