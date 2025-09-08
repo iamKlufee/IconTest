@@ -2,6 +2,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 
 // Parse frontmatter from markdown content
 export function parseFrontmatter(content) {
@@ -47,7 +48,7 @@ export function parseMarkdown(content) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeHighlight]}
+      rehypePlugins={[rehypeRaw, rehypeHighlight]}
       components={{
         h1: ({node, ...props}) => <h1 className="text-4xl font-bold text-scientific-dark mb-6" {...props} />,
         h2: ({node, ...props}) => <h2 className="text-2xl font-bold text-scientific-dark mt-8 mb-4" {...props} />,
@@ -90,6 +91,7 @@ export function parseMarkdown(content) {
             />
           );
         },
+        center: ({node, ...props}) => <div className="text-center text-sm text-gray-600 italic my-2" {...props} />,
       }}
     >
       {content}
