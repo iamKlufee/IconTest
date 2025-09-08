@@ -31,7 +31,7 @@ EndNote, developed by Clarivate Analytics (formerly Thomson Scientific), is a pa
 Mendeley, developed by Elsevier, is a free reference management tool that doubles as an academic social network. Known for its cloud synchronization and PDF annotation capabilities, it’s well-suited for team collaboration and cross-platform use.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig1.png)
-Mendeley's main interface 
+<center>Mendeley's main interface</center> 
 
 
 ### Key Features
@@ -42,7 +42,7 @@ Mendeley's main interface
 - Word Integration: Supports Microsoft Word and LibreOffice for inserting citations and generating bibliographies.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig2.png)
-PDF Reader 
+<center>PDF Reader</center> 
 
 ### Strengths
 - Free to use (premium features require payment), with 2GB storage sufficient for most users.
@@ -51,16 +51,16 @@ PDF Reader
 - Academic social features facilitate team collaboration and literature sharing.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig3a.png)
-Plugin Tool for Word
+<center>Plugin Tool for Word</center>
 
 ## Zotero
 Zotero is a free, open-source reference management tool developed by a non-profit organization. It’s highly customizable with a robust plugin ecosystem and excels in flexible organization.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig4.png)
-Zotero's main interface(dark)
+<center>Zotero's main interface(dark)</center>
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig7.png)
-Zotero's main interface(light)
+<center>Zotero's main interface(light)</center>
 
 ### Key Features
 - Literature Capture: The Zotero Connector browser plugin enables one-click capture from platforms like PubMed, Google Scholar, and even non-academic sites like Wikipedia.
@@ -70,7 +70,7 @@ Zotero's main interface(light)
 - Word Integration: Compatible with Word, LibreOffice, and LaTeX, though citation insertion requires two steps (inserting numbers and generating bibliographies).
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig5.png)
-Built-in PDF Reader
+<center>Built-in PDF Reader</center>
 
 
 ### Strengths
@@ -80,16 +80,16 @@ Built-in PDF Reader
 - Powerful web scraping, even from non-academic platforms.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig6.png)
-Plugin Tool for Word
+<center>Plugin Tool for Word</center>
 
 ## ReadCube Papers
 ReadCube Papers (formerly ReadCube) is a subscription-based tool known for its sleek interface and superior PDF reading experience, catering to researchers prioritizing usability and aesthetics.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig9.png)
-ReadCube's desktop main interface
+<center>ReadCube's desktop main interface</center>
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig13.png)
-ReadCube's web main interface
+<center>ReadCube's web main interface</center>
 
 ### Key Features
 - Literature Management: Supports drag-and-drop PDF imports with automatic metadata organization and reference list generation.
@@ -100,7 +100,7 @@ ReadCube's web main interface
 - Word Integration: Supports Microsoft Word and Google docs for inserting citations.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig12.png)
-Built-in PDF Reader
+<center>Built-in PDF Reader</center>
 
 ### Strengths
 - Visually appealing interface with an intuitive user experience.
@@ -109,13 +109,13 @@ Built-in PDF Reader
 - Supports MacOS, Windows, Android, IOS and Web.
   
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig14.png)
-Plugin Tool for Word
+<center>Plugin Tool for Word</center>
 
 ## JabRef
 JabRef is a free, open-source reference management tool designed specifically for LaTeX users, using BibTeX and BibLaTeX as its native formats. It is ideal for researchers working with LaTeX documents and seeking a lightweight, customizable solution.
 
 ![alt text](/images/blog/Reference_Management_Software_Improved/fig10.png)
-JabRef's main interface
+<center>JabRef's main interface</center>
 
 ### Key Features
 - Literature Import: Supports imports from over 15 formats and online databases like Google Scholar, PubMed, arXiv, and Springer, with metadata retrieval via identifiers (e.g., DOI, ISBN).
