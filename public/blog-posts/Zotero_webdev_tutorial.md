@@ -1,5 +1,5 @@
 ---
-title: "HMaster Cross-Platform Zotero Synchronization with WebDAV: Your Ultimate Guide"
+title: "Master Cross-Platform Zotero Synchronization with WebDAV: Your Ultimate Guide"
 excerpt: "A step-by-step guide for Zotero Cross-Platform Syncing with WebDAV"
 date: "2025-09-14"
 author: "GlauNee"
@@ -41,13 +41,12 @@ With your WebDAV credentials ready, let's set up your desktop Zotero:
 
 4. Under File Syncing, select WebDAV from the dropdown menu (or check the box for "Sync attachment files in My Library using WebDAV").
 
-5. nter the following details from your cloud storage's My Page:
+5. Enter the following details from your cloud storage's My Page:
 - WebDAV Connection URL
 - Connection ID (often your username or email)
 - App Password (the one you just generated)
 
 6. Click Verify Server. A "Server configuration verified" message confirms a successful setup.
-![alt text](/images/blog/Zotero_webdev_tutorial/fig5.png)
 
 ## Step 3: Syncing Zotero on Your Android Device
 Setting up Zotero Android WebDAV sync is just as straightforward:
