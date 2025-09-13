@@ -124,7 +124,8 @@ export async function getBlogPostFiles() {
   return [
     'Apply-fusion360.md',
     'HowToFindPI.md',
-    'Reference_Management_Software_Improved.md'
+    'Reference_Management_Software_Improved.md',
+    'Zotero_webdev_tutorial.md'
   ];
   } catch (error) {
     console.error('Error getting blog post files:', error);
