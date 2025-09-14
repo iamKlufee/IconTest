@@ -45,6 +45,7 @@ With your WebDAV credentials ready, let's set up your desktop Zotero:
 - WebDAV Connection URL
 - Connection ID (often your username or email)
 - App Password (the one you just generated)
+![alt text](/images/blog/Zotero_webdev_tutorial/fig5-1.png)
 
 6. Click Verify Server. A "Server configuration verified" message confirms a successful setup.
 
