@@ -1,6 +1,17 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate, Link } from 'react-router-dom';
+import { Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom';
 import { loadAllBlogPosts, loadBlogPost } from './utils/markdownParser.jsx';
+
+// 滚动到顶部的组件
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function IconBub() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -9,7 +20,8 @@ function IconBub() {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 30;
+  const [viewMode, setViewMode] = useState('grid'); // grid or list
+  const pageSize = 24;
 
   // Get base path
   const base = import.meta.env.BASE_URL;
@@ -22,6 +34,7 @@ function IconBub() {
     activeCategory === 'All'
       ? icons
       : icons.filter(icon => icon.category === activeCategory);
+  
   // Search filter
   const searchedIcons = search.trim() === ''
     ? filteredIcons
@@ -90,17 +103,17 @@ function IconBub() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-scientific-gray flex items-center justify-center">
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-scientific-blue mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading icon data, please wait...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
+          <p className="text-neutral-600">Loading icon data, please wait...</p>
         </div>
       </div>
     );
 
   if (error)
     return (
-      <div className="min-h-screen bg-scientific-gray flex items-center justify-center">
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
         <div className="text-center text-red-500">
           <p className="text-lg font-medium">Error: {error}</p>
         </div>
@@ -108,103 +121,310 @@ function IconBub() {
     );
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Page Title */}
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      {/* Page Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-semibold text-scientific-dark">IconBub</h1>
-        <p className="text-gray-600 mt-1">Browse scientific icons. 30 per page.</p>
+        <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+          Scientific Icon Library
+        </h1>
+        <p className="text-lg text-neutral-600 max-w-2xl">
+          Discover {icons.length}+ high-quality SVG icons for laboratory equipment, research tools, 
+          and scientific illustrations. Perfect for presentations, papers, and educational materials.
+        </p>
       </div>
 
-      {/* Category Filter */}
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold text-scientific-dark mb-4">Categories</h2>
-        <div className="overflow-x-auto">
-          <div className="inline-flex space-x-3 pb-2">
-            {categories.map(category => (
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Left Sidebar - Categories */}
+        <div className="lg:w-64 flex-shrink-0">
+          <div className="sticky top-8">
+            <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-4">Categories</h2>
+              <div className="space-y-1">
+                {categories.map(category => {
+                  const categoryCount = category === 'All' ? icons.length : icons.filter(icon => icon.category === category).length;
+                  return (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`category-button ${
-                  activeCategory === category ? 'active' : 'inactive'
-                }`}
-              >
-                {category}
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                        activeCategory === category 
+                          ? 'bg-primary-100 text-primary-700' 
+                          : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{category}</span>
+                        <span className="text-xs text-neutral-500">({categoryCount})</span>
+                      </div>
               </button>
-            ))}
+                  );
+                })}
+              </div>
           </div>
         </div>
       </div>
 
+        {/* Right Content Area */}
+        <div className="flex-1 min-w-0">
+          {/* Search and View Controls */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
       {/* Search Box */}
-      <div className="mb-8 flex justify-end">
+            <div className="flex-1 relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg className="h-5 w-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
         <input
           type="text"
-          placeholder="Search icon names or categories..."
+                placeholder="Search icons by name or category..."
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-scientific-blue"
-          style={{ minWidth: 220 }}
+                className="search-input pl-10"
         />
       </div>
 
-      {/* Icons Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+            {/* View Mode Toggle and Results Count */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center text-sm text-neutral-600">
+                <span>{searchedIcons.length} icons found</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-neutral-600">View:</span>
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-primary-100 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setViewMode('list')}
+                  className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-primary-100 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Icons Grid/List */}
+          {loading ? (
+            <div className={`${viewMode === 'grid' ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6' : 'space-y-4'}`}>
+              {Array.from({ length: pageSize }).map((_, index) => (
+                <div key={index} className="card p-6">
+                  <div className="loading-skeleton h-20 mb-4"></div>
+                  <div className="loading-skeleton h-4 w-3/4 mb-2"></div>
+                  <div className="loading-skeleton h-3 w-1/2"></div>
+                </div>
+              ))}
+            </div>
+          ) : viewMode === 'grid' ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
         {paginatedIcons.map(icon => (
-          <div
-            key={icon.id}
-            className="icon-card group"
-          >
-            <div className="p-4 bg-white">
+                <div key={icon.id} className="icon-card group">
+                  <div className="p-6">
+                    <div className="flex items-center justify-center h-24 mb-4 bg-neutral-50 rounded-xl group-hover:bg-primary-50 transition-colors duration-200">
+                      <img
+                        src={icon.imageUrl}
+                        alt={icon.name}
+                        className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-200"
+                      />
+                    </div>
+                    <h3 className="text-sm font-semibold text-neutral-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors text-center">
+                      {icon.name}
+                    </h3>
+                    <p className="text-xs text-neutral-600 mb-1 line-clamp-1 text-center">{icon.category}</p>
+                    <p className="text-xs text-neutral-500 mb-4 text-center">
+                      {icon.downloads.toLocaleString()} downloads
+                    </p>
+                    <button
+                      onClick={() => handleDownload(icon)}
+                      className="download-button"
+                    >
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Download
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {paginatedIcons.map(icon => (
+                <div key={icon.id} className="card p-6">
+                  <div className="flex items-center space-x-6">
+                    <div className="flex-shrink-0 w-16 h-16 bg-neutral-50 rounded-xl flex items-center justify-center">
               <img
                 src={icon.imageUrl}
                 alt={icon.name}
-                className="w-full h-32 object-contain bg-white group-hover:scale-105 transition-transform duration-200"
+                        className="max-w-full max-h-full object-contain"
               />
             </div>
-            <div className="p-4 bg-gray-50">
-              <h3 className="font-semibold text-scientific-dark mb-1 truncate">{icon.name}</h3>
-              <p className="text-sm text-gray-600 mb-2">Category: {icon.category}</p>
-              <p className="text-sm text-gray-600 mb-4">Downloads: {icon.downloads.toLocaleString()}</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-semibold text-neutral-900 mb-1">
+                        {icon.name}
+                      </h3>
+                      <p className="text-xs text-neutral-600 mb-2">{icon.category}</p>
+                      <p className="text-xs text-neutral-500">
+                        {icon.downloads.toLocaleString()} downloads
+                      </p>
+                    </div>
+                    <div className="flex-shrink-0">
               <button
                 onClick={() => handleDownload(icon)}
-                className="download-button w-full"
+                        className="btn-primary"
               >
-                Download SVG
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Download
               </button>
+                    </div>
             </div>
           </div>
         ))}
       </div>
+          )}
 
-      {searchedIcons.length === 0 && (
-        <div className="text-center py-16">
-          <div className="text-gray-400 mb-4">
-            <svg className="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+          {/* No Results */}
+          {!loading && searchedIcons.length === 0 && (
+            <div className="text-center py-20">
+              <div className="text-neutral-300 mb-6">
+                <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </div>
-          <p className="text-gray-600 text-lg">No icons found matching your criteria.</p>
-          <p className="text-gray-500 text-sm mt-2">Try selecting a different category or modifying your search terms.</p>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-2">No icons found</h3>
+              <p className="text-neutral-600 mb-6">Try adjusting your search terms or selecting a different category.</p>
+              <button
+                onClick={() => { setSearch(''); setActiveCategory('All'); }}
+                className="btn-outline"
+              >
+                Clear Filters
+              </button>
         </div>
       )}
 
-      {/* Pagination Controls */}
-      {searchedIcons.length > 0 && (
-        <div className="flex items-center justify-center gap-2 mt-10">
+          {/* Pagination */}
+          {!loading && searchedIcons.length > 0 && (
+            <div className="flex items-center justify-center gap-4 mt-12">
           <button
-            className="px-3 py-1 border rounded disabled:opacity-50"
+                className="btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
           >
-            Prev
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Previous
           </button>
-          <span className="text-sm text-gray-600">Page {currentPage} of {totalPages}</span>
+              
+              <div className="flex items-center space-x-2">
+                {(() => {
+                  const maxVisible = 7;
+                  const halfVisible = Math.floor(maxVisible / 2);
+                  let startPage = Math.max(1, currentPage - halfVisible);
+                  let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+                  
+                  if (endPage - startPage + 1 < maxVisible) {
+                    startPage = Math.max(1, endPage - maxVisible + 1);
+                  }
+                  
+                  const pages = [];
+                  
+                  // 添加第一页和省略号
+                  if (startPage > 1) {
+                    pages.push(
           <button
-            className="px-3 py-1 border rounded disabled:opacity-50"
+                        key={1}
+                        onClick={() => setCurrentPage(1)}
+                        className="px-3 py-2 text-sm font-medium rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100"
+                      >
+                        1
+                      </button>
+                    );
+                    if (startPage > 2) {
+                      pages.push(
+                        <span key="ellipsis1" className="px-2 text-neutral-400">...</span>
+                      );
+                    }
+                  }
+                  
+                  // 添加可见页面
+                  for (let i = startPage; i <= endPage; i++) {
+                    pages.push(
+                      <button
+                        key={i}
+                        onClick={() => setCurrentPage(i)}
+                        className={`px-3 py-2 text-sm font-medium rounded-lg ${
+                          currentPage === i
+                            ? 'bg-primary-600 text-white'
+                            : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                        }`}
+                      >
+                        {i}
+                      </button>
+                    );
+                  }
+                  
+                  // 添加省略号和最后一页
+                  if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) {
+                      pages.push(
+                        <span key="ellipsis2" className="px-2 text-neutral-400">...</span>
+                      );
+                    }
+                    pages.push(
+                      <button
+                        key={totalPages}
+                        onClick={() => setCurrentPage(totalPages)}
+                        className="px-3 py-2 text-sm font-medium rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100"
+                      >
+                        {totalPages}
+                      </button>
+                    );
+                  }
+                  
+                  return pages;
+                })()}
+              </div>
+              
+              <button
+                className="btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
           >
             Next
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* No Results */}
+      {!loading && searchedIcons.length === 0 && (
+        <div className="text-center py-20">
+          <div className="text-neutral-300 mb-6">
+            <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-neutral-900 mb-2">No icons found</h3>
+          <p className="text-neutral-600 mb-6">Try adjusting your search terms or selecting a different category.</p>
+          <button
+            onClick={() => { setSearch(''); setActiveCategory('All'); }}
+            className="btn-outline"
+          >
+            Clear Filters
           </button>
         </div>
       )}
@@ -214,6 +434,7 @@ function IconBub() {
 
 function Home() {
   const [icons, setIcons] = useState([]);
+  const [loading, setLoading] = useState(true);
   const base = import.meta.env.BASE_URL;
 
   useEffect(() => {
@@ -226,65 +447,201 @@ function Home() {
           imageUrl: `${base}icons/${item.filename}`,
         }));
         setIcons(fullData);
+        setLoading(false);
       })
-      .catch(() => setIcons([]));
+      .catch(() => {
+        setIcons([]);
+        setLoading(false);
+      });
   }, [base]);
 
-  const featuredIcons = icons.slice(0, 10);
+  const featuredIcons = icons.slice(0, 12);
 
   const recommendedSoftware = [
-    { name: 'ImageJ', desc: 'Open-source image analysis', link: '/softbub' },
-    { name: 'R', desc: 'Statistical computing', link: '/softbub' },
-    { name: 'Python', desc: 'Scientific computing', link: '/softbub' },
-    { name: 'Blender', desc: '3D visualization', link: '/softbub' },
+    { name: 'ImageJ', desc: 'Open-source image analysis', link: '/softbub', icon: '🔬', category: 'Image Analysis' },
+    { name: 'R', desc: 'Statistical computing', link: '/softbub', icon: '📊', category: 'Statistics' },
+    { name: 'Python', desc: 'Scientific computing', link: '/softbub', icon: '🐍', category: 'Programming' },
+    { name: 'Zotero', desc: 'Reference management', link: '/softbub', icon: '📚', category: 'Research Tools' },
+    { name: 'Blender', desc: '3D visualization', link: '/softbub', icon: '🎭', category: 'Visualization' },
+    { name: 'Inkscape', desc: 'Vector graphics', link: '/softbub', icon: '✏️', category: 'Design' },
+  ];
+
+  const stats = [
+    { label: 'Scientific Icons', value: '268+', icon: '🎯' },
+    { label: 'Software Tools', value: '46+', icon: '💻' },
+    { label: 'Research Articles', value: '4+', icon: '📝' },
+    { label: 'Active Users', value: '1K+', icon: '👥' },
   ];
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero */}
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold text-scientific-dark mb-4">ResearchBub</h1>
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-          A curated hub for scientific resources: icons, software, and tools to accelerate your research.
-        </p>
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <Link to="/iconbub" className="px-5 py-2 bg-scientific-blue text-white rounded-lg hover:bg-blue-600">Explore Icons</Link>
-          <Link to="/softbub" className="px-5 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200">Explore Software</Link>
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section */}
+      <section className="text-center py-20 lg:py-32">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium mb-8">
+            <span className="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
+            Scientific Resources Hub
+          </div>
+          
+          <h1 className="text-5xl lg:text-7xl font-bold text-neutral-900 mb-6 leading-tight">
+            Accelerate Your
+            <span className="bg-gradient-primary bg-clip-text text-transparent"> Research</span>
+          </h1>
+          
+          <p className="text-xl lg:text-2xl text-neutral-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+            Discover high-quality scientific icons, curated software tools, and expert research guides 
+            to streamline your academic workflow.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link to="/iconbub" className="btn-primary px-8 py-4 text-lg">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              Explore Icons
+            </Link>
+            <Link to="/softbub" className="btn-outline px-8 py-4 text-lg">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+              </svg>
+              Browse Software
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 lg:py-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-200">
+                {stat.icon}
+              </div>
+              <div className="text-3xl lg:text-4xl font-bold text-neutral-900 mb-2">
+                {stat.value}
+              </div>
+              <div className="text-neutral-600 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Featured Icons */}
-      <section className="mb-12">
-        <div className="flex items-baseline justify-between mb-4">
-          <h2 className="text-2xl font-semibold text-scientific-dark">Featured Icons</h2>
-          <Link to="/iconbub" className="text-scientific-blue hover:underline">View all</Link>
+      <section className="py-16 lg:py-20">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
+          <div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
+              Featured Scientific Icons
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-2xl">
+              High-quality SVG icons for laboratory equipment, research tools, and scientific illustrations.
+            </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
+          <Link to="/iconbub" className="btn-outline mt-6 lg:mt-0">
+            View All Icons
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+
+        {loading ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {Array.from({ length: 12 }).map((_, index) => (
+              <div key={index} className="card p-6">
+                <div className="loading-skeleton h-20 mb-4"></div>
+                <div className="loading-skeleton h-4 w-3/4"></div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {featuredIcons.map(icon => (
-            <div key={icon.id} className="p-4 bg-white rounded shadow-sm">
-              <img src={icon.imageUrl} alt={icon.name} className="w-full h-20 object-contain" />
-              <p className="mt-2 text-sm text-center text-gray-700 truncate">{icon.name}</p>
+              <div key={icon.id} className="card p-6 group cursor-pointer">
+                <div className="flex items-center justify-center h-20 mb-4 bg-neutral-50 rounded-xl group-hover:bg-primary-50 transition-colors duration-200">
+                  <img 
+                    src={icon.imageUrl} 
+                    alt={icon.name} 
+                    className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-200" 
+                  />
+                </div>
+                <h3 className="text-sm font-medium text-neutral-900 text-center line-clamp-2 group-hover:text-primary-600 transition-colors">
+                  {icon.name}
+                </h3>
+                <div className="text-xs text-neutral-500 text-center mt-1">
+                  {icon.category}
+                </div>
             </div>
           ))}
-          {featuredIcons.length === 0 && (
-            <p className="text-gray-600">No icons to show yet.</p>
-          )}
         </div>
+        )}
       </section>
 
       {/* Recommended Software */}
-      <section>
-        <div className="flex items-baseline justify-between mb-4">
-          <h2 className="text-2xl font-semibold text-scientific-dark">Recommended Software</h2>
-          <Link to="/softbub" className="text-scientific-blue hover:underline">View more</Link>
+      <section className="py-16 lg:py-20">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
+          <div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
+              Essential Research Tools
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-2xl">
+              Curated collection of powerful software tools for data analysis, visualization, and research management.
+            </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {recommendedSoftware.map(item => (
-            <Link key={item.name} to={item.link} className="block bg-white rounded-lg p-4 border hover:shadow">
-              <h3 className="font-semibold text-scientific-dark">{item.name}</h3>
-              <p className="text-gray-600 text-sm mt-1">{item.desc}</p>
+          <Link to="/softbub" className="btn-outline mt-6 lg:mt-0">
+            View All Software
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recommendedSoftware.map((software, index) => (
+            <Link key={software.name} to={software.link} className="card p-6 group">
+              <div className="flex items-start space-x-4">
+                <div className="text-3xl group-hover:scale-110 transition-transform duration-200">
+                  {software.icon}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-neutral-900 group-hover:text-primary-600 transition-colors">
+                      {software.name}
+                    </h3>
+                    <span className="tag-secondary text-xs">
+                      {software.category}
+                    </span>
+                  </div>
+                  <p className="text-neutral-600 text-sm leading-relaxed">
+                    {software.desc}
+                  </p>
+                </div>
+              </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 lg:py-20">
+        <div className="rounded-3xl p-8 lg:p-16 text-center" style={{background: 'linear-gradient(135deg, #6ba0c4 0%, #5680a0 100%)'}}>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
+            Ready to Enhance Your Research?
+          </h2>
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto opacity-90">
+            Join thousands of researchers who trust ReseachBub for their scientific resources and tools.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link to="/blog" className="bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-neutral-100 transition-colors">
+              Read Our Blog
+            </Link>
+            <Link to="/about" className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary-600 transition-colors">
+              Learn More
+            </Link>
+          </div>
         </div>
       </section>
     </main>
@@ -293,53 +650,403 @@ function Home() {
 
 function About() {
   return (
-    <main className="max-w-2xl mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold mb-4 text-scientific-dark">About ReseachBub</h2>
-      <p className="mb-4 text-gray-700">Hello, I'm GlauNee, the creator of this website.</p>
-      <p className="mb-4 text-gray-700">As a postdoctoral researcher in Biotechnology filed with over 20 years of lab experience, I know firsthand how much time and effort goes into preparing compelling figures for slides and papers. The process can be a huge time sink, pulling focus away from the actual research. That's why I created this website—to make it easier for fellow researchers to create powerful scientific presentations, seminars, and publications.</p>
-      <p className="mb-4 text-gray-700">This website is more than just a resource; it's a Research Bubble. A shared space where we can find high-quality scientific icons and more. Beyond just icons, I'm committed to curating other useful open-source resources for the scientific community, from software and templates to tools that can make your work more efficient. My goal is to gather these valuable assets into one convenient bubble, so you can spend less time searching and more time advancing your research.</p>
-      <p className="mb-4 text-gray-700">Hope this helps everyone!</p>
-      <p className="mb-4 text-gray-700">A Note on the Name...</p>
-      <p className="mb-4 text-gray-700">You might have noticed the unusual spelling of our domain name. I originally intended to register "ResearchBub" but accidentally missed the 'R' and ended up with ReseachBub. Due to a limited budget, I decided to embrace the typo and stick with this quirky name. My hope is that despite the small spelling error, this site can still be a valuable hub for your research needs.</p>
-      <p className="mb-4 text-gray-700">The icons you'll find here are ones I created for my own work over the years. I hope they prove helpful to you and save you a little time on your journey.</p>
-      
-      <div className="mt-12 pt-8 border-t border-gray-200">
-        <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Software and Licensing</h3>
-        <p className="mb-4 text-gray-700">This website offers a curated collection of links to open-source and free software that we believe are valuable to researchers. We do not host or distribute these software packages ourselves. All software, icons, and trademarks are the property of their respective owners.</p>
-        <p className="mb-4 text-gray-700">The software we list includes a mix of open-source and proprietary tools that are free for academic use. Before using any of the software listed on this site, you must visit its official website to review and comply with the specific license agreement.</p>
-        <p className="mb-4 text-gray-700">If you believe any software listed here infringes upon a copyright or license, please contact me immediately, and I will remove it without delay.</p>
+    <main className="max-w-6xl mx-auto px-4 py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        {/* 头像区域 */}
+        <div className="lg:col-span-1">
+          <div className="sticky top-8">
+            <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 text-center">
+              <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/images/glauNee-avatar.png" 
+                  alt="GlauNee - Creator of ReseachBub" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-scientific-dark mb-2">GlauNee</h3>
+              <p className="text-gray-600 mb-4">Creator of ReseachBub</p>
+              <p className="text-sm text-gray-500">
+                Biotechnology Postdoctoral Researcher<br />
+                with 20+ years of lab experience
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 内容区域 */}
+        <div className="lg:col-span-2">
+          <h2 className="text-3xl font-bold mb-6 text-scientific-dark">About ReseachBub: Empowering Scientific Discovery</h2>
+          <p className="mb-4 text-gray-700">Hello, I'm GlauNee, the creator of ReseachBub.</p>
+          <p className="mb-4 text-gray-700">As a Biotechnology postdoctoral researcher with over 20 years of hands-on lab experience, I understand the immense time and effort required to craft compelling figures for presentations and publications. This often becomes a significant bottleneck, diverting focus from the core scientific research. That's precisely why I created ReseachBub – to streamline the process for fellow researchers and empower them to create impactful scientific visuals for their presentations, seminars, and publications.</p>
+          <p className="mb-4 text-gray-700">ReseachBub is more than just a resource; it's your dedicated "Research Bubble." This is a shared space where you can discover high-quality open-source scientific icons and a curated selection of other valuable research tools and resources. My commitment is to gather these essential assets into one convenient hub, helping you spend less time searching and more time advancing your groundbreaking research.</p>
+          <p className="mb-4 text-gray-700">I hope this platform proves invaluable to your scientific journey.</p>
+          
+          <div className="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
+            <h3 className="text-lg font-semibold text-blue-800 mb-3">A Note on Our Name: Embracing the Quirky</h3>
+            <p className="text-blue-700">You might have noticed the distinctive spelling of our domain name. I originally intended to register "ResearchBub" but accidentally omitted the 'R', leading to "ReseachBub." With a limited budget, I decided to embrace this unique typo and make it part of our identity. My hope is that despite this small spelling quirk, this site can still serve as a valuable and memorable hub for your research needs.</p>
       </div>
 
       <div className="mt-12 pt-8 border-t border-gray-200">
-        <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Icon License</h3>
-        <p className="mb-4 text-gray-700">All icons on this website are copyrighted by the site owner unless otherwise specified.</p>
-        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Permitted Use (Free for Non-Commercial Purposes):</h4>
-        <p className="mb-4 text-gray-700">You are welcome to use these icons for any academic and educational projects, including:</p>
-        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
-          <li>Academic research and papers</li>
-          <li>Educational materials and presentations</li>
-          <li>University seminars and talks</li>
-          <li>Student projects and theses</li>
+            <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Licensing Information</h3>
+            <p className="mb-4 text-gray-700">For detailed licensing information about our icons, blog content, and software recommendations, please visit our dedicated <Link to="/license" className="text-scientific-primary hover:text-scientific-dark underline">License page</Link>.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function PrivacyPolicy() {
+  return (
+    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-6">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">Privacy Policy</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          We are committed to protecting your privacy and ensuring transparency in how we handle your information.
+        </p>
+      </div>
+      
+      <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 mb-8">
+        <p className="text-sm text-neutral-500 mb-6">
+          Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        
+        <div className="prose prose-lg max-w-none">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Introduction</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            Welcome to ReseachBub. This Privacy Policy explains how we handle information when you visit our website. 
+            We are committed to transparency and privacy protection. Please read this policy carefully.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">What We Collect</h2>
+          <p className="text-neutral-700 mb-4">
+            Our website currently has <strong>no user registration, contact forms, or data collection forms</strong>. 
+            We do not collect any personal information that you actively provide to us.
+          </p>
+          
+          <p className="text-neutral-700 mb-4">
+            However, certain information is automatically collected by third-party services we use:
+          </p>
+
+          <h3 className="text-xl font-semibold text-neutral-800 mb-3">Google AdSense</h3>
+          <p className="text-neutral-700 mb-4">
+            We use Google AdSense to display advertisements. Google may collect:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li>IP address and general location</li>
+            <li>Browser type and device information</li>
+            <li>Pages visited and time spent on site</li>
+            <li>Ad interactions and clicks</li>
         </ul>
-        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Prohibited Use (Strictly Not Allowed):</h4>
-        <p className="mb-4 text-gray-700">The use of these icons is strictly prohibited in any commercial context. This includes, but is not limited to:</p>
-        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-1">
-          <li>Business websites and social media</li>
-          <li>Advertisements and marketing materials</li>
-          <li>Product packaging and branding</li>
-          <li>Corporate projects and apps</li>
+          <p className="text-neutral-700 mb-6">
+            <strong>Data Use:</strong> Google uses this information to show relevant ads and measure ad performance. 
+            You can control ad personalization through your <a href="https://adssettings.google.com" className="text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.
+          </p>
+
+          <h3 className="text-xl font-semibold text-neutral-800 mb-3">Google Fonts</h3>
+          <p className="text-neutral-700 mb-6">
+            We use Google Fonts to display text. Google may collect your IP address and browser information when fonts are loaded. 
+            This is standard practice for web fonts and is necessary for the fonts to display properly.
+          </p>
+
+          <h3 className="text-xl font-semibold text-neutral-800 mb-3">Cloudflare Pages (Hosting)</h3>
+          <p className="text-neutral-700 mb-6">
+            Our website is hosted on Cloudflare Pages, which automatically logs:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li>IP addresses</li>
+            <li>Request timestamps</li>
+            <li>Pages accessed</li>
+            <li>Browser information</li>
         </ul>
-        <h4 className="text-lg font-semibold mb-2 text-scientific-dark">Additional Terms:</h4>
-        <p className="mb-4 text-gray-700">Redistribution, resale, or inclusion of these icons in any download platform or package without explicit permission is strictly prohibited.</p>
-        <p className="mb-4 text-gray-700">For commercial licensing or special use cases, please contact me at: [support@reseachbub.org].</p>
-        <p className="text-gray-700">The website owner reserves the right to interpret these terms of use.</p>
+          <p className="text-neutral-700 mb-6">
+            These logs are used for website operation and basic analytics. Cloudflare's privacy policy applies to this data.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">What We Don't Collect</h2>
+          <p className="text-neutral-700 mb-4">
+            We do <strong>not</strong> collect:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li>Names, email addresses, or contact information</li>
+            <li>User accounts or login credentials</li>
+            <li>Payment information or transaction data</li>
+            <li>Personal preferences or custom settings</li>
+            <li>Survey responses or feedback</li>
+            <li>Newsletter subscriptions</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">How We Use Information</h2>
+          <p className="text-neutral-700 mb-4">
+            The automatically collected information is used for:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li>Displaying advertisements (Google AdSense)</li>
+            <li>Loading fonts properly (Google Fonts)</li>
+            <li>Website operation and performance (Cloudflare)</li>
+            <li>Basic website analytics and security</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Third-Party Services</h2>
+          <p className="text-neutral-700 mb-4">
+            Our website uses these third-party services:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li><strong>Google AdSense:</strong> <a href="https://policies.google.com/privacy" className="text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+            <li><strong>Google Fonts:</strong> <a href="https://policies.google.com/privacy" className="text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+            <li><strong>Cloudflare:</strong> <a href="https://www.cloudflare.com/privacypolicy/" className="text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a></li>
+          </ul>
+          <p className="text-neutral-700 mb-6">
+            We are not responsible for the privacy practices of these third-party services. Please review their privacy policies.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Your Choices</h2>
+          <p className="text-neutral-700 mb-4">
+            You can control your privacy in several ways:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li><strong>Ad Personalization:</strong> Use <a href="https://adssettings.google.com" className="text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">Google Ads Settings</a> to control ad preferences</li>
+            <li><strong>Browser Settings:</strong> Configure your browser to block cookies or tracking</li>
+            <li><strong>Ad Blockers:</strong> Use ad-blocking software to prevent ad tracking</li>
+            <li><strong>Private Browsing:</strong> Use private/incognito mode when visiting our site</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Data Security</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            We rely on third-party services (Google, Cloudflare) for data security. These companies implement industry-standard 
+            security measures. Since we don't collect or store personal information directly, there's minimal risk of data breaches on our end.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Children's Privacy</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            Our website is suitable for all ages and does not knowingly collect personal information from children under 13. 
+            Since we don't collect personal information, this is not a concern for our current setup.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Changes to This Policy</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            We may update this Privacy Policy if we add new features or services. We will post the updated policy on this page 
+            with a new "Last updated" date. Since we don't collect contact information, we cannot notify users directly of changes.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Contact Us</h2>
+          <p className="text-neutral-700 mb-4">
+            If you have questions about this Privacy Policy, you can:
+          </p>
+          <div className="bg-neutral-50 rounded-xl p-6 mb-6">
+            <ul className="list-disc pl-6 text-neutral-700 space-y-2">
+              <li>Visit our <a href="/about" className="text-primary-600 hover:text-primary-700">About page</a> for general information</li>
+              <li>Check our <a href="/terms-of-service" className="text-primary-600 hover:text-primary-700">Terms of Service</a> for usage policies</li>
+            </ul>
+            <p className="text-neutral-700 mt-4">
+              <strong>Note:</strong> We currently do not have a contact form or email address for privacy inquiries. 
+              This is intentional to minimize data collection.
+            </p>
+          </div>
+
+          <div className="bg-primary-50 border border-primary-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-primary-800 mb-3">Privacy Summary</h3>
+            <p className="text-primary-700 text-sm leading-relaxed">
+              <strong>In simple terms:</strong> We don't collect your personal information. Our website uses Google services 
+              for ads and fonts, which may collect some browsing data. You can control this through your browser and Google settings. 
+              We prioritize your privacy by keeping our data collection to the absolute minimum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function TermsOfService() {
+  return (
+    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-6">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">Terms of Service</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          Please read these terms of service carefully before using our website and services.
+        </p>
+      </div>
+      
+      <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 mb-8">
+        <p className="text-sm text-neutral-500 mb-6">
+          Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        
+        <div className="prose prose-lg max-w-none">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">1. Acceptance of Terms</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            By accessing and using ReseachBub ("the Website"), you agree to be bound by these Terms of Service. 
+            If you do not agree to these terms, please do not use this service.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">2. Description of Service</h2>
+          <p className="text-neutral-700 mb-4">
+            ReseachBub provides the following free services:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li><strong>IconBub:</strong> Scientific icon library with 100+ high-quality SVG format scientific icons</li>
+            <li><strong>SoftBub:</strong> Curated free and open-source research software recommendations and download links</li>
+            <li><strong>Blog:</strong> Research tutorials, tool reviews, and best practice guides</li>
+            <li><strong>Resource Navigation:</strong> Organized collection and recommendations of research tools and resources</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">3. User Conduct</h2>
+          <p className="text-neutral-700 mb-4">
+            You agree to use the Website only for lawful purposes and in accordance with the following rules:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li>Do not use the Website for any illegal or harmful purposes</li>
+            <li>Do not attempt to hack, attack, or disrupt Website functionality</li>
+            <li>Do not use automated tools to access the Website in bulk</li>
+            <li>Do not use Website content for commercial purposes (unless explicitly permitted)</li>
+            <li>Respect other users' rights to use the Website</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">4. Intellectual Property Rights</h2>
+          
+          <h3 className="text-xl font-semibold text-neutral-800 mb-3">Scientific Icons License</h3>
+          <p className="text-neutral-700 mb-4">
+            All scientific icons provided on this Website are protected by copyright. Usage license is as follows:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li><strong>✅ Permitted Use:</strong>
+              <ul className="list-disc pl-6 mt-2 space-y-1">
+                <li>Academic research and educational purposes</li>
+                <li>University courses and academic papers</li>
+                <li>Student projects and assignments</li>
+                <li>Non-profit research activities</li>
+              </ul>
+            </li>
+            <li><strong>❌ Prohibited Use:</strong>
+              <ul className="list-disc pl-6 mt-2 space-y-1">
+                <li>Commercial use and profit-making activities</li>
+                <li>Redistribution or resale</li>
+                <li>Inclusion in commercial software packages</li>
+                <li>Unauthorized derivative works</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-semibold text-neutral-800 mb-3">Blog Content</h3>
+          <p className="text-neutral-700 mb-6">
+            Blog articles may be freely read and cited, but please acknowledge the source. Code examples and tutorials 
+            in articles may be used freely, but we recommend crediting the source.
+          </p>
+
+          <h3 className="text-xl font-semibold text-neutral-800 mb-3">Third-Party Content</h3>
+          <p className="text-neutral-700 mb-6">
+            The Website contains links to third-party websites and software. We are not responsible for these external 
+            contents, and you must comply with the respective terms of service when visiting third-party websites.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">5. Software Recommendations Disclaimer</h2>
+          <p className="text-neutral-700 mb-4">
+            Our software recommendations are provided for reference only. Important disclaimers:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li>We do <strong>not host or distribute</strong> any software packages</li>
+            <li>All software belongs to their original developers</li>
+            <li>You must download and comply with each software's license agreement</li>
+            <li>We do <strong>not guarantee</strong> software functionality, security, or compatibility</li>
+            <li>Risks of using third-party software are borne by you</li>
+            <li>If you discover infringing software, please contact us promptly</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">6. Disclaimer of Warranties</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            Information on this Website is provided "as is" without any express or implied warranties. We do not 
+            guarantee the accuracy, completeness, or applicability of information. You bear all risks of using this 
+            Website and its content. To the maximum extent permitted by law, we exclude all liability.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">7. Limitation of Liability</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            In no event shall ReseachBub and its operators be liable for any direct, indirect, incidental, special, 
+            or consequential damages arising from your use of this Website, including but not limited to loss of 
+            profits, data loss, business interruption, etc.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">8. Service Changes and Termination</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            We reserve the right to modify, suspend, or terminate Website services at any time without prior notice. 
+            Since this is a free service, we do not assume responsibility for service interruptions. We may perform 
+            regular Website maintenance, during which brief unavailability may occur.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">9. Advertising and Third-Party Services</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            This Website may contain third-party advertisements (such as Google AdSense). We are not responsible 
+            for advertisement content. Any transactions between you and advertisers are between you and the advertisers; 
+            we are not a party to such transactions. Please review our <a href="/privacy-policy" className="text-primary-600 hover:text-primary-700">Privacy Policy</a> for data processing details.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">10. Changes to Terms</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            We may modify these Terms of Service at any time. Material changes will be posted on this page with an 
+            updated "Last updated" date. Since we cannot proactively notify users, we recommend checking this page 
+            regularly. Continued use of the Website constitutes acceptance of modified terms.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">11. Governing Law</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            These Terms of Service are governed by the laws of the jurisdiction where the Website operates. In case 
+            of disputes, resolution should first be attempted through friendly consultation. If consultation fails, 
+            legal remedies may be sought.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">12. Contact Information</h2>
+          <p className="text-neutral-700 mb-4">
+            If you have questions about these Terms of Service, you may:
+          </p>
+          <div className="bg-neutral-50 rounded-xl p-6 mb-6">
+            <ul className="list-disc pl-6 text-neutral-700 space-y-2">
+              <li>Visit our <a href="/about" className="text-primary-600 hover:text-primary-700">About page</a> for Website information</li>
+              <li>Read our <a href="/privacy-policy" className="text-primary-600 hover:text-primary-700">Privacy Policy</a> for data processing details</li>
+            </ul>
+            <p className="text-neutral-700 mt-4">
+              <strong>Note:</strong> We currently do not provide contact forms or email addresses. This is intentional 
+              to minimize data collection and protect user privacy.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">13. Severability</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            If any part of these terms is deemed invalid or unenforceable, the remaining parts shall remain in effect. 
+            These terms constitute the entire agreement between you and us regarding the use of this Website.
+          </p>
+
+          <div className="bg-primary-50 border border-primary-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-primary-800 mb-3">Terms Summary</h3>
+            <p className="text-primary-700 text-sm leading-relaxed">
+              <strong>In simple terms:</strong> We provide free scientific icons, software recommendations, and tutorials. 
+              Icons are for academic and educational use only, commercial use is prohibited. We do not guarantee 
+              third-party software quality, use at your own risk. We may modify services at any time, so please 
+              check for updates regularly.
+            </p>
+          </div>
+        </div>
       </div>
     </main>
   );
 }
 
 function SoftBub() {
-  const [softwareList, setSoftwareList] = useState([
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [search, setSearch] = useState('');
+  const [viewMode, setViewMode] = useState('grid');
+  
+  const [softwareList] = useState([
     {
       id: 1,
       name: "ImageJ",
@@ -848,9 +1555,6 @@ function SoftBub() {
     }
   ]);
 
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [search, setSearch] = useState('');
-
   // Get all unique categories
   const categories = ['All', ...new Set(softwareList.map(software => software.category))];
 
@@ -869,73 +1573,128 @@ function SoftBub() {
       );
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Page Title */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-scientific-dark mb-4">SoftBub</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        Explore essential software for researchers and educators. This collection includes both powerful open-source tools and proprietary software that's free for academic or personal use.
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      {/* Page Header */}
+      <div className="mb-8">
+        <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+          Research Software Hub
+        </h1>
+        <p className="text-lg text-neutral-600 max-w-2xl">
+          Discover {softwareList.length}+ essential software tools for researchers and educators. 
+          From data analysis to visualization, find the perfect tools for your research workflow.
         </p>
       </div>
 
-      {/* Category Filter */}
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold text-scientific-dark mb-4">Software Categories</h2>
-        <div className="overflow-x-auto">
-          <div className="inline-flex space-x-3 pb-2">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`category-button ${
-                  activeCategory === category ? 'active' : 'inactive'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Left Sidebar - Categories */}
+        <div className="lg:w-64 flex-shrink-0">
+          <div className="sticky top-8">
+            <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-6">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-4">Categories</h2>
+              <div className="space-y-1">
+                {categories.map(category => {
+                  const categoryCount = category === 'All' ? softwareList.length : softwareList.filter(software => software.category === category).length;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setActiveCategory(category)}
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                        activeCategory === category
+                          ? 'bg-primary-100 text-primary-700'
+                          : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{category}</span>
+                        <span className="text-xs text-neutral-500">({categoryCount})</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Search Box */}
-      <div className="mb-8 flex justify-end">
-        <input
-          type="text"
-          placeholder="Search software names, descriptions, or categories..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-scientific-blue"
-          style={{ minWidth: 280 }}
-        />
-      </div>
-
-      {/* Software Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {searchedSoftware.map(software => (
-          <div key={software.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-            {/* Software Icon and Title */}
-            <div className="p-6 border-b border-gray-100">
-              <div className="flex items-center mb-4">
-                <span className="text-4xl mr-3">{software.icon}</span>
-                <div>
-                  <h3 className="text-xl font-semibold text-scientific-dark">{software.name}</h3>
-                  <span className="inline-block px-2 py-1 bg-scientific-blue text-white text-xs rounded-full">
-                    {software.category}
-                  </span>
-                </div>
+        {/* Right Content Area */}
+        <div className="flex-1">
+          {/* Search and View Controls */}
+          <div className="flex flex-col lg:flex-row gap-6 mb-8">
+            {/* Search Box */}
+            <div className="flex-1 relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg className="h-5 w-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">{software.description}</p>
+              <input
+                type="text"
+                placeholder="Search software by name, description, or category..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                className="search-input pl-10"
+              />
+            </div>
+
+            {/* View Mode Toggle */}
+            <div className="flex items-center space-x-2">
+              <span className="text-sm text-neutral-600 mr-3">View:</span>
+              <button
+                onClick={() => setViewMode('grid')}
+                className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-primary-100 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setViewMode('list')}
+                className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-primary-100 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Results Count */}
+            <div className="flex items-center text-sm text-neutral-600">
+              <span>{searchedSoftware.length} tools found</span>
+            </div>
+          </div>
+
+          {/* Software Grid/List */}
+          {viewMode === 'grid' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {searchedSoftware.map(software => (
+            <div key={software.id} className="card group">
+              {/* Software Header */}
+              <div className="p-6 border-b border-neutral-100">
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className="text-4xl group-hover:scale-110 transition-transform duration-200">
+                    {software.icon}
+                  </div>
+                  <div className="flex-1">
+                    <div className="mb-2">
+                      <h3 className="text-xl font-semibold text-neutral-900 group-hover:text-primary-600 transition-colors">
+                        {software.name}
+                      </h3>
+                    </div>
+                    <p className="text-neutral-600 text-sm leading-relaxed line-clamp-3">
+                      {software.description}
+                    </p>
+              </div>
+                </div>
             </div>
 
             {/* Software Information */}
-            <div className="p-6 bg-gray-50">
+              <div className="p-6 bg-neutral-50">
               {/* Platform Support */}
               <div className="mb-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-2">Supported Platforms</h4>
+                  <h4 className="text-sm font-medium text-neutral-700 mb-3">Supported Platforms</h4>
                 <div className="flex flex-wrap gap-2">
                   {software.platforms.map(platform => (
-                    <span key={platform} className="px-2 py-1 bg-white text-xs text-gray-600 rounded border">
+                      <span key={platform} className="tag-secondary text-xs">
                       {platform}
                     </span>
                   ))}
@@ -943,28 +1702,107 @@ function SoftBub() {
               </div>
 
               {/* License */}
-              <div className="mb-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-1">License</h4>
-                <span className="text-sm text-gray-600">{software.license}</span>
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium text-neutral-700 mb-1">License</h4>
+                  <span className="text-sm text-neutral-600">{software.license}</span>
               </div>
 
+                {/* Action Buttons */}
+                <div className="flex gap-3">
+                  <a
+                    href={software.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary flex-1 text-center"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Visit
+                  </a>
+                  <a
+                    href={software.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline flex-1 text-center"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download
+                  </a>
+                </div>
             </div>
           </div>
         ))}
       </div>
+          ) : (
+            <div className="space-y-4">
+              {searchedSoftware.map(software => (
+                <div key={software.id} className="card p-6">
+                  <div className="flex items-center space-x-6">
+                    <div className="text-4xl flex-shrink-0">
+                      {software.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="mb-2">
+                        <h3 className="text-xl font-semibold text-neutral-900">
+                          {software.name}
+                        </h3>
+                      </div>
+                      <p className="text-neutral-600 text-sm mb-3 line-clamp-2">
+                        {software.description}
+                      </p>
+                      <div className="flex items-center space-x-4 text-xs text-neutral-500">
+                        <span>License: {software.license}</span>
+                        <span>•</span>
+                        <span>Platforms: {software.platforms.join(', ')}</span>
+                      </div>
+                    </div>
+                    <div className="flex-shrink-0 flex gap-3">
+                      <a
+                        href={software.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary"
+                      >
+                        Visit
+                      </a>
+                      <a
+                        href={software.downloadUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline"
+                      >
+                        Download
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
-      {/* No Results Message */}
-      {searchedSoftware.length === 0 && (
-        <div className="text-center py-16">
-          <div className="text-gray-400 mb-4">
-            <svg className="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-            </svg>
-          </div>
-          <p className="text-gray-600 text-lg">No software found matching your criteria</p>
-          <p className="text-gray-500 text-sm mt-2">Try selecting a different category or modifying your search terms</p>
+          {/* No Results */}
+          {searchedSoftware.length === 0 && (
+            <div className="text-center py-20">
+              <div className="text-neutral-300 mb-6">
+                <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-2">No software found</h3>
+              <p className="text-neutral-600 mb-6">Try adjusting your search terms or selecting a different category.</p>
+              <button
+                onClick={() => { setSearch(''); setActiveCategory('All'); }}
+                className="btn-outline"
+              >
+                Clear Filters
+              </button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </main>
   );
 }
@@ -1029,37 +1867,46 @@ function Blog() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <button
           onClick={handleBackToList}
-          className="mb-6 flex items-center text-scientific-blue hover:text-blue-700 transition-colors"
+          className="mb-8 flex items-center text-primary-600 hover:text-primary-700 transition-colors group"
         >
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Back to Blog
         </button>
         
         {/* Article Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-scientific-dark mb-4">{selectedPost.title}</h1>
-          <div className="flex items-center space-x-4 text-gray-600 mb-6">
-            <span>By {selectedPost.author}</span>
-            <span>•</span>
-            <span>{selectedPost.date}</span>
-            <span>•</span>
-            <span>{selectedPost.readTime}</span>
-            <span>•</span>
-            <span className="px-3 py-1 bg-scientific-blue text-white text-sm rounded-full">
+        <div className="mb-10">
+          <div className="flex items-center space-x-3 mb-4">
+            <span className="px-4 py-2 bg-primary-100 text-primary-700 text-sm font-medium rounded-xl">
               {selectedPost.category}
             </span>
+            <span className="text-sm text-neutral-500">{selectedPost.readTime}</span>
+          </div>
+          <h1 className="text-5xl font-bold text-neutral-900 mb-6 leading-tight">{selectedPost.title}</h1>
+          <div className="flex items-center space-x-6 text-neutral-600 mb-8">
+            <div className="flex items-center space-x-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>By {selectedPost.author}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>{selectedPost.date}</span>
+            </div>
           </div>
         </div>
 
         {/* Featured Image */}
         {selectedPost.image && (
-          <div className="mb-8">
+          <div className="mb-10">
             <img 
               src={selectedPost.image} 
               alt={selectedPost.title}
-              className="w-full h-64 object-cover rounded-lg shadow-md" 
+              className="w-full h-80 object-cover rounded-2xl shadow-large" 
             />
           </div>
         )}
@@ -1075,82 +1922,56 @@ function Blog() {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Page Title */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-scientific-dark mb-4">Research Blog</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-6">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">Research Blog</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
           Practical tutorials and guides for researchers and educators. Learn about useful tools 
           and techniques to enhance your research workflow.
         </p>
       </div>
 
-      {/* Featured Post */}
-      {blogPosts.filter(post => post.featured === 'true' || post.featured === true).map(post => (
-        <div key={post.filename} className="mb-12">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      {/* All Posts - Horizontal Layout */}
+      <div className="space-y-8">
+        {blogPosts.map(post => (
+          <div key={post.filename} className="bg-white rounded-2xl shadow-soft overflow-hidden border border-neutral-200/50 hover:shadow-medium transition-all duration-300 hover:scale-[1.01]">
             <div className="md:flex">
               <div className="md:w-1/3">
                 <img 
                   src={post.image || "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"} 
                   alt={post.title}
-                  className="w-full h-64 md:h-full object-cover"
+                  className="w-full h-48 md:h-full object-cover"
                 />
               </div>
-              <div className="md:w-2/3 p-8">
-                <div className="flex items-center space-x-2 mb-4">
-                  <span className="px-3 py-1 bg-scientific-blue text-white text-sm rounded-full">
+              <div className="md:w-2/3 p-6">
+                <div className="flex items-center space-x-3 mb-3">
+                  <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-sm font-medium rounded-xl">
                     {post.category}
                   </span>
-                  <span className="text-sm text-gray-500">{post.readTime}</span>
+                  <span className="text-sm text-neutral-500">{post.readTime}</span>
                 </div>
-                <h2 className="text-2xl font-bold text-scientific-dark mb-4">{post.title}</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">{post.excerpt}</p>
+                <h3 className="text-xl font-bold text-neutral-900 mb-3 leading-tight">{post.title}</h3>
+                <p className="text-neutral-600 mb-4 leading-relaxed line-clamp-3">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center space-x-4 text-sm text-neutral-500">
                     <span>By {post.author}</span>
                     <span>•</span>
                     <span>{post.date}</span>
                   </div>
                   <button
                     onClick={() => handlePostClick(post)}
-                    className="px-6 py-2 bg-scientific-blue text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                    className="text-primary-600 hover:text-primary-700 text-sm font-medium transition-colors flex items-center"
                   >
                     Read More
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </button>
-                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      ))}
-
-      {/* All Posts */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map(post => (
-          <div key={post.filename} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            <img 
-              src={post.image || "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"} 
-              alt={post.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <div className="flex items-center space-x-2 mb-3">
-                <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                  {post.category}
-                </span>
-                <span className="text-xs text-gray-500">{post.readTime}</span>
-              </div>
-              <h3 className="text-lg font-semibold text-scientific-dark mb-3 line-clamp-2">{post.title}</h3>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
-              <div className="flex items-center justify-between">
-                <div className="text-xs text-gray-500">
-                  {post.date} • {post.author}
-                </div>
-                <button
-                  onClick={() => handlePostClick(post)}
-                  className="text-scientific-blue hover:text-blue-700 text-sm font-medium transition-colors"
-                >
-                  Read More →
-                </button>
               </div>
             </div>
           </div>
@@ -1164,42 +1985,83 @@ function Blog() {
 
 export default function App() {
   const navigate = useNavigate();
+  const location = window.location.pathname;
+  
   return (
-    <div className="min-h-screen bg-scientific-gray">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-between items-center">
+    <div className="min-h-screen bg-neutral-50">
+      <ScrollToTop />
+      {/* 现代化导航栏 */}
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200/50 shadow-soft">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo区域 */}
+            <div className="flex items-center space-x-4">
+              <Link 
+                to="/" 
+                className="flex items-center space-x-3 group"
+              >
+                <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
             <div>
-              <Link to="/" className="text-3xl font-bold text-scientific-dark hover:text-scientific-blue transition-colors">
+                  <h1 className="text-2xl font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">
                 ReseachBub
+                  </h1>
+                  <p className="text-sm text-neutral-500 hidden sm:block">
+                    Scientific Resources Hub
+                  </p>
+                </div>
               </Link>
-              <p className="text-gray-600 mt-1">Scientific Resources for Research & Education</p>
             </div>
-            <div className="flex space-x-3">
+
+            {/* 导航菜单 */}
+            <nav className="hidden md:flex items-center space-x-1">
               <button
-                className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
+                className={`nav-button ${location === '/blog' ? 'active' : ''}`}
                 onClick={() => navigate('/blog')}
               >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
                 Blog
               </button>
               <button
-                className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
+                className={`nav-button ${location === '/iconbub' ? 'active' : ''}`}
                 onClick={() => navigate('/iconbub')}
               >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
                 IconBub
               </button>
               <button
-                className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
+                className={`nav-button ${location === '/softbub' ? 'active' : ''}`}
                 onClick={() => navigate('/softbub')}
               >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
                 SoftBub
               </button>
               <button
-                className="px-4 py-2 bg-gray-100 text-scientific-dark rounded-lg hover:bg-gray-200 transition-colors font-medium shadow-sm"
+                className={`nav-button ${location === '/about' ? 'active' : ''}`}
                 onClick={() => navigate('/about')}
               >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
                 About
+              </button>
+            </nav>
+
+            {/* 移动端菜单按钮 */}
+            <div className="md:hidden">
+              <button className="btn-ghost p-2">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </button>
             </div>
           </div>
@@ -1211,20 +2073,217 @@ export default function App() {
         <Route path="/iconbub" element={<IconBub />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/license" element={<License />} />
       </Routes>
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <p className="text-gray-600 mb-2">
+      {/* 现代化页脚 */}
+      <footer className="bg-neutral-900 text-white mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Logo和描述 */}
+            <div className="md:col-span-2">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold">ReseachBub</h3>
+              </div>
+              <p className="text-neutral-300 mb-6 max-w-md">
+                A comprehensive platform providing high-quality scientific icons, software recommendations, 
+                and research tools for academics and researchers worldwide.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* 快速链接 */}
+            <div>
+              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><Link to="/iconbub" className="text-neutral-300 hover:text-white transition-colors">Icon Library</Link></li>
+                <li><Link to="/softbub" className="text-neutral-300 hover:text-white transition-colors">Software Tools</Link></li>
+                <li><Link to="/blog" className="text-neutral-300 hover:text-white transition-colors">Research Blog</Link></li>
+                <li><Link to="/about" className="text-neutral-300 hover:text-white transition-colors">About Us</Link></li>
+              </ul>
+            </div>
+
+            {/* 联系信息 */}
+            <div>
+              <h4 className="font-semibold mb-4">Contact</h4>
+              <div className="space-y-2 text-neutral-300">
+                <p>support@reseachbub.org</p>
+                <p>For licensing inquiries</p>
+                <p>Academic partnerships</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 底部版权信息 */}
+          <div className="border-t border-neutral-800 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-neutral-400 text-sm">
               © 2025 ReseachBub. All rights reserved.
             </p>
-            <p className="text-sm text-gray-500">
-              High-quality scientific resources for research and educational purposes
-            </p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <Link to="/privacy-policy" className="text-neutral-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+                <Link to="/terms-of-service" className="text-neutral-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
+                <Link to="/license" className="text-neutral-400 hover:text-white text-sm transition-colors">License</Link>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
     </div>
+  );
+}
+
+function License() {
+  return (
+    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="text-center mb-12">
+        <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">License Information</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          Clear licensing terms for all content and resources provided on ReseachBub.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 mb-8">
+        <p className="text-sm text-neutral-500 mb-6">
+          Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        
+        <div className="prose prose-lg max-w-none">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Scientific Icons License</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            All scientific icons provided on ReseachBub are original creations by the site owner (GlauNee) and are 
+            protected by copyright. These icons were created over years of research work and are shared with the 
+            scientific community under the following terms:
+          </p>
+
+          <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-8">
+            <h3 className="text-xl font-semibold text-green-800 mb-4 flex items-center">
+              <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Permitted Use (Free for Academic and Educational Purposes)
+            </h3>
+            <p className="text-green-700 mb-4">
+              You are welcome to use these icons for any academic and educational projects, including:
+            </p>
+            <ul className="list-disc pl-6 text-green-700 space-y-2">
+              <li>Academic research papers and publications</li>
+              <li>Educational materials and presentations</li>
+              <li>University seminars and conference talks</li>
+              <li>Student projects, theses, and dissertations</li>
+              <li>Non-profit research activities and reports</li>
+              <li>Scientific posters and educational content</li>
+            </ul>
+          </div>
+
+          <div className="bg-red-50 border border-red-200 rounded-xl p-6 mb-8">
+            <h3 className="text-xl font-semibold text-red-800 mb-4 flex items-center">
+              <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Prohibited Use (Strictly Not Allowed)
+            </h3>
+            <p className="text-red-700 mb-4">
+              The use of these icons is strictly prohibited in any commercial context. This includes, but is not limited to:
+            </p>
+            <ul className="list-disc pl-6 text-red-700 space-y-2">
+              <li>Business websites and commercial applications</li>
+              <li>Advertisements and marketing materials</li>
+              <li>Product packaging and branding</li>
+              <li>Corporate presentations and reports</li>
+              <li>Commercial software and apps</li>
+              <li>For-profit training materials</li>
+            </ul>
+          </div>
+
+          <h3 className="text-xl font-semibold text-neutral-800 mb-3">Additional Terms</h3>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li><strong>Redistribution:</strong> You may not redistribute, resell, or include these icons in any download platform or package without explicit written permission.</li>
+            <li><strong>Modification:</strong> You may modify icons for your specific use case, but you may not claim ownership of the modified versions.</li>
+            <li><strong>Attribution:</strong> While not required, we appreciate attribution to ReseachBub when possible.</li>
+            <li><strong>Commercial Licensing:</strong> For commercial use or special licensing arrangements, please contact us through our About page.</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Blog Content License</h2>
+          <p className="text-neutral-700 mb-4">
+            Blog articles and tutorials on ReseachBub are provided under the following terms:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li><strong>Reading and Citation:</strong> Articles may be freely read and cited in academic work with proper attribution.</li>
+            <li><strong>Code Examples:</strong> Code snippets and tutorials may be used freely in your projects, but we recommend crediting the source.</li>
+            <li><strong>Educational Use:</strong> Tutorials and guides may be used for educational purposes without restriction.</li>
+            <li><strong>Commercial Use:</strong> Commercial use of blog content requires permission.</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Software Recommendations</h2>
+          <p className="text-neutral-700 mb-4">
+            Important disclaimers regarding software recommendations:
+          </p>
+          <ul className="list-disc pl-6 text-neutral-700 space-y-2 mb-6">
+            <li><strong>No Distribution:</strong> We do not host, distribute, or provide software packages ourselves.</li>
+            <li><strong>Third-Party Licenses:</strong> All software listed belongs to their respective owners and is subject to their individual license agreements.</li>
+            <li><strong>User Responsibility:</strong> You must review and comply with each software's specific license before use.</li>
+            <li><strong>No Warranty:</strong> We make no guarantees about software functionality, security, or compatibility.</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Website Code and Design</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            The website code, design, and structure are proprietary to ReseachBub. The underlying technology stack 
+            (React, Tailwind CSS, etc.) uses their respective open-source licenses. You may not copy, modify, or 
+            redistribute the website's design or code without permission.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">Copyright Infringement</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            If you believe any content on this website infringes upon a copyright or license, please contact us 
+            immediately through our About page, and we will investigate and remove any infringing content without delay.
+          </p>
+
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">License Changes</h2>
+          <p className="text-neutral-700 mb-6 leading-relaxed">
+            We reserve the right to modify these license terms at any time. Changes will be posted on this page 
+            with an updated "Last updated" date. Continued use of our content after changes constitutes acceptance 
+            of the modified terms.
+          </p>
+
+          <div className="bg-primary-50 border border-primary-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-primary-800 mb-3">License Summary</h3>
+            <p className="text-primary-700 text-sm leading-relaxed">
+              <strong>In simple terms:</strong> Use our icons freely for academic and educational purposes. 
+              Commercial use is prohibited without permission. Blog content can be cited and used for education. 
+              We don't distribute software - only provide links to official sources. Always check individual 
+              software licenses before use.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 } 
