@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Citation Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-quote-left"></i> Academic Citation Generator</h1>
+            <p>Enter DOI to automatically generate citations in multiple academic formats</p>
+        </header>
+
+        <main class="main-content">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="doi-input">DOI (Digital Object Identifier)</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="doi-input" 
+                            placeholder="e.g., 10.1038/nature12373"
+                            autocomplete="off"
+                        >
+                        <button id="fetch-btn" class="fetch-button">
+                            <i class="fas fa-search"></i>
+                            Get Citation
+                        </button>
+                    </div>
+                    <small class="input-hint">Supports full DOI links or DOI numbers only</small>
+                </div>
+            </div>
+
+            <div class="loading-section" id="loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>Fetching paper information...</p>
+            </div>
+
+            <div class="error-section" id="error" style="display: none;">
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="error-text"></span>
+                </div>
+            </div>
+
+            <div class="results-section" id="results" style="display: none;">
+                <div class="paper-info">
+                    <h3>Paper Information</h3>
+                    <div class="paper-details" id="paper-details"></div>
+                </div>
+
+                <div class="citations">
+                    <h3>Citation Formats</h3>
+                    <div class="citation-tabs">
+                        <button class="tab-btn active" data-format="apa">APA</button>
+                        <button class="tab-btn" data-format="mla">MLA</button>
+                        <button class="tab-btn" data-format="chicago">Chicago</button>
+                        <button class="tab-btn" data-format="harvard">Harvard</button>
+                        <button class="tab-btn" data-format="ieee">IEEE</button>
+                    </div>
+                    
+                    <div class="citation-content">
+                        <div class="citation-format active" id="apa-citation"></div>
+                        <div class="citation-format" id="mla-citation"></div>
+                        <div class="citation-format" id="chicago-citation"></div>
+                        <div class="citation-format" id="harvard-citation"></div>
+                        <div class="citation-format" id="ieee-citation"></div>
+                    </div>
+                    
+                    <div class="copy-section">
+                        <button id="copy-btn" class="copy-button">
+                            <i class="fas fa-copy"></i>
+                            Copy Citation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Uses <a href="https://www.crossref.org/" target="_blank">Crossref API</a> to fetch paper metadata</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

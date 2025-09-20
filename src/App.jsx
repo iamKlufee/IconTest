@@ -2037,6 +2037,16 @@ export default function App() {
                 IconBub
               </button>
               <button
+                className={`nav-button ${location === '/toolbub' ? 'active' : ''}`}
+                onClick={() => navigate('/toolbub')}
+              >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                ToolBub
+              </button>
+              <button
                 className={`nav-button ${location === '/softbub' ? 'active' : ''}`}
                 onClick={() => navigate('/softbub')}
               >
@@ -2071,6 +2081,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/iconbub" element={<IconBub />} />
+        <Route path="/toolbub" element={<ToolBub />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2119,6 +2130,7 @@ export default function App() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li><Link to="/iconbub" className="text-neutral-300 hover:text-white transition-colors">Icon Library</Link></li>
+                <li><Link to="/toolbub" className="text-neutral-300 hover:text-white transition-colors">Web Tools</Link></li>
                 <li><Link to="/softbub" className="text-neutral-300 hover:text-white transition-colors">Software Tools</Link></li>
                 <li><Link to="/blog" className="text-neutral-300 hover:text-white transition-colors">Research Blog</Link></li>
                 <li><Link to="/about" className="text-neutral-300 hover:text-white transition-colors">About Us</Link></li>
@@ -2281,6 +2293,106 @@ function License() {
               We don't distribute software - only provide links to official sources. Always check individual 
               software licenses before use.
             </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function ToolBub() {
+  const tools = [
+    {
+      id: 1,
+      name: "Citation Generator",
+      description: "Generate academic citations in multiple formats (APA, MLA, Chicago, Harvard, IEEE) from DOI",
+      icon: "📚",
+      category: "Academic Tools",
+      url: "/citation_tool/index.html",
+      features: ["DOI-based citation", "5 citation formats", "Copy to clipboard", "Free to use"]
+    }
+    // 未来可以添加更多工具
+  ];
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="text-center mb-12">
+        <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">ToolBub</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          A collection of useful web tools to enhance your research workflow and academic productivity.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        {tools.map((tool) => (
+          <div key={tool.id} className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 hover:shadow-lg transition-all duration-300 group">
+            <div className="text-center mb-6">
+              <div className="text-4xl mb-4">{tool.icon}</div>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-2">{tool.name}</h3>
+              <span className="inline-block bg-primary-100 text-primary-700 text-xs font-medium px-3 py-1 rounded-full">
+                {tool.category}
+              </span>
+            </div>
+            
+            <p className="text-neutral-600 mb-6 leading-relaxed">
+              {tool.description}
+            </p>
+
+            <div className="mb-6">
+              <h4 className="text-sm font-semibold text-neutral-700 mb-3">Features:</h4>
+              <ul className="space-y-1">
+                {tool.features.map((feature, index) => (
+                  <li key={index} className="flex items-center text-sm text-neutral-600">
+                    <svg className="w-4 h-4 text-primary-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a 
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg"
+            >
+              <span>Launch Tool</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-16 text-center">
+        <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">More Tools Coming Soon</h2>
+          <p className="text-neutral-600 mb-6">
+            We're constantly working on adding new tools to help with your research workflow. 
+            Have a tool suggestion? Let us know!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-neutral-500">
+            <span className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
+              Reference Manager
+            </span>
+            <span className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
+              Data Converter
+            </span>
+            <span className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
+              Lab Calculator
+            </span>
           </div>
         </div>
       </div>
