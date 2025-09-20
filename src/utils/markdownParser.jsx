@@ -123,6 +123,7 @@ export async function getBlogPostFiles() {
   // For now, we'll return a hardcoded list based on what we know exists
   return [
     'Apply-fusion360.md',
+    'Cell_culture_basic_medium.md',
     'HowToFindPI.md',
     'Reference_Management_Software_Improved.md',
     'Zotero_webdev_tutorial.md'
