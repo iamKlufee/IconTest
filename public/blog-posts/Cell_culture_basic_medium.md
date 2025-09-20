@@ -14,68 +14,47 @@ In the realm of biological research, cell culture media serve as the lifeblood o
 
 Understanding Essential Cell Culture Media
 
-1. Minimum Essential Medium (MEM): The Versatile Classic
+## Minimum Essential Medium (MEM): The Versatile Classic
 MEM is a foundational cell culture medium, forming the base for many other complex formulations, including DMEM. Its balanced composition of essential amino acids and vitamins makes it a reliable choice for a wide array of adherent mammalian cells. It's a go-to for fibroblasts, primary cells, and established lines like HeLa cells.
 ![alt text](/images/blog/Cell_culture_basic_medium/Fig1.png)
 
-2. Dulbecco's Modified Eagle Medium (DMEM): Enriched for Growth
+## Dulbecco's Modified Eagle Medium (DMEM): Enriched for Growth
 An enhanced version of MEM, DMEM boasts a higher concentration of amino acids and vitamins. Its high glucose formulation is particularly beneficial for fast-growing or metabolically active cells. DMEM is frequently the medium of choice for:
-
 - Fibroblast culture
-
 - Endothelial cell growth
-
 - Glial cell maintenance
-
 - Numerous immortalized cell lines (e.g., HeLa, HEK-293)
-
 - Primary cell expansion
 ![alt text](/images/blog/Cell_culture_basic_medium/Fig2.png)
 
-3. Roswell Park Memorial Institute (RPMI) 1640 Medium: For Hematopoietic Cells
+## Roswell Park Memorial Institute (RPMI) 1640 Medium: For Hematopoietic Cells
 Originally developed for suspension culture of human lymphoid cells, RPMI 1640 is highly versatile for various blood cells and hybridomas. It differs from DMEM in its vitamin composition and lower glucose concentration. Key applications include:
-
 - Lymphocyte culture
-
 - Hybridoma production
-
 - Myeloma cell growth
-
 - Culturing other hematopoietic cells
 ![alt text](/images/blog/Cell_culture_basic_medium/Fig3.png)
 
-4. Ham's F-12 Nutrient Mixture: For Specialized Needs
+## Ham's F-12 Nutrient Mixture: For Specialized Needs
 Ham's F-12 is a more complex medium, initially designed for serum-free culture of Chinese hamster ovary (CHO) cells. It offers a broader spectrum of components than MEM or DMEM, including trace elements like zinc, putrescine, hypoxanthine, and thymidine. It's often used in conjunction with other media. Ham's F-12 is ideal for:
-
 - CHO cell culture
-
 - Certain primary cells
-
 - Genetic research applications
 ![alt text](/images/blog/Cell_culture_basic_medium/Fig4.png)
 
-5. DMEM/F-12: The Hybrid Powerhouse
+## DMEM/F-12: The Hybrid Powerhouse
 A popular 1:1 mixture of DMEM and Ham's F-12, this medium combines the enriched nutritional profile of DMEM with the extensive trace elements of F-12. This potent combination creates a highly versatile and enriched medium, particularly advantageous for:
-
 - Serum-free CHO cell culture
-
 - Hybridoma growth
-
 - Glial cell research
-
 - Fibroblast expansion
 
-6. MCDB Media: Tailored for Specific Cell Types
+## MCDB Media: Tailored for Specific Cell Types
 MCDB (Medium for Cell and Development Biology) comprises a family of highly specialized, often serum-free media engineered for specific cell types. They excel at supporting cells with minimal protein or serum requirements. Examples include:
-
 - Human microvascular endothelial cells (MCDB 131)
-
 - Human diploid fibroblast-like cells (MCDB 105, 110)
-
 - Human keratinocytes (MCDB 151)
-
 - Chicken embryo fibroblasts (MCDB 201)
-
 - CHO cells (MCDB 302)
 ![alt text](/images/blog/Cell_culture_basic_medium/Fig5.png)
 
