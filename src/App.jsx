@@ -2082,6 +2082,8 @@ export default function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/iconbub" element={<IconBub />} />
         <Route path="/toolbub" element={<ToolBub />} />
+        <Route path="/citation-tool" element={<CitationTool />} />
+        <Route path="/unit-converter" element={<UnitConverter />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2305,11 +2307,20 @@ function ToolBub() {
     {
       id: 1,
       name: "Citation Generator",
-      description: "Generate academic citations in multiple formats (APA, MLA, Chicago, Harvard, IEEE) from DOI",
+      description: "Generate academic citations in multiple formats (APA, MLA, Chicago, Harvard, IEEE, AMA, ACS, APSA) from DOI",
       icon: "📚",
       category: "Academic Tools",
-      url: "/citation_tool/index.html",
-      features: ["DOI-based citation", "5 citation formats", "Copy to clipboard", "Free to use"]
+      url: "/citation-tool",
+      features: ["DOI-based citation", "8 citation formats", "Copy to clipboard", "Free to use"]
+    },
+    {
+      id: 2,
+      name: "Unit Converter",
+      description: "Convert between different scientific units including length, weight, temperature, concentration, volume, and area",
+      icon: "🔧",
+      category: "Scientific Tools",
+      url: "/unit-converter",
+      features: ["6 unit categories", "Real-time conversion", "Scientific precision", "Easy to use"]
     }
     // 未来可以添加更多工具
   ];
@@ -2358,17 +2369,15 @@ function ToolBub() {
               </ul>
             </div>
 
-            <a 
-              href={tool.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              to={tool.url}
               className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg"
             >
               <span>Launch Tool</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
@@ -2393,6 +2402,904 @@ function ToolBub() {
               <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
               Lab Calculator
             </span>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function CitationTool() {
+  const [doi, setDoi] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [paperData, setPaperData] = useState(null);
+  const [activeFormat, setActiveFormat] = useState('apa');
+  const [copied, setCopied] = useState(false);
+
+  const citationFormats = ['apa', 'mla', 'chicago', 'harvard', 'ieee', 'ama', 'acs', 'apsa'];
+
+  // 清理DOI格式
+  const cleanDOIFormat = (doi) => {
+    let cleanDOI = doi.replace(/^https?:\/\/(dx\.)?doi\.org\//, '');
+    cleanDOI = cleanDOI.replace(/^doi:/, '');
+    
+    if (!cleanDOI.startsWith('10.')) {
+      throw new Error('DOI format is incorrect, should start with 10.');
+    }
+    
+    return cleanDOI;
+  };
+
+  // 获取文献数据
+  const fetchPaperData = async (doi) => {
+    const response = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error('Paper not found for this DOI');
+      } else if (response.status === 429) {
+        throw new Error('Too many requests, please try again later');
+      } else {
+        throw new Error('Failed to fetch paper information');
+      }
+    }
+    
+    const data = await response.json();
+    const work = data.message;
+    
+    return {
+      title: work.title ? work.title[0] : 'Unknown Title',
+      authors: work.author || [],
+      journal: work['container-title'] ? work['container-title'][0] : 'Unknown Journal',
+      year: work['published-print'] ? work['published-print']['date-parts'][0][0] : 
+            work['published-online'] ? work['published-online']['date-parts'][0][0] : 
+            work['created']['date-parts'][0][0],
+      volume: work.volume || '',
+      issue: work.issue || '',
+      pages: work.page || '',
+      doi: work.DOI,
+      publisher: work.publisher || '',
+      url: work.URL || `https://doi.org/${work.DOI}`,
+      abstract: work.abstract || ''
+    };
+  };
+
+  // 格式化作者列表
+  const formatAuthors = (authors) => {
+    if (!authors || authors.length === 0) return 'Unknown Author';
+    
+    return authors.map(author => {
+      const given = author.given || '';
+      const family = author.family || '';
+      return `${given} ${family}`.trim();
+    }).join(', ');
+  };
+
+  // 生成APA格式引用
+  const generateAPACitation = (data) => {
+    const authors = formatAPAAuthors(data.authors);
+    const year = data.year;
+    const title = data.title;
+    const journal = data.journal;
+    const volume = data.volume;
+    const issue = data.issue;
+    const pages = data.pages;
+    const doi = data.doi;
+    
+    let citation = `${authors} (${year}). ${title}. ${journal}`;
+    
+    if (volume) {
+      citation += `, ${volume}`;
+      if (issue) {
+        citation += `(${issue})`;
+      }
+    }
+    
+    if (pages) {
+      citation += `, ${pages}`;
+    }
+    
+    citation += `. https://doi.org/${doi}`;
+    
+    return citation;
+  };
+
+  // 格式化APA作者
+  const formatAPAAuthors = (authors) => {
+    if (!authors || authors.length === 0) return 'Unknown Author';
+    
+    if (authors.length === 1) {
+      return formatSingleAuthorAPA(authors[0]);
+    } else if (authors.length <= 7) {
+      const formattedAuthors = authors.map(author => formatSingleAuthorAPA(author));
+      const lastAuthor = formattedAuthors.pop();
+      return formattedAuthors.join(', ') + ', & ' + lastAuthor;
+    } else {
+      const firstAuthor = formatSingleAuthorAPA(authors[0]);
+      return firstAuthor + ' et al.';
+    }
+  };
+
+  const formatSingleAuthorAPA = (author) => {
+    const family = author.family || '';
+    const given = author.given || '';
+    const initials = given.split(' ').map(name => name.charAt(0) + '.').join(' ');
+    return `${family}, ${initials}`;
+  };
+
+  // 生成AMA格式引用
+  const generateAMACitation = (data) => {
+    const authors = formatAMAAuthors(data.authors);
+    const year = data.year;
+    const title = data.title;
+    const journal = data.journal;
+    const volume = data.volume;
+    const issue = data.issue;
+    const pages = data.pages;
+    const doi = data.doi;
+    
+    let citation = `${authors}. ${title}. ${journal}`;
+    
+    if (year) {
+      citation += `. ${year}`;
+    }
+    
+    if (volume) {
+      citation += `;${volume}`;
+      if (issue) {
+        citation += `(${issue})`;
+      }
+    }
+    
+    if (pages) {
+      citation += `:${pages}`;
+    }
+    
+    citation += `. doi:${doi}`;
+    
+    return citation;
+  };
+
+  // 格式化AMA作者
+  const formatAMAAuthors = (authors) => {
+    if (!authors || authors.length === 0) return 'Unknown Author';
+    
+    if (authors.length <= 6) {
+      return authors.map(author => formatSingleAuthorAMA(author)).join(', ');
+    } else {
+      const firstThree = authors.slice(0, 3).map(author => formatSingleAuthorAMA(author)).join(', ');
+      const lastAuthor = formatSingleAuthorAMA(authors[authors.length - 1]);
+      return `${firstThree}, et al. ${lastAuthor}`;
+    }
+  };
+
+  const formatSingleAuthorAMA = (author) => {
+    const family = author.family || '';
+    const given = author.given || '';
+    const initials = given.split(' ').map(name => name.charAt(0)).join('');
+    return `${family} ${initials}`;
+  };
+
+  // 生成ACS格式引用
+  const generateACSCitation = (data) => {
+    const authors = formatACSAuthors(data.authors);
+    const year = data.year;
+    const title = data.title;
+    const journal = data.journal;
+    const volume = data.volume;
+    const issue = data.issue;
+    const pages = data.pages;
+    const doi = data.doi;
+    
+    let citation = `${authors} ${title} ${journal}`;
+    
+    if (year) {
+      citation += ` ${year}`;
+    }
+    
+    if (volume) {
+      citation += `, ${volume}`;
+      if (issue) {
+        citation += ` (${issue})`;
+      }
+    }
+    
+    if (pages) {
+      citation += `, ${pages}`;
+    }
+    
+    citation += `. DOI: ${doi}`;
+    
+    return citation;
+  };
+
+  // 格式化ACS作者
+  const formatACSAuthors = (authors) => {
+    if (!authors || authors.length === 0) return 'Unknown Author';
+    
+    if (authors.length === 1) {
+      return formatSingleAuthorACS(authors[0]);
+    } else if (authors.length <= 10) {
+      const formattedAuthors = authors.map(author => formatSingleAuthorACS(author));
+      const lastAuthor = formattedAuthors.pop();
+      return formattedAuthors.join('; ') + '; ' + lastAuthor;
+    } else {
+      const firstAuthor = formatSingleAuthorACS(authors[0]);
+      return firstAuthor + ' et al.';
+    }
+  };
+
+  const formatSingleAuthorACS = (author) => {
+    const family = author.family || '';
+    const given = author.given || '';
+    const initials = given.split(' ').map(name => name.charAt(0)).join('');
+    return `${family}, ${initials}`;
+  };
+
+  // 生成APSA格式引用
+  const generateAPSACitation = (data) => {
+    const authors = formatAPSAAuthors(data.authors);
+    const year = data.year;
+    const title = data.title;
+    const journal = data.journal;
+    const volume = data.volume;
+    const issue = data.issue;
+    const pages = data.pages;
+    const doi = data.doi;
+    
+    let citation = `${authors}. "${title}." ${journal}`;
+    
+    if (volume) {
+      citation += ` ${volume}`;
+      if (issue) {
+        citation += `, no. ${issue}`;
+      }
+    }
+    
+    if (year) {
+      citation += ` (${year})`;
+    }
+    
+    if (pages) {
+      citation += `: ${pages}`;
+    }
+    
+    citation += `. doi:${doi}`;
+    
+    return citation;
+  };
+
+  // 格式化APSA作者
+  const formatAPSAAuthors = (authors) => {
+    if (!authors || authors.length === 0) return 'Unknown Author';
+    
+    if (authors.length === 1) {
+      return formatSingleAuthorAPSA(authors[0]);
+    } else if (authors.length <= 3) {
+      const formattedAuthors = authors.map(author => formatSingleAuthorAPSA(author));
+      const lastAuthor = formattedAuthors.pop();
+      return formattedAuthors.join(', ') + ', and ' + lastAuthor;
+    } else {
+      const firstAuthor = formatSingleAuthorAPSA(authors[0]);
+      return firstAuthor + ' et al.';
+    }
+  };
+
+  const formatSingleAuthorAPSA = (author) => {
+    const family = author.family || '';
+    const given = author.given || '';
+    return `${family}, ${given}`;
+  };
+
+  // 处理DOI查询
+  const handleFetchCitation = async () => {
+    if (!doi.trim()) {
+      setError('Please enter a DOI');
+      return;
+    }
+    
+    try {
+      setLoading(true);
+      setError('');
+      setPaperData(null);
+      
+      const cleanDOI = cleanDOIFormat(doi.trim());
+      const data = await fetchPaperData(cleanDOI);
+      setPaperData(data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 复制引用
+  const copyCitation = async () => {
+    if (!paperData) return;
+    
+    let citation = '';
+    switch (activeFormat) {
+      case 'apa':
+        citation = generateAPACitation(paperData);
+        break;
+      case 'ama':
+        citation = generateAMACitation(paperData);
+        break;
+      case 'acs':
+        citation = generateACSCitation(paperData);
+        break;
+      case 'apsa':
+        citation = generateAPSACitation(paperData);
+        break;
+      default:
+        citation = generateAPACitation(paperData);
+    }
+    
+    try {
+      await navigator.clipboard.writeText(citation);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy citation:', error);
+    }
+  };
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="text-center mb-12">
+        <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">Citation Generator</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          Generate academic citations in multiple formats (APA, MLA, Chicago, Harvard, IEEE) from DOI.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 mb-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="mb-6">
+            <label htmlFor="doi-input" className="block text-sm font-semibold text-neutral-700 mb-3">
+              DOI (Digital Object Identifier)
+            </label>
+            <div className="flex gap-3">
+              <input
+                type="text"
+                id="doi-input"
+                value={doi}
+                onChange={(e) => setDoi(e.target.value)}
+                placeholder="e.g., 10.1038/nature12373"
+                className="flex-1 px-4 py-3 border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                onKeyPress={(e) => e.key === 'Enter' && handleFetchCitation()}
+              />
+              <button
+                onClick={handleFetchCitation}
+                disabled={loading}
+                className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    Fetching...
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    Get Citation
+                  </>
+                )}
+              </button>
+            </div>
+            <p className="text-sm text-neutral-500 mt-2">
+              Supports full DOI links or DOI numbers only
+            </p>
+          </div>
+
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+              <div className="flex items-center gap-2 text-red-700">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+                {error}
+              </div>
+            </div>
+          )}
+
+          {loading && (
+            <div className="text-center py-8">
+              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin mx-auto mb-4"></div>
+              <p className="text-neutral-600">Fetching paper information...</p>
+            </div>
+          )}
+
+          {paperData && (
+            <div className="space-y-6">
+              {/* 文献信息 */}
+              <div className="bg-neutral-50 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-4">Paper Information</h3>
+                <div className="grid gap-3 text-sm">
+                  <div className="flex">
+                    <span className="font-medium text-neutral-600 w-20">Title:</span>
+                    <span className="text-neutral-800 flex-1">{paperData.title}</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-medium text-neutral-600 w-20">Authors:</span>
+                    <span className="text-neutral-800 flex-1">{formatAuthors(paperData.authors)}</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-medium text-neutral-600 w-20">Journal:</span>
+                    <span className="text-neutral-800 flex-1">{paperData.journal}</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-medium text-neutral-600 w-20">Year:</span>
+                    <span className="text-neutral-800 flex-1">{paperData.year}</span>
+                  </div>
+                  {paperData.volume && (
+                    <div className="flex">
+                      <span className="font-medium text-neutral-600 w-20">Volume:</span>
+                      <span className="text-neutral-800 flex-1">{paperData.volume}</span>
+                    </div>
+                  )}
+                  {paperData.issue && (
+                    <div className="flex">
+                      <span className="font-medium text-neutral-600 w-20">Issue:</span>
+                      <span className="text-neutral-800 flex-1">{paperData.issue}</span>
+                    </div>
+                  )}
+                  {paperData.pages && (
+                    <div className="flex">
+                      <span className="font-medium text-neutral-600 w-20">Pages:</span>
+                      <span className="text-neutral-800 flex-1">{paperData.pages}</span>
+                    </div>
+                  )}
+                  <div className="flex">
+                    <span className="font-medium text-neutral-600 w-20">DOI:</span>
+                    <a href={paperData.url} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 flex-1">
+                      {paperData.doi}
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* 引用格式 */}
+              <div>
+                <h3 className="text-lg font-semibold text-neutral-900 mb-4">Citation Formats</h3>
+                
+                {/* 格式标签 */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {citationFormats.map((format) => (
+                    <button
+                      key={format}
+                      onClick={() => setActiveFormat(format)}
+                      className={`px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
+                        activeFormat === format
+                          ? 'bg-primary-600 text-white'
+                          : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                      }`}
+                    >
+                      {format.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
+
+                {/* 引用内容 */}
+                <div className="bg-neutral-50 rounded-xl p-6 mb-4">
+                  <div className="font-mono text-sm leading-relaxed text-neutral-800">
+                    {activeFormat === 'apa' && generateAPACitation(paperData)}
+                    {activeFormat === 'ama' && generateAMACitation(paperData)}
+                    {activeFormat === 'acs' && generateACSCitation(paperData)}
+                    {activeFormat === 'apsa' && generateAPSACitation(paperData)}
+                    {activeFormat === 'mla' && generateAPACitation(paperData)}
+                    {activeFormat === 'chicago' && generateAPACitation(paperData)}
+                    {activeFormat === 'harvard' && generateAPACitation(paperData)}
+                    {activeFormat === 'ieee' && generateAPACitation(paperData)}
+                  </div>
+                </div>
+
+                {/* 复制按钮 */}
+                <button
+                  onClick={copyCitation}
+                  className={`px-6 py-3 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2 ${
+                    copied
+                      ? 'bg-green-600 text-white'
+                      : 'bg-primary-600 hover:bg-primary-700 text-white'
+                  }`}
+                >
+                  {copied ? (
+                    <>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                      Copy Citation
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="text-center">
+        <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-6">
+          <p className="text-neutral-600 text-sm">
+            Uses <a href="https://www.crossref.org/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700">Crossref API</a> to fetch paper metadata
+          </p>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function UnitConverter() {
+  const [selectedCategory, setSelectedCategory] = useState('length');
+  const [inputValue, setInputValue] = useState('');
+  const [fromUnit, setFromUnit] = useState('');
+  const [toUnit, setToUnit] = useState('');
+  const [result, setResult] = useState('');
+  const [showResult, setShowResult] = useState(false);
+
+  // Unit definitions
+  const units = {
+    length: {
+      name: 'Length',
+      icon: '📏',
+      units: [
+        { name: 'Meter (m)', value: 'm', factor: 1 },
+        { name: 'Centimeter (cm)', value: 'cm', factor: 0.01 },
+        { name: 'Millimeter (mm)', value: 'mm', factor: 0.001 },
+        { name: 'Kilometer (km)', value: 'km', factor: 1000 },
+        { name: 'Inch (in)', value: 'in', factor: 0.0254 },
+        { name: 'Foot (ft)', value: 'ft', factor: 0.3048 },
+        { name: 'Yard (yd)', value: 'yd', factor: 0.9144 },
+        { name: 'Mile (mi)', value: 'mi', factor: 1609.34 },
+        { name: 'Micrometer (μm)', value: 'um', factor: 0.000001 },
+        { name: 'Nanometer (nm)', value: 'nm', factor: 0.000000001 }
+      ]
+    },
+    weight: {
+      name: 'Weight',
+      icon: '⚖️',
+      units: [
+        { name: 'Kilogram (kg)', value: 'kg', factor: 1 },
+        { name: 'Gram (g)', value: 'g', factor: 0.001 },
+        { name: 'Milligram (mg)', value: 'mg', factor: 0.000001 },
+        { name: 'Microgram (μg)', value: 'ug', factor: 0.000000001 },
+        { name: 'Pound (lb)', value: 'lb', factor: 0.453592 },
+        { name: 'Ounce (oz)', value: 'oz', factor: 0.0283495 },
+        { name: 'Ton (t)', value: 't', factor: 1000 },
+        { name: 'Atomic Mass Unit (u)', value: 'u', factor: 1.66054e-27 }
+      ]
+    },
+    temperature: {
+      name: 'Temperature',
+      icon: '🌡️',
+      units: [
+        { name: 'Celsius (°C)', value: 'c', factor: 1, offset: 0 },
+        { name: 'Fahrenheit (°F)', value: 'f', factor: 5/9, offset: -32 },
+        { name: 'Kelvin (K)', value: 'k', factor: 1, offset: -273.15 }
+      ]
+    },
+    concentration: {
+      name: 'Concentration',
+      icon: '🧪',
+      units: [
+        { name: 'Molar (M)', value: 'M', factor: 1 },
+        { name: 'Millimolar (mM)', value: 'mM', factor: 0.001 },
+        { name: 'Micromolar (μM)', value: 'uM', factor: 0.000001 },
+        { name: 'Nanomolar (nM)', value: 'nM', factor: 0.000000001 },
+        { name: 'Picomolar (pM)', value: 'pM', factor: 0.000000000001 },
+        { name: 'mg/L', value: 'mgL', factor: 0.001 },
+        { name: 'μg/mL', value: 'ugmL', factor: 0.001 },
+        { name: 'ng/mL', value: 'ngmL', factor: 0.000001 },
+        { name: 'Percentage (%)', value: '%', factor: 10 },
+        { name: 'Parts per Million (ppm)', value: 'ppm', factor: 0.001 }
+      ]
+    },
+    volume: {
+      name: 'Volume',
+      icon: '🧴',
+      units: [
+        { name: 'Liter (L)', value: 'L', factor: 1 },
+        { name: 'Milliliter (mL)', value: 'mL', factor: 0.001 },
+        { name: 'Microliter (μL)', value: 'uL', factor: 0.000001 },
+        { name: 'Cubic Meter (m³)', value: 'm3', factor: 1000 },
+        { name: 'Cubic Centimeter (cm³)', value: 'cm3', factor: 0.001 },
+        { name: 'Gallon (gal)', value: 'gal', factor: 3.78541 },
+        { name: 'Quart (qt)', value: 'qt', factor: 0.946353 },
+        { name: 'Pint (pt)', value: 'pt', factor: 0.473176 },
+        { name: 'Fluid Ounce (fl oz)', value: 'floz', factor: 0.0295735 }
+      ]
+    },
+    area: {
+      name: 'Area',
+      icon: '📐',
+      units: [
+        { name: 'Square Meter (m²)', value: 'm2', factor: 1 },
+        { name: 'Square Centimeter (cm²)', value: 'cm2', factor: 0.0001 },
+        { name: 'Square Millimeter (mm²)', value: 'mm2', factor: 0.000001 },
+        { name: 'Square Kilometer (km²)', value: 'km2', factor: 1000000 },
+        { name: 'Square Inch (in²)', value: 'in2', factor: 0.00064516 },
+        { name: 'Square Foot (ft²)', value: 'ft2', factor: 0.092903 },
+        { name: 'Acre (ac)', value: 'ac', factor: 4046.86 },
+        { name: 'Hectare (ha)', value: 'ha', factor: 10000 }
+      ]
+    }
+  };
+
+  // Temperature conversion special handling
+  const convertTemperature = (value, fromUnit, toUnit) => {
+    const tempUnits = units.temperature.units;
+    const fromTemp = tempUnits.find(u => u.value === fromUnit);
+    const toTemp = tempUnits.find(u => u.value === toUnit);
+
+    // First convert to Celsius
+    let celsius;
+    if (fromUnit === 'c') {
+      celsius = value;
+    } else if (fromUnit === 'f') {
+      celsius = (value - 32) * 5/9;
+    } else if (fromUnit === 'k') {
+      celsius = value - 273.15;
+    }
+
+    // Convert from Celsius to target unit
+    let result;
+    if (toUnit === 'c') {
+      result = celsius;
+    } else if (toUnit === 'f') {
+      result = celsius * 9/5 + 32;
+    } else if (toUnit === 'k') {
+      result = celsius + 273.15;
+    }
+
+    return result;
+  };
+
+  // Unit conversion function
+  const convertUnits = (value, fromUnit, toUnit, category) => {
+    if (category === 'temperature') {
+      return convertTemperature(value, fromUnit, toUnit);
+    }
+
+    const categoryUnits = units[category].units;
+    const fromUnitData = categoryUnits.find(u => u.value === fromUnit);
+    const toUnitData = categoryUnits.find(u => u.value === toUnit);
+
+    if (!fromUnitData || !toUnitData) return 0;
+
+    // Convert to base unit, then to target unit
+    const baseValue = value * fromUnitData.factor;
+    const result = baseValue / toUnitData.factor;
+
+    return result;
+  };
+
+  // Handle conversion
+  const handleConvert = () => {
+    if (!inputValue || !fromUnit || !toUnit) {
+      setResult('Please fill in all fields');
+      setShowResult(true);
+      return;
+    }
+
+    const numValue = parseFloat(inputValue);
+    if (isNaN(numValue)) {
+      setResult('Please enter a valid number');
+      setShowResult(true);
+      return;
+    }
+
+    if (fromUnit === toUnit) {
+      setResult(inputValue);
+      setShowResult(true);
+      return;
+    }
+
+    const convertedValue = convertUnits(numValue, fromUnit, toUnit, selectedCategory);
+    setResult(convertedValue.toFixed(6).replace(/\.?0+$/, ''));
+    setShowResult(true);
+  };
+
+  // Reset conversion
+  const handleReset = () => {
+    setInputValue('');
+    setFromUnit('');
+    setToUnit('');
+    setResult('');
+    setShowResult(false);
+  };
+
+  // Swap units
+  const handleSwap = () => {
+    if (fromUnit && toUnit) {
+      const temp = fromUnit;
+      setFromUnit(toUnit);
+      setToUnit(temp);
+      if (result && inputValue) {
+        setInputValue(result);
+        setResult(inputValue);
+      }
+    }
+  };
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="text-center mb-12">
+        <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">Unit Converter</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          Convert between different scientific units including length, weight, temperature, concentration, volume, and area.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 mb-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Unit category selection */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-neutral-900 mb-4">Select Unit Category</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {Object.entries(units).map(([key, category]) => (
+                <button
+                  key={key}
+                  onClick={() => {
+                    setSelectedCategory(key);
+                    handleReset();
+                  }}
+                  className={`p-4 rounded-xl border-2 transition-all duration-200 ${
+                    selectedCategory === key
+                      ? 'border-primary-500 bg-primary-50 text-primary-700'
+                      : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                  }`}
+                >
+                  <div className="text-2xl mb-2">{category.icon}</div>
+                  <div className="text-sm font-medium">{category.name}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Converter main body */}
+          <div className="bg-neutral-50 rounded-xl p-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Input area */}
+              <div>
+                <label className="block text-sm font-semibold text-neutral-700 mb-3">
+                  From
+                </label>
+                <div className="space-y-3">
+                  <input
+                    type="number"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder="Enter value"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  />
+                  <select
+                    value={fromUnit}
+                    onChange={(e) => setFromUnit(e.target.value)}
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  >
+                    <option value="">Select unit</option>
+                    {units[selectedCategory].units.map((unit) => (
+                      <option key={unit.value} value={unit.value}>
+                        {unit.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Output area */}
+              <div>
+                <label className="block text-sm font-semibold text-neutral-700 mb-3">
+                  To
+                </label>
+                <div className="space-y-3">
+                  <div className="w-full px-4 py-3 bg-white border border-neutral-300 rounded-xl text-neutral-600">
+                    {showResult ? result : 'Result will appear here'}
+                  </div>
+                  <select
+                    value={toUnit}
+                    onChange={(e) => setToUnit(e.target.value)}
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  >
+                    <option value="">Select unit</option>
+                    {units[selectedCategory].units.map((unit) => (
+                      <option key={unit.value} value={unit.value}>
+                        {unit.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="flex flex-wrap gap-4 mt-6">
+              <button
+                onClick={handleConvert}
+                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+                Convert
+              </button>
+              
+              <button
+                onClick={handleSwap}
+                className="bg-neutral-600 hover:bg-neutral-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+                </svg>
+                Swap
+              </button>
+              
+              <button
+                onClick={handleReset}
+                className="bg-neutral-400 hover:bg-neutral-500 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Usage instructions */}
+      <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-6">
+        <h3 className="text-lg font-semibold text-neutral-900 mb-4">How to Use</h3>
+        <div className="grid md:grid-cols-3 gap-6 text-sm text-neutral-600">
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-primary-600 font-semibold text-xs">1</span>
+            </div>
+            <div>
+              <div className="font-semibold text-neutral-700 mb-1">Select Category</div>
+              <div>Choose the type of units you want to convert (length, weight, temperature, etc.)</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-primary-600 font-semibold text-xs">2</span>
+            </div>
+            <div>
+              <div className="font-semibold text-neutral-700 mb-1">Enter Values</div>
+              <div>Input the number and select the source and target units</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-primary-600 font-semibold text-xs">3</span>
+            </div>
+            <div>
+              <div className="font-semibold text-neutral-700 mb-1">Get Result</div>
+              <div>Click Convert to see the result instantly</div>
+            </div>
           </div>
         </div>
       </div>
