@@ -1,17 +1,45 @@
 User-agent: *
 Allow: /
 
-# 允许访问sitemap
-Sitemap: https://reseachbub.org/sitemap.xml
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
 
-# 允许访问静态资源
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Disallow development and build files
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /package*.json
+Disallow: /vite.config.js
+Disallow: /tailwind.config.js
+Disallow: /postcss.config.js
+Disallow: /wrangler.toml
+Disallow: /*.map$
+
+# Allow important directories
 Allow: /icons/
 Allow: /images/
+Allow: /blog-posts/
 Allow: /assets/
-Allow: /public/
 
-# 禁止访问管理文件
-Disallow: /wrangler.toml
-Disallow: /_redirects
-Disallow: /package.json
-Disallow: /package-lock.json
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://reseachbub.org/sitemap.xml

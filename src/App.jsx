@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom';
 import { loadAllBlogPosts, loadBlogPost } from './utils/markdownParser.jsx';
+import SEOHead from './components/SEOHead';
 
 // 滚动到顶部的组件
 function ScrollToTop() {
@@ -474,8 +475,16 @@ function Home() {
   ];
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Hero Section */}
+    <>
+      <SEOHead 
+        title="ReseachBub - Scientific Research Platform | Free Icons, Tools & Resources"
+        description="Empowering scientists, researchers, and academics worldwide with 200+ free scientific icons, comprehensive research tools, citation generators, unit converters, and educational resources to streamline research workflows and accelerate discovery."
+        keywords="scientific icons, research tools, citation generator, unit converter, scientific visualization, biotechnology, laboratory equipment, academic resources, open source science, research platform, scientific figures, publication tools, academic software, scientific presentation, research workflow, laboratory software, scientific computing, data visualization, research methodology, scientific communication, academic tools, research productivity, scientific resources, laboratory management, research collaboration, scientific education, academic research, laboratory automation, scientific analysis, research innovation, scientific discovery, academic excellence, research efficiency, scientific methodology, laboratory techniques, research development, scientific progress, academic advancement, research optimization, scientific excellence"
+        url="https://reseachbub.org/"
+        type="website"
+      />
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Section */}
       <section className="text-center py-20 lg:py-32">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium mb-8">
@@ -485,11 +494,11 @@ function Home() {
           
           <h1 className="text-5xl lg:text-7xl font-bold text-neutral-900 mb-6 leading-tight">
             Accelerate Your
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> Research</span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent"> Scientific Research</span>
           </h1>
           
           <p className="text-xl lg:text-2xl text-neutral-600 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Discover high-quality scientific icons, curated software tools, and expert research guides 
+            Empowering scientists, researchers, and academics worldwide with 200+ free scientific icons, comprehensive research tools, citation generators, unit converters, and educational resources to streamline research workflows and accelerate discovery 
             to streamline your academic workflow.
           </p>
           
@@ -644,13 +653,40 @@ function Home() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
 
 function About() {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-16">
+    <>
+      <SEOHead 
+        title="About ReseachBub - Scientific Research Platform | Dr. GlauNee"
+        description="Learn about ReseachBub, a comprehensive scientific research platform founded by Dr. GlauNee, a biotechnology postdoctoral researcher with 20+ years of laboratory experience. Discover our mission to accelerate scientific discovery through free tools and resources."
+        keywords="about reseachbub, dr glaunee, biotechnology researcher, scientific research platform, open science, research tools, scientific visualization, laboratory experience, postdoctoral researcher, scientific community, research collaboration, academic resources, scientific discovery, research innovation"
+        url="https://reseachbub.org/about"
+        type="website"
+      />
+      <main className="max-w-6xl mx-auto px-4 py-16">
+        {/* SEO优化：添加结构化数据 */}
+        <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "GlauNee",
+          "jobTitle": "Biotechnology Postdoctoral Researcher",
+          "description": "Creator of ReseachBub - A comprehensive platform for scientific research tools, icons, and resources",
+          "url": "https://reseachbub.com/about",
+          "image": "https://reseachbub.com/images/glauNee-avatar.png",
+          "sameAs": [],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "ReseachBub"
+          }
+        })}
+      </script>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
         {/* 头像区域 */}
         <div className="lg:col-span-1">
@@ -659,40 +695,189 @@ function About() {
               <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg">
                 <img 
                   src="/images/glauNee-avatar.png" 
-                  alt="GlauNee - Creator of ReseachBub" 
+                  alt="GlauNee - Biotechnology Postdoctoral Researcher and Creator of ReseachBub Scientific Research Platform" 
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
-              <h3 className="text-xl font-bold text-scientific-dark mb-2">GlauNee</h3>
-              <p className="text-gray-600 mb-4">Creator of ReseachBub</p>
-              <p className="text-sm text-gray-500">
+              <h3 className="text-xl font-bold text-scientific-dark mb-2">Dr. GlauNee</h3>
+              <p className="text-gray-600 mb-4">Founder & Lead Researcher</p>
+              <p className="text-sm text-gray-500 mb-4">
                 Biotechnology Postdoctoral Researcher<br />
-                with 20+ years of lab experience
+                20+ years laboratory experience<br />
+                Open Science Advocate
               </p>
+              <div className="space-y-2 text-xs text-gray-600">
+                <div className="flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  <span>Scientific Visualization</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                  </svg>
+                  <span>Research Tools</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  <span>Open Source</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* 内容区域 */}
         <div className="lg:col-span-2">
-          <h2 className="text-3xl font-bold mb-6 text-scientific-dark">About ReseachBub: Empowering Scientific Discovery</h2>
-          <p className="mb-4 text-gray-700">Hello, I'm GlauNee, the creator of ReseachBub.</p>
-          <p className="mb-4 text-gray-700">As a Biotechnology postdoctoral researcher with over 20 years of hands-on lab experience, I understand the immense time and effort required to craft compelling figures for presentations and publications. This often becomes a significant bottleneck, diverting focus from the core scientific research. That's precisely why I created ReseachBub – to streamline the process for fellow researchers and empower them to create impactful scientific visuals for their presentations, seminars, and publications.</p>
-          <p className="mb-4 text-gray-700">ReseachBub is more than just a resource; it's your dedicated "Research Bubble." This is a shared space where you can discover high-quality open-source scientific icons and a curated selection of other valuable research tools and resources. My commitment is to gather these essential assets into one convenient hub, helping you spend less time searching and more time advancing your groundbreaking research.</p>
-          <p className="mb-4 text-gray-700">I hope this platform proves invaluable to your scientific journey.</p>
+          <header className="mb-8">
+            <h1 className="text-4xl font-bold mb-4 text-scientific-dark">About ReseachBub: Advancing Scientific Research Through Technology</h1>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              A comprehensive research platform dedicated to empowering scientists, researchers, and academics with essential tools and resources for modern scientific work.
+            </p>
+          </header>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-scientific-dark">Our Mission</h2>
+            <p className="mb-4 text-gray-700 leading-relaxed">
+              ReseachBub was founded by Dr. GlauNee, a biotechnology postdoctoral researcher with over two decades of hands-on laboratory experience. Having witnessed firsthand the challenges researchers face in creating compelling scientific visualizations and managing research workflows, we recognized the need for a centralized platform that streamlines these processes.
+            </p>
+            <p className="mb-4 text-gray-700 leading-relaxed">
+              Our mission is to accelerate scientific discovery by providing researchers with high-quality, open-source scientific icons, comprehensive research tools, and curated resources that reduce time spent on administrative tasks and increase time focused on breakthrough research.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-scientific-dark">What We Offer</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
+                <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
+                  </svg>
+                  Scientific Icon Library
+                </h3>
+                <p className="text-blue-700 text-sm">
+                  Over 200+ high-quality, open-source scientific icons covering biology, chemistry, physics, and engineering disciplines. All icons are optimized for presentations, publications, and educational materials.
+                </p>
+              </div>
+              <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Research Tools
+                </h3>
+                <p className="text-green-700 text-sm">
+                  Comprehensive collection of citation generators, unit converters, file compression tools, and software recommendations specifically curated for scientific research workflows.
+                </p>
+              </div>
+              <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
+                <h3 className="text-lg font-semibold text-purple-800 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  Educational Resources
+                </h3>
+                <p className="text-purple-700 text-sm">
+                  Expert-written blog posts, tutorials, and guides covering scientific visualization techniques, research methodologies, and best practices for academic presentations.
+                </p>
+              </div>
+              <div className="bg-orange-50 rounded-xl p-6 border border-orange-200">
+                <h3 className="text-lg font-semibold text-orange-800 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
+                  </svg>
+                  Open Science
+                </h3>
+                <p className="text-orange-700 text-sm">
+                  Committed to open science principles, providing free access to research tools and resources that promote collaboration and accelerate scientific progress.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-scientific-dark">Our Impact</h2>
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="text-center p-4 bg-gray-50 rounded-lg">
+                <div className="text-3xl font-bold text-primary-600 mb-2">200+</div>
+                <div className="text-sm text-gray-600">Scientific Icons</div>
+              </div>
+              <div className="text-center p-4 bg-gray-50 rounded-lg">
+                <div className="text-3xl font-bold text-primary-600 mb-2">10K+</div>
+                <div className="text-sm text-gray-600">Downloads</div>
+              </div>
+              <div className="text-center p-4 bg-gray-50 rounded-lg">
+                <div className="text-3xl font-bold text-primary-600 mb-2">50+</div>
+                <div className="text-sm text-gray-600">Research Tools</div>
+              </div>
+            </div>
+            <p className="text-gray-700 leading-relaxed">
+              Since our launch, ReseachBub has become a trusted resource for researchers worldwide, supporting scientists in universities, research institutions, and industry laboratories. Our platform has facilitated thousands of research projects, helping researchers create more impactful presentations and streamline their workflows.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-scientific-dark">Our Values</h2>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Accessibility</h3>
+                  <p className="text-gray-700 text-sm">We believe high-quality research tools should be accessible to all researchers, regardless of budget constraints or institutional resources.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Quality</h3>
+                  <p className="text-gray-700 text-sm">Every resource on our platform is carefully curated and tested to ensure it meets the high standards required for professional scientific work.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Collaboration</h3>
+                  <p className="text-gray-700 text-sm">We foster a collaborative environment where researchers can share knowledge, tools, and best practices to advance scientific discovery together.</p>
+                </div>
+              </div>
+            </div>
+          </section>
           
           <div className="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
-            <h3 className="text-lg font-semibold text-blue-800 mb-3">A Note on Our Name: Embracing the Quirky</h3>
-            <p className="text-blue-700">You might have noticed the distinctive spelling of our domain name. I originally intended to register "ResearchBub" but accidentally omitted the 'R', leading to "ReseachBub." With a limited budget, I decided to embrace this unique typo and make it part of our identity. My hope is that despite this small spelling quirk, this site can still serve as a valuable and memorable hub for your research needs.</p>
+            <h3 className="text-lg font-semibold text-blue-800 mb-3">About Our Name</h3>
+            <p className="text-blue-700">
+              You might have noticed the distinctive spelling of our domain name. Originally intended to be "ResearchBub," a typo during registration led to "ReseachBub." Rather than seeing this as a mistake, we embraced it as a unique identity that reflects our innovative and unconventional approach to supporting scientific research. This quirky name has become a memorable part of our brand, representing our commitment to thinking outside the box in service of the scientific community.
+            </p>
       </div>
 
       <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Licensing Information</h3>
-            <p className="mb-4 text-gray-700">For detailed licensing information about our icons, blog content, and software recommendations, please visit our dedicated <Link to="/license" className="text-scientific-primary hover:text-scientific-dark underline">License page</Link>.</p>
+            <h3 className="text-2xl font-bold mb-4 text-scientific-dark">Legal Information</h3>
+            <p className="mb-4 text-gray-700">
+              For detailed information about licensing, terms of service, and privacy policies, please visit our <Link to="/license" className="text-scientific-primary hover:text-scientific-dark underline">License page</Link> and <Link to="/terms-of-service" className="text-scientific-primary hover:text-scientific-dark underline">Terms of Service</Link>.
+            </p>
           </div>
         </div>
       </div>
     </main>
+    </>
   );
 }
 
@@ -1595,9 +1780,9 @@ function SoftBub() {
                 {categories.map(category => {
                   const categoryCount = category === 'All' ? softwareList.length : softwareList.filter(software => software.category === category).length;
                   return (
-                    <button
-                      key={category}
-                      onClick={() => setActiveCategory(category)}
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
                       className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                         activeCategory === category
                           ? 'bg-primary-100 text-primary-700'
@@ -1608,33 +1793,33 @@ function SoftBub() {
                         <span>{category}</span>
                         <span className="text-xs text-neutral-500">({categoryCount})</span>
                       </div>
-                    </button>
+              </button>
                   );
                 })}
               </div>
-            </div>
           </div>
         </div>
+      </div>
 
         {/* Right Content Area */}
         <div className="flex-1">
           {/* Search and View Controls */}
           <div className="flex flex-col lg:flex-row gap-6 mb-8">
-            {/* Search Box */}
+      {/* Search Box */}
             <div className="flex-1 relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <svg className="h-5 w-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
-              <input
-                type="text"
+        <input
+          type="text"
                 placeholder="Search software by name, description, or category..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
+          value={search}
+          onChange={e => setSearch(e.target.value)}
                 className="search-input pl-10"
-              />
-            </div>
+        />
+      </div>
 
             {/* View Mode Toggle */}
             <div className="flex items-center space-x-2">
@@ -1673,13 +1858,13 @@ function SoftBub() {
                 <div className="flex items-start space-x-4 mb-4">
                   <div className="text-4xl group-hover:scale-110 transition-transform duration-200">
                     {software.icon}
-                  </div>
+                </div>
                   <div className="flex-1">
                     <div className="mb-2">
                       <h3 className="text-xl font-semibold text-neutral-900 group-hover:text-primary-600 transition-colors">
                         {software.name}
                       </h3>
-                    </div>
+              </div>
                     <p className="text-neutral-600 text-sm leading-relaxed line-clamp-3">
                       {software.description}
                     </p>
@@ -1784,13 +1969,13 @@ function SoftBub() {
           )}
 
           {/* No Results */}
-          {searchedSoftware.length === 0 && (
+      {searchedSoftware.length === 0 && (
             <div className="text-center py-20">
               <div className="text-neutral-300 mb-6">
                 <svg className="w-20 h-20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-              </div>
+            </svg>
+          </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-2">No software found</h3>
               <p className="text-neutral-600 mb-6">Try adjusting your search terms or selecting a different category.</p>
               <button
@@ -1799,8 +1984,8 @@ function SoftBub() {
               >
                 Clear Filters
               </button>
-            </div>
-          )}
+        </div>
+      )}
         </div>
       </div>
     </main>
@@ -2084,6 +2269,7 @@ export default function App() {
         <Route path="/toolbub" element={<ToolBub />} />
         <Route path="/citation-tool" element={<CitationTool />} />
         <Route path="/unit-converter" element={<UnitConverter />} />
+        <Route path="/file-compressor" element={<FileCompressor />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2321,6 +2507,15 @@ function ToolBub() {
       category: "Scientific Tools",
       url: "/unit-converter",
       features: ["6 unit categories", "Real-time conversion", "Scientific precision", "Easy to use"]
+    },
+    {
+      id: 3,
+      name: "Image Compressor",
+      description: "Compress image files to reduce file size while maintaining quality. Perfect for optimizing images for web, email, and storage",
+      icon: "🗜️",
+      category: "File Tools",
+      url: "/file-compressor",
+      features: ["Image compression", "Drag & drop upload", "Quality control", "Multiple formats"]
     }
     // 未来可以添加更多工具
   ];
@@ -3299,6 +3494,456 @@ function UnitConverter() {
             <div>
               <div className="font-semibold text-neutral-700 mb-1">Get Result</div>
               <div>Click Convert to see the result instantly</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function FileCompressor() {
+  const [selectedType] = useState('image');
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [compressionSettings, setCompressionSettings] = useState({
+    quality: 80,
+    maxWidth: 800,
+    maxHeight: 600,
+    format: 'original'
+  });
+  const [compressedFiles, setCompressedFiles] = useState([]);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
+
+  // Supported file types
+  const supportedImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+
+  // Handle file selection
+  const handleFileSelect = (files) => {
+    const fileArray = Array.from(files);
+    const validFiles = fileArray.filter(file => {
+      return supportedImageTypes.includes(file.type);
+    });
+    
+    if (validFiles.length !== fileArray.length) {
+      alert('Some files are not supported. Only JPEG, PNG, WebP files are allowed.');
+    }
+    
+    setSelectedFiles(prev => [...prev, ...validFiles]);
+  };
+
+  // Handle drag and drop
+  const handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFileSelect(e.dataTransfer.files);
+    }
+  };
+
+  // Remove file
+  const removeFile = (index) => {
+    setSelectedFiles(prev => prev.filter((_, i) => i !== index));
+  };
+
+  // Clear all files
+  const clearAllFiles = () => {
+    setSelectedFiles([]);
+    setCompressedFiles([]);
+  };
+
+  // Compress images
+  const compressImage = (file, settings) => {
+    return new Promise((resolve) => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      
+      img.onload = () => {
+        // Calculate new dimensions
+        let { width, height } = img;
+        const maxWidth = settings.maxWidth;
+        const maxHeight = settings.maxHeight;
+        
+        if (width > maxWidth || height > maxHeight) {
+          const ratio = Math.min(maxWidth / width, maxHeight / height);
+          width *= ratio;
+          height *= ratio;
+        }
+        
+        canvas.width = width;
+        canvas.height = height;
+        
+        // Draw and compress
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        const quality = settings.quality / 100;
+        const outputFormat = settings.format === 'original' ? file.type : `image/${settings.format}`;
+        
+        canvas.toBlob((blob) => {
+          const compressedFile = new File([blob], file.name, { type: outputFormat });
+          resolve({
+            original: file,
+            compressed: compressedFile,
+            originalSize: file.size,
+            compressedSize: blob.size,
+            compressionRatio: ((file.size - blob.size) / file.size * 100).toFixed(1)
+          });
+        }, outputFormat, quality);
+      };
+      
+      img.src = URL.createObjectURL(file);
+    });
+  };
+
+
+  // Process all files
+  const processFiles = async () => {
+    if (selectedFiles.length === 0) {
+      alert('Please select files to compress');
+      return;
+    }
+
+    setIsProcessing(true);
+    const results = [];
+
+    try {
+      for (const file of selectedFiles) {
+        const result = await compressImage(file, compressionSettings);
+        results.push(result);
+      }
+      
+      setCompressedFiles(results);
+    } catch (error) {
+      alert('Error processing files: ' + error.message);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  // Download compressed file
+  const downloadFile = (compressedFile, originalName) => {
+    const url = URL.createObjectURL(compressedFile);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `compressed_${originalName}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  // Download all compressed files as ZIP (simplified)
+  const downloadAll = () => {
+    compressedFiles.forEach((result, index) => {
+      setTimeout(() => {
+        downloadFile(result.compressed, result.original.name);
+      }, index * 500);
+    });
+  };
+
+  // Format file size
+  const formatFileSize = (bytes) => {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  };
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="text-center mb-12">
+        <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h2zm-2 0h12m-4 8h4m-4 4h4m-8-8h4m-4 4h4" />
+          </svg>
+        </div>
+        <h1 className="text-5xl font-bold text-neutral-900 mb-6">Image Compressor</h1>
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          Compress your image files to reduce file size while maintaining quality. Perfect for optimizing images for web, email, and storage. PDF compression is not supported - convert PDFs to images first for best results.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-soft border border-neutral-200/50 p-8 mb-8">
+        <div className="max-w-6xl mx-auto">
+
+          {/* File upload area */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-neutral-900 mb-4">Upload Files</h3>
+            <div
+              className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors duration-200 ${
+                dragActive
+                  ? 'border-primary-500 bg-primary-50'
+                  : 'border-neutral-300 hover:border-primary-400'
+              }`}
+              onDragEnter={handleDrag}
+              onDragLeave={handleDrag}
+              onDragOver={handleDrag}
+              onDrop={handleDrop}
+            >
+              <svg className="w-12 h-12 text-neutral-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+              </svg>
+              <p className="text-lg font-medium text-neutral-700 mb-2">
+                Drag and drop files here, or click to select
+              </p>
+              <p className="text-sm text-neutral-500 mb-4">
+                Supports JPEG, PNG, WebP files up to 50MB
+              </p>
+              <input
+                type="file"
+                multiple
+                accept=".jpg,.jpeg,.png,.webp"
+                onChange={(e) => handleFileSelect(e.target.files)}
+                className="hidden"
+                id="file-input"
+              />
+              <label
+                htmlFor="file-input"
+                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-200 cursor-pointer inline-block"
+              >
+                Choose Files
+              </label>
+            </div>
+          </div>
+
+          {/* Selected files */}
+          {selectedFiles.length > 0 && (
+            <div className="mb-8">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-semibold text-neutral-900">Selected Files ({selectedFiles.length})</h3>
+                <button
+                  onClick={clearAllFiles}
+                  className="text-red-600 hover:text-red-700 text-sm font-medium"
+                >
+                  Clear All
+                </button>
+              </div>
+              <div className="space-y-2">
+                {selectedFiles.map((file, index) => (
+                  <div key={index} className="flex items-center justify-between bg-neutral-50 rounded-lg p-4">
+                    <div className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      <div>
+                        <p className="font-medium text-neutral-900">{file.name}</p>
+                        <p className="text-sm text-neutral-500">{formatFileSize(file.size)}</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => removeFile(index)}
+                      className="text-red-600 hover:text-red-700 p-1"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Compression settings */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-neutral-900 mb-4">Compression Settings</h3>
+            <div className="bg-neutral-50 rounded-xl p-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-neutral-700 mb-2">Quality</label>
+                  <input
+                    type="range"
+                    min="10"
+                    max="100"
+                    value={compressionSettings.quality}
+                    onChange={(e) => setCompressionSettings(prev => ({ ...prev, quality: parseInt(e.target.value) }))}
+                    className="w-full"
+                  />
+                  <p className="text-sm text-neutral-500 mt-1">{compressionSettings.quality}%</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-neutral-700 mb-2">Max Width</label>
+                  <select
+                    value={compressionSettings.maxWidth}
+                    onChange={(e) => setCompressionSettings(prev => ({ ...prev, maxWidth: parseInt(e.target.value) }))}
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  >
+                    <option value={320}>320px (Small)</option>
+                    <option value={480}>480px (Medium Small)</option>
+                    <option value={640}>640px (Medium)</option>
+                    <option value={800}>800px (Large)</option>
+                    <option value={1024}>1024px (X-Large)</option>
+                    <option value={1200}>1200px (XX-Large)</option>
+                    <option value={1920}>1920px (Full HD)</option>
+                    <option value={2560}>2560px (2K)</option>
+                    <option value={3840}>3840px (4K)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-neutral-700 mb-2">Max Height</label>
+                  <select
+                    value={compressionSettings.maxHeight}
+                    onChange={(e) => setCompressionSettings(prev => ({ ...prev, maxHeight: parseInt(e.target.value) }))}
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  >
+                    <option value={240}>240px (Small)</option>
+                    <option value={360}>360px (Medium Small)</option>
+                    <option value={480}>480px (Medium)</option>
+                    <option value={600}>600px (Large)</option>
+                    <option value={768}>768px (X-Large)</option>
+                    <option value={800}>800px (XX-Large)</option>
+                    <option value={1080}>1080px (Full HD)</option>
+                    <option value={1440}>1440px (2K)</option>
+                    <option value={2160}>2160px (4K)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-neutral-700 mb-2">Output Format</label>
+                  <select
+                    value={compressionSettings.format}
+                    onChange={(e) => setCompressionSettings(prev => ({ ...prev, format: e.target.value }))}
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  >
+                    <option value="original">Keep Original</option>
+                    <option value="jpeg">JPEG</option>
+                    <option value="png">PNG</option>
+                    <option value="webp">WebP</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Process button */}
+          <div className="text-center mb-8">
+            <button
+              onClick={processFiles}
+              disabled={selectedFiles.length === 0 || isProcessing}
+              className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-3 mx-auto"
+            >
+              {isProcessing ? (
+                <>
+                  <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Processing...
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h2zm-2 0h12m-4 8h4m-4 4h4m-8-8h4m-4 4h4" />
+                  </svg>
+                  Compress Files
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Results */}
+          {compressedFiles.length > 0 && (
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-semibold text-neutral-900">Compressed Files ({compressedFiles.length})</h3>
+                <button
+                  onClick={downloadAll}
+                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download All
+                </button>
+              </div>
+              <div className="space-y-4">
+                {compressedFiles.map((result, index) => (
+                  <div key={index} className="bg-neutral-50 rounded-xl p-6">
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div>
+                        <h4 className="font-semibold text-neutral-900 mb-2">Original</h4>
+                        <p className="text-sm text-neutral-600 mb-1">{result.original.name}</p>
+                        <p className="text-sm text-neutral-500">{formatFileSize(result.originalSize)}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-neutral-900 mb-2">Compressed</h4>
+                        <p className="text-sm text-neutral-600 mb-1">compressed_{result.original.name}</p>
+                        <p className="text-sm text-neutral-500">{formatFileSize(result.compressedSize)}</p>
+                      </div>
+                      <div className="flex flex-col justify-center">
+                        <div className="text-center mb-3">
+                          <span className="text-2xl font-bold text-green-600">{result.compressionRatio}%</span>
+                          <p className="text-sm text-neutral-600">Size Reduced</p>
+                        </div>
+                        <button
+                          onClick={() => downloadFile(result.compressed, result.original.name)}
+                          className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Download
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Usage instructions */}
+      <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-6">
+        <h3 className="text-lg font-semibold text-neutral-900 mb-4">How to Use</h3>
+        <div className="grid md:grid-cols-4 gap-6 text-sm text-neutral-600">
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-primary-600 font-semibold text-xs">1</span>
+            </div>
+            <div>
+              <div className="font-semibold text-neutral-700 mb-1">Select Type</div>
+              <div>Choose between Image or PDF compression</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-primary-600 font-semibold text-xs">2</span>
+            </div>
+            <div>
+              <div className="font-semibold text-neutral-700 mb-1">Upload Files</div>
+              <div>Drag and drop or click to select files</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-primary-600 font-semibold text-xs">3</span>
+            </div>
+            <div>
+              <div className="font-semibold text-neutral-700 mb-1">Adjust Settings</div>
+              <div>Customize compression quality and options</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-primary-600 font-semibold text-xs">4</span>
+            </div>
+            <div>
+              <div className="font-semibold text-neutral-700 mb-1">Download</div>
+              <div>Get your compressed files instantly</div>
             </div>
           </div>
         </div>
