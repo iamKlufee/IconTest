@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom';
 import { loadAllBlogPosts, loadBlogPost } from './utils/markdownParser.jsx';
 import SEOHead from './components/SEOHead';
+import WatermarkTool from './components/WatermarkTool';
 
 // 滚动到顶部的组件
 function ScrollToTop() {
@@ -2270,6 +2271,7 @@ export default function App() {
         <Route path="/citation-tool" element={<CitationTool />} />
         <Route path="/unit-converter" element={<UnitConverter />} />
         <Route path="/file-compressor" element={<FileCompressor />} />
+        <Route path="/watermark-tool" element={<WatermarkTool />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2516,6 +2518,15 @@ function ToolBub() {
       category: "File Tools",
       url: "/file-compressor",
       features: ["Image compression", "Drag & drop upload", "Quality control", "Multiple formats"]
+    },
+    {
+      id: 4,
+      name: "Image Watermark Tool",
+      description: "Add custom watermarks to your images with precise control over position, style, and opacity. Perfect for protecting your scientific images and presentations",
+      icon: "🏷️",
+      category: "Image Tools",
+      url: "/watermark-tool",
+      features: ["Custom watermark text", "Multiple positions", "Style controls", "Drag & drop upload"]
     }
     // 未来可以添加更多工具
   ];
