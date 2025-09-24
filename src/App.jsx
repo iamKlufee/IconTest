@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom'
 import { loadAllBlogPosts, loadBlogPost } from './utils/markdownParser.jsx';
 import SEOHead from './components/SEOHead';
 import WatermarkTool from './components/WatermarkTool';
+import PDFTool from './components/PDFTool';
 
 // 滚动到顶部的组件
 function ScrollToTop() {
@@ -2272,6 +2273,7 @@ export default function App() {
         <Route path="/unit-converter" element={<UnitConverter />} />
         <Route path="/file-compressor" element={<FileCompressor />} />
         <Route path="/watermark-tool" element={<WatermarkTool />} />
+        <Route path="/pdf-tool" element={<PDFTool />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2527,6 +2529,15 @@ function ToolBub() {
       category: "Image Tools",
       url: "/watermark-tool",
       features: ["Custom watermark text", "Multiple positions", "Style controls", "Drag & drop upload"]
+    },
+    {
+      id: 5,
+      name: "PDF Tool",
+      description: "Powerful PDF processing tool based on WebAssembly. Compress, split, and merge PDF files directly in your browser with complete privacy protection",
+      icon: "📄",
+      category: "Document Tools",
+      url: "/pdf-tool",
+      features: ["PDF compression", "PDF splitting", "PDF merging", "WebAssembly powered", "Privacy safe"]
     }
     // 未来可以添加更多工具
   ];
