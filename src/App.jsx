@@ -4,6 +4,7 @@ import { loadAllBlogPosts, loadBlogPost } from './utils/markdownParser.jsx';
 import SEOHead from './components/SEOHead';
 import WatermarkTool from './components/WatermarkTool';
 import PDFTool from './components/PDFTool';
+import WordCounter from './components/WordCounter';
 
 // 滚动到顶部的组件
 function ScrollToTop() {
@@ -2274,6 +2275,7 @@ export default function App() {
         <Route path="/file-compressor" element={<FileCompressor />} />
         <Route path="/watermark-tool" element={<WatermarkTool />} />
         <Route path="/pdf-tool" element={<PDFTool />} />
+        <Route path="/word-counter" element={<WordCounter />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2538,6 +2540,15 @@ function ToolBub() {
       category: "Document Tools",
       url: "/pdf-tool",
       features: ["PDF compression", "PDF splitting", "PDF merging", "WebAssembly powered", "Privacy safe"]
+    },
+    {
+      id: 6,
+      name: "Word Counter",
+      description: "Count words, characters, sentences, and paragraphs in your text with detailed statistics and reading time estimation",
+      icon: "📊",
+      category: "Text Tools",
+      url: "/word-counter",
+      features: ["Real-time counting", "Multiple metrics", "Reading time", "Copy & download", "Privacy safe"]
     }
     // 未来可以添加更多工具
   ];
