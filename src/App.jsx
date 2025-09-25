@@ -5,6 +5,8 @@ import SEOHead from './components/SEOHead';
 import WatermarkTool from './components/WatermarkTool';
 import PDFTool from './components/PDFTool';
 import WordCounter from './components/WordCounter';
+import ImageConverter from './components/ImageConverter';
+import TextDiff from './components/TextDiff';
 
 // 滚动到顶部的组件
 function ScrollToTop() {
@@ -2276,6 +2278,8 @@ export default function App() {
         <Route path="/watermark-tool" element={<WatermarkTool />} />
         <Route path="/pdf-tool" element={<PDFTool />} />
         <Route path="/word-counter" element={<WordCounter />} />
+        <Route path="/image-converter" element={<ImageConverter />} />
+        <Route path="/text-diff" element={<TextDiff />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2549,6 +2553,24 @@ function ToolBub() {
       category: "Text Tools",
       url: "/word-counter",
       features: ["Real-time counting", "Multiple metrics", "Reading time", "Copy & download", "Privacy safe"]
+    },
+    {
+      id: 7,
+      name: "Image Converter",
+      description: "Convert images between different formats (JPEG, PNG, WebP, BMP, GIF) with quality control and batch processing",
+      icon: "🖼️",
+      category: "Image Tools",
+      url: "/image-converter",
+      features: ["Multiple formats", "Quality control", "Batch processing", "Size optimization", "Privacy safe"]
+    },
+    {
+      id: 8,
+      name: "Text Diff Tool",
+      description: "Compare two texts and highlight differences with detailed line-by-line and character-level analysis",
+      icon: "🔍",
+      category: "Text Tools",
+      url: "/text-diff",
+      features: ["Line-by-line diff", "Character-level analysis", "Statistics", "Case sensitivity", "Privacy safe"]
     }
     // 未来可以添加更多工具
   ];
