@@ -1,0 +1,6 @@
+# 强制HTTPS重定向
+http://reseachbub.org/* https://reseachbub.org/:splat 301!
+https://reseachbub.org/* https://reseachbub.org/:splat 200
+
+# SPA路由处理
+/* /index.html 200

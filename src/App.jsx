@@ -2174,198 +2174,6 @@ function Blog() {
   );
 }
 
-export default function App() {
-  const navigate = useNavigate();
-  const location = window.location.pathname;
-  
-  return (
-    <div className="min-h-screen bg-neutral-50">
-      <ScrollToTop />
-      {/* 现代化导航栏 */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200/50 shadow-soft">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo区域 */}
-            <div className="flex items-center space-x-4">
-              <Link 
-                to="/" 
-                className="flex items-center space-x-3 group"
-              >
-                <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                </div>
-            <div>
-                  <h1 className="text-2xl font-bold text-neutral-900 group-hover:text-primary-600 transition-colors">
-                ReseachBub
-                  </h1>
-                  <p className="text-sm text-neutral-500 hidden sm:block">
-                    Scientific Resources Hub
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* 导航菜单 */}
-            <nav className="hidden md:flex items-center space-x-1">
-              <button
-                className={`nav-button ${location === '/blog' ? 'active' : ''}`}
-                onClick={() => navigate('/blog')}
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                </svg>
-                Blog
-              </button>
-              <button
-                className={`nav-button ${location === '/iconbub' ? 'active' : ''}`}
-                onClick={() => navigate('/iconbub')}
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-                IconBub
-              </button>
-              <button
-                className={`nav-button ${location === '/toolbub' ? 'active' : ''}`}
-                onClick={() => navigate('/toolbub')}
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                ToolBub
-              </button>
-              <button
-                className={`nav-button ${location === '/softbub' ? 'active' : ''}`}
-                onClick={() => navigate('/softbub')}
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-                SoftBub
-              </button>
-              <button
-                className={`nav-button ${location === '/about' ? 'active' : ''}`}
-                onClick={() => navigate('/about')}
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                About
-              </button>
-            </nav>
-
-            {/* 移动端菜单按钮 */}
-            <div className="md:hidden">
-              <button className="btn-ghost p-2">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/iconbub" element={<IconBub />} />
-        <Route path="/toolbub" element={<ToolBub />} />
-        <Route path="/citation-tool" element={<CitationTool />} />
-        <Route path="/unit-converter" element={<UnitConverter />} />
-        <Route path="/file-compressor" element={<FileCompressor />} />
-        <Route path="/watermark-tool" element={<WatermarkTool />} />
-        <Route path="/pdf-tool" element={<PDFTool />} />
-        <Route path="/word-counter" element={<WordCounter />} />
-        <Route path="/image-converter" element={<ImageConverter />} />
-        <Route path="/text-diff" element={<TextDiff />} />
-        <Route path="/timer-tool" element={<TimerTool />} />
-        <Route path="/softbub" element={<SoftBub />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/license" element={<License />} />
-      </Routes>
-      {/* 现代化页脚 */}
-      <footer className="bg-neutral-900 text-white mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Logo和描述 */}
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold">ReseachBub</h3>
-              </div>
-              <p className="text-neutral-300 mb-6 max-w-md">
-                A comprehensive platform providing high-quality scientific icons, software recommendations, 
-                and research tools for academics and researchers worldwide.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* 快速链接 */}
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li><Link to="/iconbub" className="text-neutral-300 hover:text-white transition-colors">Icon Library</Link></li>
-                <li><Link to="/toolbub" className="text-neutral-300 hover:text-white transition-colors">Web Tools</Link></li>
-                <li><Link to="/softbub" className="text-neutral-300 hover:text-white transition-colors">Software Tools</Link></li>
-                <li><Link to="/blog" className="text-neutral-300 hover:text-white transition-colors">Research Blog</Link></li>
-                <li><Link to="/about" className="text-neutral-300 hover:text-white transition-colors">About Us</Link></li>
-              </ul>
-            </div>
-
-            {/* 联系信息 */}
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <div className="space-y-2 text-neutral-300">
-                <p>support@reseachbub.org</p>
-                <p>For licensing inquiries</p>
-                <p>Academic partnerships</p>
-              </div>
-            </div>
-          </div>
-
-          {/* 底部版权信息 */}
-          <div className="border-t border-neutral-800 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-neutral-400 text-sm">
-              © 2025 ReseachBub. All rights reserved.
-            </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link to="/privacy-policy" className="text-neutral-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
-                <Link to="/terms-of-service" className="text-neutral-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
-                <Link to="/license" className="text-neutral-400 hover:text-white text-sm transition-colors">License</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
 
 function License() {
   return (
@@ -4015,5 +3823,115 @@ function FileCompressor() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function App() {
+  const navigate = useNavigate();
+  const location = window.location.pathname;
+  
+  return (
+    <div className="min-h-screen bg-neutral-50">
+        <ScrollToTop />
+        {/* 现代化导航栏 */}
+        <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-neutral-200/50 shadow-soft">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-20">
+              {/* Logo区域 */}
+              <div className="flex items-center">
+                <Link to="/" className="flex items-center space-x-3 group">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                    <span className="text-white font-bold text-lg">R</span>
+                  </div>
+                  <div className="hidden sm:block">
+                    <h1 className="text-xl font-bold text-neutral-900 group-hover:text-blue-600 transition-colors">ReseachBub</h1>
+                    <p className="text-xs text-neutral-500">Scientific Research Platform</p>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 导航菜单 */}
+              <nav className="hidden md:flex items-center space-x-1">
+                <button
+                  className={`nav-button ${location === '/blog' ? 'active' : ''}`}
+                  onClick={() => navigate('/blog')}
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                  Blog
+                </button>
+                <button
+                  className={`nav-button ${location === '/iconbub' ? 'active' : ''}`}
+                  onClick={() => navigate('/iconbub')}
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  IconBub
+                </button>
+                <button
+                  className={`nav-button ${location === '/toolbub' ? 'active' : ''}`}
+                  onClick={() => navigate('/toolbub')}
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  ToolBub
+                </button>
+                <button
+                  className={`nav-button ${location === '/softbub' ? 'active' : ''}`}
+                  onClick={() => navigate('/softbub')}
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  SoftBub
+                </button>
+                <button
+                  className={`nav-button ${location === '/about' ? 'active' : ''}`}
+                  onClick={() => navigate('/about')}
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  About
+                </button>
+              </nav>
+
+
+              {/* 移动端菜单按钮 */}
+              <div className="md:hidden">
+                <button className="btn-ghost p-2">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/iconbub" element={<IconBub />} />
+          <Route path="/toolbub" element={<ToolBub />} />
+          <Route path="/citation-tool" element={<CitationTool />} />
+          <Route path="/unit-converter" element={<UnitConverter />} />
+          <Route path="/file-compressor" element={<FileCompressor />} />
+          <Route path="/watermark-tool" element={<WatermarkTool />} />
+          <Route path="/pdf-tool" element={<PDFTool />} />
+          <Route path="/word-counter" element={<WordCounter />} />
+          <Route path="/image-converter" element={<ImageConverter />} />
+          <Route path="/text-diff" element={<TextDiff />} />
+          <Route path="/timer-tool" element={<TimerTool />} />
+          <Route path="/softbub" element={<SoftBub />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/license" element={<License />} />
+        </Routes>
+      </div>
   );
 } 
