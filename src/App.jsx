@@ -7,6 +7,7 @@ import PDFTool from './components/PDFTool';
 import WordCounter from './components/WordCounter';
 import ImageConverter from './components/ImageConverter';
 import TextDiff from './components/TextDiff';
+import TimerTool from './components/TimerTool';
 
 // 滚动到顶部的组件
 function ScrollToTop() {
@@ -2280,6 +2281,7 @@ export default function App() {
         <Route path="/word-counter" element={<WordCounter />} />
         <Route path="/image-converter" element={<ImageConverter />} />
         <Route path="/text-diff" element={<TextDiff />} />
+        <Route path="/timer-tool" element={<TimerTool />} />
         <Route path="/softbub" element={<SoftBub />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -2571,6 +2573,15 @@ function ToolBub() {
       category: "Text Tools",
       url: "/text-diff",
       features: ["Line-by-line diff", "Character-level analysis", "Statistics", "Case sensitivity", "Privacy safe"]
+    },
+    {
+      id: 9,
+      name: "Laboratory Timer",
+      description: "Professional timing tool for scientific experiments with lap recording, keyboard shortcuts, and precise timing",
+      icon: "⏱️",
+      category: "Laboratory Tools",
+      url: "/timer-tool",
+      features: ["Precise timing", "Lap recording", "Keyboard shortcuts", "Clean interface", "Lab optimized"]
     }
     // 未来可以添加更多工具
   ];
